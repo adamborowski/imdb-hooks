@@ -1,12 +1,12 @@
-import React, { useCallback } from 'react';
-import { useMappedState } from 'redux-react-hook';
-import { Select } from 'antd';
-import { IState } from '../types/state';
-import { ApiResponse } from '../../features/movie-browser/types/state';
+import React, {useCallback} from 'react';
+import {useMappedState} from 'redux-react-hook';
+import {Select} from 'antd';
+import {IState} from '../types/state';
+import {ApiResponse} from '../../features/movie-browser/types/state';
 import SearchOptionContent from '../../features/movie-browser/components/header/SearchOptionContent';
 import _ from 'lodash';
-import { DataSourceItemType } from 'antd/es/auto-complete';
-import { optional } from '../utils';
+import {DataSourceItemType} from 'antd/es/auto-complete';
+import {optional} from '../utils';
 
 const { OptGroup, Option } = Select;
 const yearMatcher = /^\d\d\d\d/;
@@ -29,11 +29,11 @@ export const getSearchForSubjectOption = (
             <strong>{actualValue}</strong>
           </em>
           " in all {subject}
-          {!loading && <i style={{ float: 'right' }}>found {total}</i>}
         </>
       ) : (
         <>See most popular {subject}</>
-      )}{' '}
+      )}
+      {!loading && <i style={{ float: 'right' }}>found {total}</i>}
     </Option>
   );
 };

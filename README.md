@@ -4,6 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 First you need to have node >= 8 installed.
 Then type in terminal `npm install`
+Then you need to obtain an api key from [TMDB](https://www.themoviedb.org/faq/api).
+Once you have it, set proper environment variable REACT_APP_DB_API_KEY
 
 # Initial decisions
 

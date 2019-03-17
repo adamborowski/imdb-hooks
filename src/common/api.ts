@@ -1,4 +1,4 @@
-import { stringify } from 'querystring';
+import {stringify} from 'querystring';
 
 export const getApiUrl = (
   path: string,
@@ -6,5 +6,5 @@ export const getApiUrl = (
 ) =>
   `${path}?${stringify({
     ...params,
-    api_key: process.env.REACT_APP_IMDB_API_KEY
+    api_key: process.env.REACT_APP_DB_API_KEY
   })}`;
