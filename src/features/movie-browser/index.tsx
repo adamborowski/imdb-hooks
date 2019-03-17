@@ -1,14 +1,20 @@
-import {IPlugin} from '../../common/plugins';
-import {Route} from 'react-router';
-import {toMovieListPage} from './routing';
+import { IPlugin } from '../../common/plugins';
+import { Route } from 'react-router';
+import { toMovieListPage, toMovieViewPage } from './routing';
 import Search from './components/header/Search';
 import React from 'react';
 import epics from './state/epics';
 import reducers from './state/reducers';
 
+import viewPage from './components/pages/view';
+
 export default {
   routes: {
-    main: <></>,
+    main: (
+      <>
+        <Route path={toMovieViewPage()} render={viewPage} />
+      </>
+    ),
     header: (
       <>
         <Route path={toMovieListPage()}>

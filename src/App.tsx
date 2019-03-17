@@ -1,11 +1,6 @@
 import React, { cloneElement } from 'react';
 import Switch from './common/components/FlatteningSwitch';
-import {
-  App as AntApp,
-  AppMenu,
-  AppSider,
-  DefaultAppLogo
-} from './common/components/antd';
+import { App as AntApp, AppMenu, AppSider, DefaultAppLogo } from './common/components/antd';
 import { IMenuItem } from './common/misc';
 import DefaultAppHeader from './common/components/antd/DefaultAppHeader';
 import logo from './common/components/antd/__stories__/AppSider.logo.png';
@@ -31,21 +26,24 @@ const menuConfiguration = [
 const App = () => (
   <AntApp
     sider={
-      <AppSider
-        content={<AppMenu menuConfiguration={menuConfiguration} />}
-        logo={<DefaultAppLogo logo={logo} />}
-      />
+      <AppSider content={<AppMenu menuConfiguration={menuConfiguration} />} logo={<DefaultAppLogo logo={logo} />} />
     }
     header={
       <DefaultAppHeader>
         <Switch>
-          {_.compact(features.map(plugin => _.get(plugin, 'routes.header'))).map(
-            (routes, index) => cloneElement(routes, { key: index })
+          {_.compact(features.map(plugin => _.get(plugin, 'routes.header'))).map((routes, index) =>
+            cloneElement(routes, { key: index })
           )}
         </Switch>
       </DefaultAppHeader>
     }
-    content={'content!'}
+    content={
+      <Switch>
+        {_.compact(features.map(plugin => _.get(plugin, 'routes.main'))).map((routes, index) =>
+          cloneElement(routes, { key: index })
+        )}
+      </Switch>
+    }
   />
 );
 
