@@ -1,28 +1,52 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { cloneElement } from 'react';
+import Switch from './common/components/FlatteningSwitch';
+import {
+  App as AntApp,
+  AppMenu,
+  AppSider,
+  DefaultAppLogo
+} from './common/components/antd';
+import { IMenuItem } from './common/misc';
+import DefaultAppHeader from './common/components/antd/DefaultAppHeader';
+import logo from './common/components/antd/__stories__/AppSider.logo.png';
+import { toMovieListPage } from './features/movie-browser/routing';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+import _ from 'lodash';
+import features from './features';
+
+const menuConfiguration = [
+  {
+    link: toMovieListPage(),
+    path: toMovieListPage(),
+    label: 'Movies',
+    icon: 'play-circle'
+  },
+  {
+    link: '/b',
+    path: '/b',
+    label: 'People',
+    icon: 'user'
   }
-}
+] as IMenuItem[];
+const App = () => (
+  <AntApp
+    sider={
+      <AppSider
+        content={<AppMenu menuConfiguration={menuConfiguration} />}
+        logo={<DefaultAppLogo logo={logo} />}
+      />
+    }
+    header={
+      <DefaultAppHeader>
+        <Switch>
+          {_.compact(features.map(plugin => _.get(plugin, 'routes.header'))).map(
+            (routes, index) => cloneElement(routes, { key: index })
+          )}
+        </Switch>
+      </DefaultAppHeader>
+    }
+    content={'content!'}
+  />
+);
 
 export default App;

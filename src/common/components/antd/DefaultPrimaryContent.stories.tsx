@@ -1,0 +1,49 @@
+import React from 'react';
+import { DefaultPrimaryContent } from './index';
+import { Breadcrumb, Button, Tabs } from 'antd';
+import { ThemeProvider } from 'styled-components';
+import baseTheme from './app-theme';
+import {storiesOf} from '../../storiesOf';
+
+const breadcrumbs = (
+  <Breadcrumb>
+    <Breadcrumb.Item>Home</Breadcrumb.Item>
+    <Breadcrumb.Item>Demo</Breadcrumb.Item>
+    <Breadcrumb.Item>Page</Breadcrumb.Item>
+  </Breadcrumb>
+);
+const tools = (
+  <>
+    <Button.Group>
+      <Button>Toolbar</Button>
+      <Button>Button</Button>
+      <Button icon="edit" />
+      <Button icon="save" />
+    </Button.Group>
+  </>
+);
+let tabs = (
+  <Tabs activeKey="active">
+    <Tabs.TabPane key="active" tab="Options" />
+    <Tabs.TabPane tab="Foo" />
+    <Tabs.TabPane tab="Bar" />
+  </Tabs>
+);
+storiesOf(module)
+  .addDecorator(story => (
+    <ThemeProvider theme={baseTheme}>{story() as any}</ThemeProvider>
+  ))
+  .add('default', () => (
+    <DefaultPrimaryContent
+      breadcrumbs={breadcrumbs}
+      tools={tools}
+      title="An useful page"
+      content={<p>A primary content goes here</p>}
+      tabs={tabs}
+    />
+  ))
+  .add('useful for lists', () => (
+    <DefaultPrimaryContent breadcrumbs={breadcrumbs} tools={tools} />
+  )).add('useful for lists, with tabs', () => (
+  <DefaultPrimaryContent breadcrumbs={breadcrumbs} tools={tools} tabs={tabs}/>
+));
