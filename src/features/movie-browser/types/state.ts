@@ -27,5 +27,12 @@ export type MovieSearchOptions = ApiResponse<IMovie>;
 
 export interface IMovieBrowser {
   searchOptions: MovieSearchOptions;
-  searchOptionsLoading:boolean;
+  searchOptionsLoading: boolean;
+  details: IMovieDetails;
+}
+
+export interface IMovieDetails {
+  loading: boolean;
+  error?: string;
+  result?: IMovie;
 }

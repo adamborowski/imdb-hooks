@@ -9,3 +9,6 @@ export const selectMovieSearchOptions = (state: IState): MovieSearchOptions =>
 
 export const selectMovieSearchOptionsLoading = (state: IState) =>
   selectMovieBrowser(state).searchOptionsLoading;
+
+
+export const selectMovieDetails = (state:IState)=>selectMovieBrowser(state).details;
