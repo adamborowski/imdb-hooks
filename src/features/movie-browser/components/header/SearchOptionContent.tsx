@@ -10,13 +10,7 @@ export interface SearchOptionProps {
   year: string;
 }
 
-const SearchOptionContent: FunctionComponent<SearchOptionProps> = ({
-  avatar,
-  name,
-  rank,
-  year,
-  ...rest
-}) => (
+const SearchOptionContent: FunctionComponent<SearchOptionProps> = ({ avatar, name, rank, year, ...rest }) => (
   <div {...rest}>
     <img src={avatar || emptyAvatar} className="avatar" alt="movie logo" />
     {name}
@@ -33,7 +27,7 @@ export default memo(styled(SearchOptionContent)`
   line-height: 30px;
   img {
     height: 30px;
-    width: 30px;
+    width: 22px;
     margin-right: 10px;
   }
   .rate {
