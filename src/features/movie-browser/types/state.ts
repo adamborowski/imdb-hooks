@@ -2,11 +2,16 @@ export interface IMovie {
   id: number;
   title: string;
   poster_path: string;
+  backdrop_path: string;
+  genres:{id:number, name:string}[]
   overview: string;
   release_date: string;
   popularity: number;
   vote_count: number;
   vote_average: number;
+  tagline?: string;
+  homepage?:string;
+  production_countries:{name:string}[]
 }
 
 export interface IPerson {

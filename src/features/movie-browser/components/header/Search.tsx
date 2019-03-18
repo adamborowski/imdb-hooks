@@ -13,6 +13,7 @@ const Search = () => {
   const defaultSearchValue = useMovieSearchValue();
   const [searchValue, setSearchValue] = useState<string | undefined>(undefined); // todo probably more clean if put into redux
 
+  const displayedSearchValue = optional(searchValue, defaultSearchValue);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -33,10 +34,10 @@ const Search = () => {
   const onApply = useCallback(
     (key: SelectValue) => {
       if (key === '_go_to_search') {
-        goToMovieSearch(searchValue);
+        goToMovieSearch(displayedSearchValue);
         setSearchValue(undefined);
       } else {
-        historyPush(toMovieViewPage(key.toString()));
+        historyPush(toMovieViewPage(key.toString()), { movies: displayedSearchValue });
       }
     },
     [searchValue]
@@ -60,7 +61,7 @@ const Search = () => {
     <SearchPure
       onDropdownVisibleChange={onCancel}
       notFoundContent="No movies found"
-      value={optional(searchValue, defaultSearchValue)}
+      value={displayedSearchValue}
       dataSource={dataSource}
       onSearch={onSearch}
       onSelect={onApply}

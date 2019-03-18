@@ -1,15 +1,17 @@
-import { ContentLayout, DefaultPrimaryContent } from '../../../../../common/components/antd';
-import React, { useCallback, useEffect } from 'react';
-import { Breadcrumb } from 'antd';
+import {ContentLayout, DefaultPrimaryContent} from '../../../../../common/components/antd';
+import React, {useCallback, useEffect} from 'react';
+import {Breadcrumb, Button, Tooltip} from 'antd';
 import List from '../../breadcrumbs/List';
-import { Home } from '../../../../../common/components/breadcrumbs/Home';
-import { useMovieId } from '../../../routing';
-import { useDispatch, useMappedState } from 'redux-react-hook';
-import { movieDetailsFetch } from '../../../state/actions';
+import {Home} from '../../../../../common/components/breadcrumbs/Home';
+import {useMovieId} from '../../../routing';
+import {useDispatch, useMappedState} from 'redux-react-hook';
+import {movieDetailsFetch} from '../../../state/actions';
 import View from '../../breadcrumbs/View';
-import { IState } from '../../../../../common/types/state';
-import { selectMovieDetails } from '../../../state/selectors';
+import {IState} from '../../../../../common/types/state';
+import {selectMovieDetails} from '../../../state/selectors';
 import MovieViewPure from './MovieViewPure';
+import {InlineSpinner} from '../../../../../common/components/InlineSpinner';
+import {IMovie} from '../../../types/state';
 
 const Watcher = () => {
   const movieId = useMovieId();
@@ -29,6 +31,32 @@ const MovieView = () => {
   return <MovieViewPure loading={loading} entity={result} />;
 };
 
+const Toolbar = () => {
+  const mapState = useCallback((state: IState): IMovie => selectMovieDetails(state).result || ({} as IMovie), []);
+  const { homepage } = useMappedState(mapState);
+
+  return (
+    <>
+      {homepage && (
+        <Tooltip title="View movie homepage">
+          <a href={homepage} target="_blank">
+            <Button icon="export" />
+          </a>
+        </Tooltip>
+      )}
+    </>
+  );
+};
+
+const MovieTitle = () => {
+  const mapState = useCallback((state: IState) => {
+    const movie = selectMovieDetails(state).result;
+    return movie && movie.title;
+  }, []);
+  const title = useMappedState(mapState);
+  return <>{title || <InlineSpinner />}</>;
+};
+
 export default () => (
   <>
     <Watcher />
@@ -36,7 +64,7 @@ export default () => (
       key="layout"
       primaryContent={
         <DefaultPrimaryContent
-          title="Movies"
+          title={<MovieTitle />}
           breadcrumbs={
             <Breadcrumb>
               <Home />
@@ -45,6 +73,7 @@ export default () => (
             </Breadcrumb>
           }
           content={<MovieView />}
+          tools={<Toolbar />}
         />
       }
     />
