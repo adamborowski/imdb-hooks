@@ -6,6 +6,7 @@ import {Form, Rate, Tag, Typography} from 'antd';
 import {FormProps} from 'antd/es/form';
 import {formItemLayout} from '../../../../../common/layout-props';
 import styled from 'styled-components';
+import {CountryTags} from '../../../../../common/components/ContryTags';
 
 const { Text } = Typography;
 
@@ -43,12 +44,7 @@ const MovieViewPure: FunctionComponent<MovieViewPureProps> = ({ entity, ...rest 
       </Form.Item>
 
       <Form.Item label="Countries" {...formItemLayout}>
-        {production_countries &&
-          production_countries.map(value => (
-            <Tag color={'#687cbe'} key={value.name}>
-              {value.name}
-            </Tag>
-          ))}
+        <CountryTags countries={production_countries}/>
       </Form.Item>
       <Form.Item label="Rank" {...formItemLayout}>
         <Rate allowHalf style={{ marginRight: 3 }} value={vote_average} count={10} disabled />

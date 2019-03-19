@@ -31,7 +31,7 @@ interface PassProps {
 
 export interface QueryLinkProps extends EnhanceProps, PassProps {}
 
-export const withScopedLink = <P extends PassProps>(
+export const withQueryLink = <P extends PassProps>(
   InnerComponent: ComponentType<P>
 ): FunctionComponent<QueryLinkProps> => props => {
   const currentQueryParams = useQueryParams();
@@ -40,4 +40,4 @@ export const withScopedLink = <P extends PassProps>(
   return <InnerComponent to={getDescriptor(to, currentQueryParams, queryParams)} {...rest as P} />;
 };
 
-export const QueryLink = withScopedLink(Link);
+export const QueryLink = withQueryLink(Link);

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ComponentType } from 'react';
+import {ComponentType} from 'react';
 import * as _ from 'lodash';
 
 export interface ScrollbarStyleConfiguration {
@@ -8,9 +8,7 @@ export interface ScrollbarStyleConfiguration {
 
 export type DefaultThemeNames = 'light' | 'dark';
 
-const defaultThemes: {
-  [key in DefaultThemeNames]: ScrollbarStyleConfiguration
-} = {
+const defaultThemes: { [key in DefaultThemeNames]: ScrollbarStyleConfiguration } = {
   light: {
     thumb: 'rgba(255,255,255,0.15)'
   },
@@ -19,12 +17,8 @@ const defaultThemes: {
   }
 };
 
-const withSublimeScrollbar = (
-  theme: ScrollbarStyleConfiguration | DefaultThemeNames = 'light'
-) => {
-  const actual: ScrollbarStyleConfiguration = _.isString(theme)
-    ? defaultThemes[theme]
-    : theme;
+const withSublimeScrollbar = (theme: ScrollbarStyleConfiguration | DefaultThemeNames = 'light') => {
+  const actual: ScrollbarStyleConfiguration = _.isString(theme) ? defaultThemes[theme] : theme;
 
   return <P extends object>(c: ComponentType<P>) =>
     (styled(c)`
@@ -35,9 +29,9 @@ const withSublimeScrollbar = (
         border: 6px solid transparent;
         border-radius: 30px;
         background-clip: padding-box;
-
+        min-height: 30px;
         background-color: ${actual.thumb};
       }
     ` as unknown) as ComponentType<P>;
-}; // todo fix
+};
 export default withSublimeScrollbar;

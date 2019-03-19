@@ -3,15 +3,15 @@ export interface IMovie {
   title: string;
   poster_path: string;
   backdrop_path: string;
-  genres:{id:number, name:string}[]
+  genres: { id: number; name: string }[];
   overview: string;
   release_date: string;
   popularity: number;
   vote_count: number;
   vote_average: number;
   tagline?: string;
-  homepage?:string;
-  production_countries:{name:string}[]
+  homepage?: string;
+  production_countries: { name: string }[];
 }
 
 export interface IPerson {
@@ -34,10 +34,24 @@ export interface IMovieBrowser {
   searchOptions: MovieSearchOptions;
   searchOptionsLoading: boolean;
   details: IMovieDetails;
+  list: IMovieList;
 }
 
 export interface IMovieDetails {
   loading: boolean;
   error?: string;
   result?: IMovie;
+}
+
+export interface IMovieList {
+  items: IMovieListItems;
+  total: number | null;
+}
+
+export type IMovieListItems = IMovieListItem[];
+
+export interface IMovieListItem {
+  loading: boolean;
+  result?: IMovie;
+  error?: string;
 }

@@ -4,6 +4,10 @@ import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {ApiResponse, IMovie, IPerson} from '../types/state';
 
+const shiftPageNumber = <T extends ApiResponse<any>>(response: T): T => {
+  return { ...response, page: response.page - 1 };
+};
+
 export const findMoviesByTitle = (query: string, page: number = 0, year?: number): Observable<ApiResponse<IMovie>> =>
   ajax(
     getApiUrl('search/movie', {
@@ -11,7 +15,7 @@ export const findMoviesByTitle = (query: string, page: number = 0, year?: number
       query,
       primary_release_year: year
     })
-  ).pipe(map(value => value.response));
+  ).pipe(map(value => shiftPageNumber(value.response)));
 
 export const findMoviesByPerson = (query: string, page: number = 0, year?: number): Observable<ApiResponse<IPerson>> =>
   ajax(
@@ -20,14 +24,14 @@ export const findMoviesByPerson = (query: string, page: number = 0, year?: numbe
       query,
       year
     })
-  ).pipe(map(value => value.response));
+  ).pipe(map(value => shiftPageNumber(value.response)));
 
 export const findPopularMovies = (page: number = 0, year?: number): Observable<ApiResponse<IMovie>> =>
   ajax(
     getApiUrl('movie/popular', {
       page: (page + 1).toString()
     })
-  ).pipe(map(value => value.response));
+  ).pipe(map(value => shiftPageNumber(value.response)));
 
 export const getMovie = (id: number): Observable<IMovie> =>
-  ajax(getApiUrl(`movie/${id}`, {})).pipe(map(value => value.response));
+  ajax(getApiUrl(`movie/${id}`, {})).pipe(map(value => shiftPageNumber(value.response)));

@@ -1,16 +1,19 @@
-import { Epic } from 'redux-observable';
-import { Action } from 'redux';
-import { IState } from '../../../common/types/state';
-import { debounce, filter, map, mergeMap, takeUntil, catchError } from 'rxjs/operators';
+import {Epic} from 'redux-observable';
+import {Action} from 'redux';
+import {IState} from '../../../common/types/state';
+import {catchError, debounce, filter, map, mergeMap, takeUntil} from 'rxjs/operators';
 import {
-  movieDetailsFetch,
-  movieDetailsFetchComplete,
-  movieDetailsFetchError,
-  movieSearchOptionsType,
-  movieSearchOptionsTypeResponse
+    movieDetailsFetch,
+    movieDetailsFetchComplete,
+    movieDetailsFetchError,
+    movieListPageError,
+    movieListPageRequest,
+    movieListPageResponse,
+    movieSearchOptionsType,
+    movieSearchOptionsTypeResponse
 } from './actions';
-import { concat, timer, of } from 'rxjs';
-import { findMoviesByTitle, findPopularMovies, getMovie } from '../services/movie-search';
+import {of, timer} from 'rxjs';
+import {findMoviesByTitle, findPopularMovies, getMovie} from '../services/movie-search';
 
 const fetchSearchOptions: Epic<Action, Action, IState> = (action$, state$) =>
   action$.pipe(
@@ -36,4 +39,19 @@ const fetchDetails: Epic<Action, Action, IState> = (action$, state$) =>
     )
   );
 
-export default [fetchSearchOptions, fetchDetails];
+const fetchListPage: Epic<Action, Action, IState> = (action$, state$) =>
+  action$.pipe(
+    filter(movieListPageRequest.match),
+    mergeMap(requestAction =>
+      (requestAction.payload.query
+        ? findMoviesByTitle(requestAction.payload.query, requestAction.payload.page, requestAction.payload.year)
+        : findPopularMovies(requestAction.payload.page, requestAction.payload.year)
+      ).pipe(
+        map(response => movieListPageResponse({ response })),
+        catchError(err => of(movieListPageError({ page: requestAction.payload.page, error: err }))),
+        takeUntil(action$.pipe(filter(movieListPageRequest.match)))
+      )
+    )
+  );
+
+export default [fetchSearchOptions, fetchDetails, fetchListPage];
