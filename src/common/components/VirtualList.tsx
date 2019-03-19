@@ -50,7 +50,7 @@ export const VirtualList = <P extends any>(props: IVirtualListProps<P>) => {
             overscanCount={10}
             height={_.get(contentRect, 'bounds.height', 0)}
             onItemsRendered={onItemsRendered}
-            itemCount={itemCount || 0}
+            itemCount={itemCount === undefined ? 0 : itemCount}
             itemData={itemData}
             itemSize={itemSize}
             width={getOptional(contentRect, 'bounds.width', width => width - padding! / 2, 0) || 0}

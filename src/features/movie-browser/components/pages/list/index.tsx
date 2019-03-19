@@ -3,7 +3,7 @@ import React from 'react';
 import {Breadcrumb} from 'antd';
 import {Home} from '../../../../../common/components/breadcrumbs/Home';
 import List from '../../breadcrumbs/List';
-import {SecondaryContent} from './SecondaryContent';
+import {MovieList} from './MovieList';
 import {Title} from './Title';
 
 export default () => (
@@ -23,7 +23,7 @@ export default () => (
       }
       secondaryContent={
         <DefaultSecondaryContent>
-          <SecondaryContent />
+          <MovieList />
         </DefaultSecondaryContent>
       }
     />

@@ -51,10 +51,23 @@ const Toolbar = () => {
 const MovieTitle = () => {
   const mapState = useCallback((state: IState) => {
     const movie = selectMovieDetails(state).result;
-    return movie && movie.title;
+    const loading = selectMovieDetails(state).loading;
+    return { title: movie && movie.title, original_title: movie && movie.original_title, loading };
   }, []);
-  const title = useMappedState(mapState);
-  return <>{title || <InlineSpinner />}</>;
+  const { loading, title, original_title } = useMappedState(mapState);
+
+  return loading ? (
+    <InlineSpinner />
+  ) : (
+    <>
+      {title}
+      {original_title !== title && (
+        <small title={'original title'} style={{ float: 'right', fontWeight: 'normal' }}>
+          <em>{original_title}</em>
+        </small>
+      )}
+    </>
+  );
 };
 
 export default () => (

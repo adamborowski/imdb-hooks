@@ -7,10 +7,9 @@ import SearchOptionContent from '../../features/movie-browser/components/header/
 import _ from 'lodash';
 import {DataSourceItemType} from 'antd/es/auto-complete';
 import {optional} from '../utils';
-import {getThumbUrl} from '../api';
+import {getReleaseYear, getThumbUrl} from '../api';
 
 const { OptGroup, Option } = Select;
-const yearMatcher = /^\d\d\d\d/;
 
 export const getSearchForSubjectOption = (
   currentValue: string | undefined,
@@ -46,7 +45,7 @@ export const getBestMatchesOptions = <T extends any>(options: ApiResponse<T>, lo
         rank={result.vote_average}
         avatar={getThumbUrl(result.poster_path)}
         name={result.title}
-        year={result.release_date ? result.release_date.match(yearMatcher)![0] : ''}
+        year={getReleaseYear(result.release_date)}
       />
     </Option>
   ));

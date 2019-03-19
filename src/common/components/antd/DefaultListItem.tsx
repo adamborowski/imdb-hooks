@@ -11,8 +11,8 @@ export type DefaultListItemProps = Assign<
   {
     title?: ReactNode;
     description?: ReactNode;
-    updatedAt?: ReactNode;
-    updatedBy?: ReactNode;
+    popularity?: ReactNode;
+    year?: ReactNode;
     tags?: ReactNode;
     to: LocationDescriptor;
     avatar?: string;
@@ -24,23 +24,23 @@ const DefaultListItemUnstyled: FunctionComponent<DefaultListItemProps> = ({
   tags,
   title,
   to,
-  updatedAt,
-  updatedBy,
+  popularity,
+  year,
   avatar,
   ...rest
 }) => (
   <ListItemLink to={to} {...rest}>
     <List.Item.Meta avatar={<Avatar src={avatar} size={43} shape="square" />} title={title} description={description} />
-    {(tags || updatedAt || updatedBy) && (
+    {(tags || popularity || year) && (
       <>
         {tags && <div className="default-list-item-content-item">{tags}</div>}
-        {(updatedAt || updatedBy) && (
+        {(popularity || year) && (
           <div
             className="default-list-item-content-item update-info"
-            title={`Updated at ${updatedAt ? updatedAt : 'unknown'} by ${updatedBy || 'unknown'} `}
+            title={`Released in ${year}. Popularity: ${popularity}.`}
           >
-            <div>{updatedBy || <i>(no user)</i>}</div>
-            <div>{updatedAt ? updatedAt : <i>(no date)</i>}</div>
+            <div>{year || <i>(no year info)</i>}</div>
+            <div>{popularity ? popularity : <i>(no popularity)</i>}</div>
           </div>
         )}
       </>
@@ -68,6 +68,10 @@ const DefaultListItem: ComponentType<DefaultListItemProps> = styled(DefaultListI
   }
   .update-info {
     display: inline-block;
+  }
+
+  .ant-avatar {
+    background: #cccccc;
   }
 `;
 export default DefaultListItem;

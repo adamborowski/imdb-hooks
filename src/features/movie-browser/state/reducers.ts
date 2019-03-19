@@ -4,6 +4,7 @@ import {isType} from 'typescript-fsa';
 import {
     movieDetailsFetch,
     movieDetailsFetchComplete,
+    movieListPageCancel,
     movieListPageError,
     movieListPageRequest,
     movieListPageResponse,
@@ -11,6 +12,7 @@ import {
     movieSearchOptionsType,
     movieSearchOptionsTypeResponse
 } from './actions';
+import {PAGE_SIZE} from '../../../common/api';
 
 export const searchOptions: Reducer<ApiResponse<IMovie>> = (
   state = { results: [], page: 0, total_pages: 0, total_results: 0 },
@@ -52,8 +54,6 @@ export const total: Reducer<number | null> = (state = null, action) => {
   return state;
 };
 
-const PAGE_SIZE = 20; // defined by TMDB;
-
 const mapPageOntoList = <T extends any, U extends any>(
   state: U[],
   page: number,
@@ -69,12 +69,24 @@ const mapPageOntoList = <T extends any, U extends any>(
 
 export const items: Reducer<IMovieListItems> = (state: IMovieListItems = [], action) => {
   if (movieListPageRequest.match(action)) {
-    return mapPageOntoList(state, action.payload.page, new Array(PAGE_SIZE), item => ({
-      loading: true,
-      error: undefined,
-      result: undefined
-    }));
+    return action.payload.pages.reduce(
+        (tmpState, page) =>
+            mapPageOntoList(tmpState, page, new Array(PAGE_SIZE).fill(undefined), () => ({
+              loading: true,
+              error: undefined,
+              result: undefined
+            })),
+        state
+    );
   }
+  if (movieListPageCancel.match(action)) {
+    return action.payload.pages.reduce(
+        (tmpState, page) =>
+            mapPageOntoList(tmpState, page, new Array(PAGE_SIZE).fill(undefined), () => (undefined)),
+        state
+    );
+  }
+
   if (movieListPageResponse.match(action)) {
     return mapPageOntoList(state, action.payload.response.page, action.payload.response.results, item => ({
       loading: false,

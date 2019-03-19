@@ -1,6 +1,7 @@
 export interface IMovie {
   id: number;
   title: string;
+  original_title: string;
   poster_path: string;
   backdrop_path: string;
   genres: { id: number; name: string }[];
@@ -48,7 +49,7 @@ export interface IMovieList {
   total: number | null;
 }
 
-export type IMovieListItems = IMovieListItem[];
+export type IMovieListItems = (IMovieListItem | undefined)[];
 
 export interface IMovieListItem {
   loading: boolean;
