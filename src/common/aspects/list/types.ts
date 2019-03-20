@@ -1,9 +1,5 @@
-import {Observable} from 'rxjs';
 import {ApiResponse} from '../../api';
 import {ActionCreator} from 'typescript-fsa';
-
-export type FindService<Entity> = (query: string, page?: number, year?: number) => Observable<ApiResponse<Entity>>;
-export type PopularService<Entity> = (page?: number) => Observable<ApiResponse<Entity>>;
 
 export interface IListItem<T> {
   loading: boolean;

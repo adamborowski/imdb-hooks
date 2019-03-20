@@ -2,21 +2,22 @@ import {createActions} from './actions';
 import {ActionCreatorFactory} from 'typescript-fsa';
 import {createReducers} from './reducers';
 import {createEpics} from './epics';
-import {FindService, PopularService, SelectList} from './types';
+import {SelectList} from './types';
 import {createUseGoToSearch, createUseSearchValue, createUseSetYear, createUseYear} from './hooks';
 import {createUseYearInput} from './hooks/useYearInput';
 import {createUsePaginatedList} from './hooks/usePaginatedList';
+import {FindService, PopularService} from '../../api';
 
-export const createListAspect = <Entity extends EntityLite, EntityLite extends object>(
+export const createListAspect = <Entity extends object>(
   actionCreatorFactory: ActionCreatorFactory,
-  findService: FindService<EntityLite>,
-  popularService: PopularService<EntityLite>,
-  selectList: SelectList<EntityLite>,
+  findService: FindService<Entity>,
+  popularService: PopularService<Entity>,
+  selectList: SelectList<Entity>,
   searchParam: string,
   yearParam: string,
   listRoute: string
 ) => {
-  const actions = createActions<EntityLite>(actionCreatorFactory);
+  const actions = createActions<Entity>(actionCreatorFactory);
   const reducer = createReducers(actions);
   const epics = createEpics(actions, findService, popularService, selectList);
   const useYear = createUseYear(yearParam);

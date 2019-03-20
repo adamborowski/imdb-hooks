@@ -1,5 +1,5 @@
-import {ApiResponse} from '../../../common/api';
 import {IList} from '../../../common/aspects/list/types';
+import {ITypeAheadState} from '../../../common/aspects/typeahead/types';
 
 export interface IMovieLite {
   id: number;
@@ -31,11 +31,8 @@ export interface IPerson {
   known_for: IMovieLite[];
 }
 
-export type MovieSearchOptions = ApiResponse<IMovieLite>;
-
 export interface IMovieBrowser {
-  searchOptions: MovieSearchOptions;
-  searchOptionsLoading: boolean;
+  typeAhead: ITypeAheadState<IMovieLite>;
   details: IMovieDetails;
   list: IList<IMovieLite>;
 }

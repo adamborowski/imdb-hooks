@@ -3,12 +3,9 @@ import SearchPure from '../../../../common/components/antd/Search';
 import {toMovieViewPage} from '../../routing';
 import {useDispatch} from 'redux-react-hook';
 import {SelectValue} from 'antd/es/select';
-import {movieSearchOptionsType} from '../../state/actions';
-import {selectMovieSearchOptions, selectMovieSearchOptionsLoading} from '../../state/selectors';
-import {useSearchOptions} from '../../../../common/hooks/useSearchOptions';
 import {optional} from '../../../../common/utils';
 import {useHistoryPush} from '../../../../common/hooks/useHistoryPush';
-import {listAspect} from '../../aspects';
+import {listAspect, typeAheadAspect} from '../../aspects';
 
 const Search = () => {
   const defaultSearchValue = listAspect.useSearchValue();
@@ -18,19 +15,13 @@ const Search = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(movieSearchOptionsType({ value: defaultSearchValue }));
+    dispatch(typeAheadAspect.actions.typeOccured({ value: defaultSearchValue }));
   }, [defaultSearchValue]);
 
   const goToMovieSearch = listAspect.useGoToSearch();
   const historyPush = useHistoryPush();
 
-  const dataSource = useSearchOptions(
-    searchValue,
-    defaultSearchValue,
-    'movies',
-    selectMovieSearchOptionsLoading,
-    selectMovieSearchOptions
-  );
+  const dataSource = typeAheadAspect.useSearchOptions(searchValue, defaultSearchValue);
 
   const onApply = useCallback(
     (key: SelectValue) => {
@@ -45,14 +36,14 @@ const Search = () => {
   );
 
   const onSearch = useCallback((key: SelectValue) => {
-    dispatch(movieSearchOptionsType({ value: key.toString() }));
+    dispatch(typeAheadAspect.actions.typeOccured({ value: key.toString() }));
     setSearchValue(key.toString());
   }, []);
   const onCancel = useCallback(
     (open: boolean) => {
       if (!open) {
         setSearchValue(undefined);
-        dispatch(movieSearchOptionsType({ value: defaultSearchValue }));
+        dispatch(typeAheadAspect.actions.typeOccured({ value: defaultSearchValue }));
       }
     },
     [defaultSearchValue]

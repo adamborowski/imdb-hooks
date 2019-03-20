@@ -1,29 +1,11 @@
 import {Epic} from 'redux-observable';
 import {Action} from 'redux';
 import {IState} from '../../../common/types/state';
-import {catchError, debounce, filter, map, mergeMap, takeUntil} from 'rxjs/operators';
-import {
-    movieDetailsFetch,
-    movieDetailsFetchComplete,
-    movieDetailsFetchError,
-    movieSearchOptionsType,
-    movieSearchOptionsTypeResponse
-} from './actions';
-import {of, timer} from 'rxjs';
-import {findMovies, findPopularMovies, getMovie} from '../services/movie-search';
-import {listAspect} from '../aspects';
-
-const fetchSearchOptions: Epic<Action, Action, IState> = (action$, state$) =>
-  action$.pipe(
-    filter(movieSearchOptionsType.match),
-    debounce(value => timer(value.payload.value === '' ? 0 : 200)),
-    mergeMap(typeAction =>
-      (!typeAction.payload.value ? findPopularMovies() : findMovies(typeAction.payload.value, 0)).pipe(
-        map(responseAction => movieSearchOptionsTypeResponse({ value: responseAction })),
-        takeUntil(action$.pipe(filter(movieSearchOptionsType.match)))
-      )
-    )
-  );
+import {catchError, filter, map, mergeMap, takeUntil} from 'rxjs/operators';
+import {movieDetailsFetch, movieDetailsFetchComplete, movieDetailsFetchError} from './actions';
+import {of} from 'rxjs';
+import {getMovie} from '../services/movie-search';
+import {listAspect, typeAheadAspect} from '../aspects';
 
 const fetchDetails: Epic<Action, Action, IState> = (action$, state$) =>
   action$.pipe(
@@ -37,4 +19,4 @@ const fetchDetails: Epic<Action, Action, IState> = (action$, state$) =>
     )
   );
 
-export default [fetchSearchOptions, fetchDetails, listAspect.epics];
+export default [typeAheadAspect.epics, fetchDetails, listAspect.epics];
