@@ -28,3 +28,4 @@ export interface ApiResponse<Data> {
 
 export type FindService<Entity> = (query: string, page?: number, year?: number) => Observable<ApiResponse<Entity>>;
 export type PopularService<Entity> = (page?: number) => Observable<ApiResponse<Entity>>;
+export type GetService<Entity> = (id: number) => Observable<Entity>;

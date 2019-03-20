@@ -5,19 +5,19 @@ import List from '../../breadcrumbs/List';
 import {Home} from '../../../../../common/components/breadcrumbs/Home';
 import {useMovieId} from '../../../routing';
 import {useDispatch, useMappedState} from 'redux-react-hook';
-import {movieDetailsFetch} from '../../../state/actions';
 import View from '../../breadcrumbs/View';
 import {IState} from '../../../../../common/types/state';
 import {selectMovieDetails} from '../../../state/selectors';
 import MovieViewPure from './MovieViewPure';
 import {InlineSpinner} from '../../../../../common/components/InlineSpinner';
+import {detailsAspect} from '../../../aspects';
 
 const Watcher = () => {
   const movieId = useMovieId();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    movieId && dispatch(movieDetailsFetch({ id: movieId }));
+    movieId && dispatch(detailsAspect.actions.fetch({ id: movieId }));
   }, [movieId]);
 
   return null;

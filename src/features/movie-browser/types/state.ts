@@ -1,5 +1,6 @@
 import {IList} from '../../../common/aspects/list/types';
 import {ITypeAheadState} from '../../../common/aspects/typeahead/types';
+import {IDetailsState} from '../../../common/aspects/details/types';
 
 export interface IMovieLite {
   id: number;
@@ -33,12 +34,6 @@ export interface IPerson {
 
 export interface IMovieBrowser {
   typeAhead: ITypeAheadState<IMovieLite>;
-  details: IMovieDetails;
+  details: IDetailsState<IMovie>;
   list: IList<IMovieLite>;
-}
-
-export interface IMovieDetails {
-  loading: boolean;
-  error?: string;
-  result?: IMovie;
 }
