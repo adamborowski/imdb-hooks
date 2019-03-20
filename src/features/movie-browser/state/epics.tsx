@@ -43,7 +43,7 @@ const fetchDetails: Epic<Action, Action, IState> = (action$, state$) =>
 const getFetchPageAction = (requestAction: ReturnType<typeof movieListPageRequest>, page: number) =>
   requestAction.payload.query
     ? findMoviesByTitle(requestAction.payload.query, page, requestAction.payload.year)
-    : findPopularMovies(page, requestAction.payload.year);
+    : findPopularMovies(page);
 
 const requestAllPages = (requestAction: ReturnType<typeof movieListPageRequest>) =>
   merge(

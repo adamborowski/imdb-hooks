@@ -26,7 +26,7 @@ export const findMoviesByPerson = (query: string, page: number = 0, year?: numbe
     })
   ).pipe(map(value => shiftPageNumber(value.response)));
 
-export const findPopularMovies = (page: number = 0, year?: number): Observable<ApiResponse<IMovie>> =>
+export const findPopularMovies = (page: number = 0): Observable<ApiResponse<IMovie>> =>
   ajax(
     getApiUrl('movie/popular', {
       page: (page + 1).toString()

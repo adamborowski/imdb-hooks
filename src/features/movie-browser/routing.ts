@@ -1,4 +1,4 @@
-import {useQueryParams, useRouteParams} from '../../common/misc';
+import {useQueryParams, useRouteParams, useSetQueryParams} from '../../common/misc';
 import {useHistoryPush} from '../../common/hooks/useHistoryPush';
 
 export const toMovieListPage = () => '/movies';
@@ -12,7 +12,12 @@ export const useMovieId = (): number | undefined => {
 export const useMovieSearchValue = () => useQueryParams().movies;
 export const useMovieYear = () => {
   const queryParams = useQueryParams();
-  return parseInt(queryParams.year);
+  return queryParams.year ? parseInt(queryParams.year) : undefined;
+};
+
+export const useSetMovieYear = () => {
+  const setQP = useSetQueryParams();
+  return (year?: number) => setQP({ year: year ? year.toString() : undefined });
 };
 export const useGoToMovieSearch = () => {
   const pushHistory = useHistoryPush();

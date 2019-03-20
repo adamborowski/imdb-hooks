@@ -5,6 +5,7 @@ import {Home} from '../../../../../common/components/breadcrumbs/Home';
 import List from '../../breadcrumbs/List';
 import {MovieList} from './MovieList';
 import {Title} from './Title';
+import {Toolbar} from './Toolbar';
 
 export default () => (
   <>
@@ -19,6 +20,7 @@ export default () => (
               <List />
             </Breadcrumb>
           }
+          tools={<Toolbar />}
         />
       }
       secondaryContent={
