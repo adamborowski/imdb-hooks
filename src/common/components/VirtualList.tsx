@@ -53,7 +53,6 @@ export const VirtualList = <P extends any>(props: IVirtualListProps<P>) => {
 };
 
 const EnhancedVirtualList = withContentRect('bounds')(styled(VirtualList)`
-  min-width: 300px;
   width: 100%; // virtual scroll doesn't have own dimensions, it fills parent 100%
   height: 100%;
   background: #ffffff;
@@ -66,6 +65,7 @@ const EnhancedVirtualList = withContentRect('bounds')(styled(VirtualList)`
 
   .react-window > * > * {
     width: calc(100% - ${p => p.padding! / 2}px) !important;
+    min-width: 500px;
   }
 `);
 
