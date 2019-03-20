@@ -72,7 +72,6 @@ const EnhancedVirtualList = withContentRect('bounds')(styled(VirtualList)`
 EnhancedVirtualList.defaultProps = {
   padding: 12,
   itemSize: 69,
-  loading: false
 } as Partial<IVirtualListPropsBase<{}>>;
 
 export default function getVirtualList<P>() {

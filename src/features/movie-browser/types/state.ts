@@ -1,25 +1,31 @@
-export interface IMovie {
+export interface IMovieLite {
   id: number;
   title: string;
   original_title: string;
   poster_path: string;
   backdrop_path: string;
-  genres: { id: number; name: string }[];
   overview: string;
   release_date: string;
   popularity: number;
   vote_count: number;
   vote_average: number;
+}
+
+export type ProductionCountries = { name: string }[];
+export type Genres = { id: number; name: string }[];
+
+export interface IMovie extends IMovieLite {
   tagline?: string;
   homepage?: string;
-  production_countries: { name: string }[];
+  production_countries: ProductionCountries;
+  genres: Genres;
 }
 
 export interface IPerson {
   name: string;
   popularity: string;
   profile_path?: string;
-  known_for: IMovie[];
+  known_for: IMovieLite[];
 }
 
 export interface ApiResponse<Data> {
@@ -29,7 +35,7 @@ export interface ApiResponse<Data> {
   results: Data[];
 }
 
-export type MovieSearchOptions = ApiResponse<IMovie>;
+export type MovieSearchOptions = ApiResponse<IMovieLite>;
 
 export interface IMovieBrowser {
   searchOptions: MovieSearchOptions;
@@ -53,6 +59,6 @@ export type IMovieListItems = (IMovieListItem | undefined)[];
 
 export interface IMovieListItem {
   loading: boolean;
-  result?: IMovie;
+  result?: IMovieLite;
   error?: string;
 }

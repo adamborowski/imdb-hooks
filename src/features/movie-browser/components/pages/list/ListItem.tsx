@@ -2,7 +2,7 @@ import React from 'react';
 import {ListChildComponentProps} from 'react-window';
 import {toMovieViewPage} from '../../../routing';
 import {Assign} from 'utility-types';
-import {IMovie, IMovieListItem, IMovieListItems} from '../../../types/state';
+import {IMovieListItem, IMovieListItems, IMovieLite} from '../../../types/state';
 import DefaultListItem from '../../../../../common/components/antd/DefaultListItem';
 import {getPosterUrl, getReleaseYear} from '../../../../../common/api';
 import {Rate} from 'antd';
@@ -12,7 +12,7 @@ export function ListItem(props: Assign<ListChildComponentProps, { data: IMovieLi
 
   const item = data[index] || ({loading: true } as IMovieListItem);
 
-  const result: IMovie = item.result || ({ } as IMovie);
+  const result: IMovieLite = item.result || ({ } as IMovieLite);
   const loading = item.loading;
 
   return (

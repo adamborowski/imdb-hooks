@@ -1,5 +1,5 @@
 import {combineReducers, Reducer} from 'redux';
-import {ApiResponse, IMovie, IMovieBrowser, IMovieDetails, IMovieList, IMovieListItems} from '../types/state';
+import {ApiResponse, IMovieBrowser, IMovieDetails, IMovieList, IMovieListItems, IMovieLite} from '../types/state';
 import {isType} from 'typescript-fsa';
 import {
     movieDetailsFetch,
@@ -14,7 +14,7 @@ import {
 } from './actions';
 import {PAGE_SIZE} from '../../../common/api';
 
-export const searchOptions: Reducer<ApiResponse<IMovie>> = (
+export const searchOptions: Reducer<ApiResponse<IMovieLite>> = (
   state = { results: [], page: 0, total_pages: 0, total_results: 0 },
   action
 ) => {

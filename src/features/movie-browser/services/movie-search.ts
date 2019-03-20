@@ -2,13 +2,17 @@ import {getApiUrl} from '../../../common/api';
 import {ajax} from 'rxjs/ajax';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {ApiResponse, IMovie, IPerson} from '../types/state';
+import {ApiResponse, IMovie, IMovieLite, IPerson} from '../types/state';
 
 const shiftPageNumber = <T extends ApiResponse<any>>(response: T): T => {
   return { ...response, page: response.page - 1 };
 };
 
-export const findMoviesByTitle = (query: string, page: number = 0, year?: number): Observable<ApiResponse<IMovie>> =>
+export const findMoviesByTitle = (
+  query: string,
+  page: number = 0,
+  year?: number
+): Observable<ApiResponse<IMovieLite>> =>
   ajax(
     getApiUrl('search/movie', {
       page: (page + 1).toString(),
@@ -26,7 +30,7 @@ export const findMoviesByPerson = (query: string, page: number = 0, year?: numbe
     })
   ).pipe(map(value => shiftPageNumber(value.response)));
 
-export const findPopularMovies = (page: number = 0): Observable<ApiResponse<IMovie>> =>
+export const findPopularMovies = (page: number = 0): Observable<ApiResponse<IMovieLite>> =>
   ajax(
     getApiUrl('movie/popular', {
       page: (page + 1).toString()

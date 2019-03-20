@@ -11,7 +11,6 @@ import {IState} from '../../../../../common/types/state';
 import {selectMovieDetails} from '../../../state/selectors';
 import MovieViewPure from './MovieViewPure';
 import {InlineSpinner} from '../../../../../common/components/InlineSpinner';
-import {IMovie} from '../../../types/state';
 
 const Watcher = () => {
   const movieId = useMovieId();
@@ -32,8 +31,11 @@ const MovieView = () => {
 };
 
 const Toolbar = () => {
-  const mapState = useCallback((state: IState): IMovie => selectMovieDetails(state).result || ({} as IMovie), []);
-  const { homepage } = useMappedState(mapState);
+  const mapState = useCallback((state: IState) => {
+    const result = selectMovieDetails(state).result;
+    return result && result.homepage;
+  }, []);
+  const homepage = useMappedState(mapState);
 
   return (
     <>
