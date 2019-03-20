@@ -76,7 +76,8 @@ const fetchListPage: Epic<Action, Action, IState> = (action$, state$) => {
         race(
           requestAllPages(pagesToLoad, ensureAction),
           pagesToLoad$.pipe(
-            skip(1),
+            skip(1), // fixme effectively disables cancellation, problem needs to be investigated before turning cancellation on back again
+              // maybe not use redux at all, just store some download cache info?
             take(1),
             map(() => movieListPageCancel({ pages: pagesToLoad }))
           )
