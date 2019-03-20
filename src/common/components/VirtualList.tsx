@@ -12,7 +12,7 @@ export interface IVirtualListPropsBase<T> {
   row: ComponentType<ListChildComponentProps>;
   itemCount?: number;
   itemSize: number;
-  onItemsRendered: FixedSizeListProps['onItemsRendered'];
+  onItemsRendered?: FixedSizeListProps['onItemsRendered'];
 }
 export type IVirtualListProps<T> = IVirtualListPropsBase<T> & MeasuredComponentProps;
 

@@ -2,13 +2,15 @@ import React, {useCallback} from 'react';
 import {useMovieSearchValue, useMovieYear} from '../../../routing';
 import {useMappedState} from 'redux-react-hook';
 import getVirtualList from '../../../../../common/components/VirtualList';
-import {IMovieListItem} from '../../../types/state';
 import {ListItem} from './ListItem';
 import {selectMovieListItems, selectMovieListTotal} from '../../../state/selectors';
 import {IState} from '../../../../../common/types/state';
-import {usePaginatedList} from '../../../../../common/hooks/usePaginatedList';
+import {usePaginatedList} from '../../../../../common/aspects/pagination/hooks';
+import {paginationActions} from '../../../state/actions';
+import {IListItem} from '../../../../../common/aspects/pagination/types';
+import {IMovieLite} from '../../../types/state';
 
-const List = getVirtualList<IMovieListItem | undefined>();
+const List = getVirtualList<IListItem<IMovieLite> | undefined>();
 
 export const MovieList = () => {
   const query = useMovieSearchValue();
@@ -24,7 +26,7 @@ export const MovieList = () => {
 
   const { data, total } = useMappedState(mapState);
 
-  const onItemsRendered = usePaginatedList(data, total === null ? undefined : total, year, query);
+  const onItemsRendered = usePaginatedList(paginationActions, data, total === null ? undefined : total, year, query);
 
   return (
     <List

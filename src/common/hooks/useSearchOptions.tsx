@@ -2,12 +2,11 @@ import React, {useCallback} from 'react';
 import {useMappedState} from 'redux-react-hook';
 import {Select} from 'antd';
 import {IState} from '../types/state';
-import {ApiResponse} from '../../features/movie-browser/types/state';
+import {ApiResponse, getReleaseYear, getThumbUrl} from '../api';
 import SearchOptionContent from '../../features/movie-browser/components/header/SearchOptionContent';
 import _ from 'lodash';
 import {DataSourceItemType} from 'antd/es/auto-complete';
 import {optional} from '../utils';
-import {getReleaseYear, getThumbUrl} from '../api';
 
 const { OptGroup, Option } = Select;
 

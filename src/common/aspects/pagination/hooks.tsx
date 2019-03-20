@@ -1,12 +1,14 @@
 import {useCallback, useEffect, useState} from 'react';
-import {selectPageOfRow} from '../../features/movie-browser/state/selectors';
-import {movieListPageRangeEnsure, movieListReset} from '../../features/movie-browser/state/actions';
-import {IMovieListItem} from '../../features/movie-browser/types/state';
 import {useDispatch} from 'redux-react-hook';
 import {useDebounce} from 'react-use';
+import {IListItems, PaginationActions} from './types';
+import {PAGE_SIZE} from '../../api';
 
-export const usePaginatedList = (
-  data: (IMovieListItem | undefined)[],
+const selectPageOfRow = (page: number) => Math.floor(page / PAGE_SIZE);
+
+export const usePaginatedList = <Entity extends object>(
+  paginationActions: PaginationActions<Entity>,
+  data: IListItems<Entity>,
   total?: number,
   year?: number,
   query?: string
@@ -14,12 +16,16 @@ export const usePaginatedList = (
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(movieListReset());
+    dispatch(paginationActions.reset());
   }, [query, year]);
 
   const [bounds, setBounds] = useState<undefined | { start: number; stop: number }>({ start: 0, stop: 0 });
   useDebounce(
-    () => bounds && dispatch(movieListPageRangeEnsure({ query, year, startPage: bounds.start, stopPage: bounds.stop })),
+    () =>
+      bounds &&
+      dispatch(
+        paginationActions.pageRangeEnsure({ query, year, startPage: bounds.start, stopPage: bounds.stop })
+      ),
     100,
     [query, year, bounds]
   );

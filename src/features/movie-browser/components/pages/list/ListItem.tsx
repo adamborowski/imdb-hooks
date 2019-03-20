@@ -2,15 +2,16 @@ import React from 'react';
 import {ListChildComponentProps} from 'react-window';
 import {toMovieViewPage} from '../../../routing';
 import {Assign} from 'utility-types';
-import {IMovieListItem, IMovieListItems, IMovieLite} from '../../../types/state';
+import {IMovieLite} from '../../../types/state';
 import DefaultListItem from '../../../../../common/components/antd/DefaultListItem';
 import {getPosterUrl, getReleaseYear} from '../../../../../common/api';
 import {Rate} from 'antd';
+import {IListItem, IListItems} from '../../../../../common/aspects/pagination/types';
 
-export function ListItem(props: Assign<ListChildComponentProps, { data: IMovieListItems }>) {
+export function ListItem(props: Assign<ListChildComponentProps, { data: IListItems<IMovieLite>}>) {
   const { index, style, data } = props;
 
-  const item = data[index] || ({loading: true } as IMovieListItem);
+  const item = data[index] || ({loading: true } as IListItem<IMovieLite>);
 
   const result: IMovieLite = item.result || ({ } as IMovieLite);
   const loading = item.loading;

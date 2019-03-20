@@ -17,3 +17,10 @@ export const getReleaseYear = (date: string = '') => {
   const match = date.match(yearMatcher);
   return (match && match[0]) || '(no release info)';
 };
+
+export interface ApiResponse<Data> {
+    page: number;
+    total_results: number;
+    total_pages: number;
+    results: Data[];
+}

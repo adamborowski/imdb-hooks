@@ -1,9 +1,9 @@
-import {findMoviesByPerson, findMoviesByTitle} from './movie-search';
+import {findMovies, findPeople} from './movie-search';
 
 describe('movie-search', () => {
   describe('api learning tests', () => {
     it('can find by title', done => {
-      findMoviesByTitle('star', 0).subscribe(value => {
+      findMovies('star', 0).subscribe(value => {
         expect(value.results.length).toBeGreaterThan(0);
         value.results.forEach(movie => {
           expect(movie.title.toLowerCase()).toContain('star');
@@ -13,7 +13,7 @@ describe('movie-search', () => {
       });
     });
     it('can find by title and release year', done => {
-      findMoviesByTitle('love', 0, 2019).subscribe(value => {
+      findMovies('love', 0, 2019).subscribe(value => {
         expect(value.results.length).toBeGreaterThan(0);
         value.results.forEach(movie => {
           expect(movie.title.toLowerCase()).toContain('love');
@@ -24,7 +24,7 @@ describe('movie-search', () => {
       });
     });
     it('can find by person', done => {
-      findMoviesByPerson('chabior', undefined, 0).subscribe(value => {
+      findPeople('chabior', undefined, 0).subscribe(value => {
         expect(value.results.length).toBeGreaterThan(0);
         value.results.forEach(person => {
           expect(person.name.toLowerCase()).toContain('chabior');

@@ -1,3 +1,6 @@
+import {ApiResponse} from '../../../common/api';
+import {IPagination} from '../../../common/aspects/pagination/types';
+
 export interface IMovieLite {
   id: number;
   title: string;
@@ -28,37 +31,17 @@ export interface IPerson {
   known_for: IMovieLite[];
 }
 
-export interface ApiResponse<Data> {
-  page: number;
-  total_results: number;
-  total_pages: number;
-  results: Data[];
-}
-
 export type MovieSearchOptions = ApiResponse<IMovieLite>;
 
 export interface IMovieBrowser {
   searchOptions: MovieSearchOptions;
   searchOptionsLoading: boolean;
   details: IMovieDetails;
-  list: IMovieList;
+  list: IPagination<IMovieLite>;
 }
 
 export interface IMovieDetails {
   loading: boolean;
   error?: string;
   result?: IMovie;
-}
-
-export interface IMovieList {
-  items: IMovieListItems;
-  total: number | null;
-}
-
-export type IMovieListItems = (IMovieListItem | undefined)[];
-
-export interface IMovieListItem {
-  loading: boolean;
-  result?: IMovieLite;
-  error?: string;
 }
