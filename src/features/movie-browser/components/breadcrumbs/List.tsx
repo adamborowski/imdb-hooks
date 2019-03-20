@@ -1,17 +1,18 @@
-import {toMovieListPage, useMovieSearchValue} from '../../routing';
+import {toMovieListPage} from '../../routing';
 import {Icon} from 'antd';
 import {fixBreadcrumb} from '../../../../common/workarounds';
 import React from 'react';
 import {BreadcrumbItem} from '../../../../common/components/antd/BreadcrumbItem';
 import {QueryLink} from '../../../../common/hooks/useHistoryPush';
+import {listAspect} from '../../aspects';
 
 const List = () => {
-  const searchValue = useMovieSearchValue();
+  const searchValue = listAspect.useSearchValue();
 
   return (
     <>
       <BreadcrumbItem>
-        <QueryLink to={toMovieListPage()} queryParams={{ movies: undefined }}>
+        <QueryLink to={toMovieListPage()} queryParams={{ mQuery: undefined }}>
           Movies
         </QueryLink>
       </BreadcrumbItem>

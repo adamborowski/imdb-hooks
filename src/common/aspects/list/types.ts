@@ -16,7 +16,6 @@ export interface IList<Entity> {
   total: number | null;
 }
 export type IListItems<T> = (IListItem<T> | undefined)[];
-export type SelectItems<T> = (state: any) => IListItems<T>;
 export type PageRangeEnsurePayload = {
   startPage: number;
   stopPage: number;
@@ -31,3 +30,9 @@ export type IListActions<Entity extends object> = {
   pageResponse: ActionCreator<{ response: ApiResponse<Entity> }>;
   pageRequest: ActionCreator<{ pages: number[] }>;
 };
+
+export type UseYear = () => number | undefined;
+export type UseSearchValue = () => string | undefined;
+export type UseSetYear = () => (value?: number) => void;
+export type UseGoToSearch = () => (query?: string) => void;
+export type SelectList<Entity> = (state: any) => IList<Entity>;

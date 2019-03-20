@@ -4,7 +4,7 @@ import {ApiResponse} from '../../../common/api';
 
 const actionCreator: ActionCreatorFactory = actionCreatorFactory('movie-browser');
 
-export const movieSearchOptionsType = actionCreator<{ value: string }>('SEARCH_TYPE');
+export const movieSearchOptionsType = actionCreator<{ value: string | undefined }>('SEARCH_TYPE');
 export const movieSearchOptionsTypeResponse = actionCreator<{ value: ApiResponse<IMovieLite> }>('SEARCH_TYPE_RESPONSE');
 
 export const movieDetailsFetch = actionCreator<{ id: number }>('DETAILS_FETCH');

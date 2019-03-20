@@ -1,6 +1,6 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import SearchPure from '../../../../common/components/antd/Search';
-import {toMovieViewPage, useGoToMovieSearch, useMovieSearchValue} from '../../routing';
+import {toMovieViewPage} from '../../routing';
 import {useDispatch} from 'redux-react-hook';
 import {SelectValue} from 'antd/es/select';
 import {movieSearchOptionsType} from '../../state/actions';
@@ -8,9 +8,10 @@ import {selectMovieSearchOptions, selectMovieSearchOptionsLoading} from '../../s
 import {useSearchOptions} from '../../../../common/hooks/useSearchOptions';
 import {optional} from '../../../../common/utils';
 import {useHistoryPush} from '../../../../common/hooks/useHistoryPush';
+import {listAspect} from '../../aspects';
 
 const Search = () => {
-  const defaultSearchValue = useMovieSearchValue();
+  const defaultSearchValue = listAspect.useSearchValue();
   const [searchValue, setSearchValue] = useState<string | undefined>(undefined); // todo probably more clean if put into redux
 
   const displayedSearchValue = optional(searchValue, defaultSearchValue);
@@ -20,7 +21,7 @@ const Search = () => {
     dispatch(movieSearchOptionsType({ value: defaultSearchValue }));
   }, [defaultSearchValue]);
 
-  const goToMovieSearch = useGoToMovieSearch();
+  const goToMovieSearch = listAspect.useGoToSearch();
   const historyPush = useHistoryPush();
 
   const dataSource = useSearchOptions(
@@ -37,7 +38,7 @@ const Search = () => {
         goToMovieSearch(displayedSearchValue);
         setSearchValue(undefined);
       } else {
-        historyPush(toMovieViewPage(key.toString()), { movies: displayedSearchValue });
+        historyPush(toMovieViewPage(key.toString()), { mQuery: displayedSearchValue });
       }
     },
     [searchValue]

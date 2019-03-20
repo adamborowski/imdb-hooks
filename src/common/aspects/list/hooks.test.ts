@@ -1,6 +1,6 @@
-import {usePaginatedList} from './hooks';
 import {createActions} from './actions';
 import actionCreatorFactory from 'typescript-fsa';
+import {createUsePaginatedList} from './hooks/usePaginatedList';
 
 jest.mock('redux-react-hook');
 jest.mock('react');
@@ -22,8 +22,13 @@ describe('hooks', () => {
 
    */
     it('should calculate pages when no pages are loaded', () => {
-      const onRowsRendered = usePaginatedList(createActions(actionCreatorFactory('test')), [], 100);
-      onRowsRendered({ visibleStartIndex: 44, visibleStopIndex: 53 });
+      const {onItemsRendered} = createUsePaginatedList(
+        createActions(actionCreatorFactory('test')),
+        () => 2010,
+        () => undefined,
+        () => ({ total: 100, items: [] })
+      )();
+      onItemsRendered({ visibleStartIndex: 44, visibleStopIndex: 53 });
 
       expect(dispatchMock).toBeCalledWith(
         expect.objectContaining({ payload: expect.objectContaining({ pages: [1, 2, 3] }) })

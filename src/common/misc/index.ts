@@ -1,4 +1,3 @@
-export * from './watcher';
 export { default as withFading } from './withFading';
 
 export * from './hooks';

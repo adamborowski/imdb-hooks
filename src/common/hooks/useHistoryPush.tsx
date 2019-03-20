@@ -3,8 +3,7 @@ import {stringify} from 'querystring';
 import {useQueryParams, useRouter} from '../misc';
 import _ from 'lodash';
 import {Link, LinkProps} from 'react-router-dom';
-import * as React from 'react';
-import {ComponentType, FunctionComponent} from 'react';
+import React, {ComponentType, FunctionComponent} from 'react';
 
 export const getLocationDescriptionObject = (to: History.LocationDescriptor): LocationDescriptorObject =>
   typeof to === 'string' ? { pathname: to } : to;
