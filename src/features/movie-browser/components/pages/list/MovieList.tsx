@@ -1,7 +1,6 @@
-import React, {useCallback, useEffect} from 'react';
+import React, {useCallback} from 'react';
 import {useMovieSearchValue, useMovieYear} from '../../../routing';
-import {useDispatch, useMappedState} from 'redux-react-hook';
-import {movieListPageRequest, movieListReset} from '../../../state/actions';
+import {useMappedState} from 'redux-react-hook';
 import getVirtualList from '../../../../../common/components/VirtualList';
 import {IMovieListItem} from '../../../types/state';
 import {ListItem} from './ListItem';
@@ -15,7 +14,6 @@ export const MovieList = () => {
   const query = useMovieSearchValue();
   const year = useMovieYear();
 
-  const dispatch = useDispatch();
   const mapState = useCallback(
     (state: IState) => ({
       total: selectMovieListTotal(state),
@@ -25,11 +23,6 @@ export const MovieList = () => {
   );
 
   const { data, total } = useMappedState(mapState);
-
-  useEffect(() => {
-    dispatch(movieListReset());
-    dispatch(movieListPageRequest({ pages: [0], year, query }));
-  }, [query, year]);
 
   const onItemsRendered = usePaginatedList(data, total === null ? undefined : total, year, query);
 

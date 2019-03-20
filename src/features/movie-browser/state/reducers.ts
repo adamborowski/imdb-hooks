@@ -58,32 +58,36 @@ const mapPageOntoList = <T extends any, U extends any>(
   state: U[],
   page: number,
   results: T[],
-  map: (item: T, index: number, localIndex: number) => U,
+  map: (item: T, index: number, localIndex: number, oldItem: U) => U,
   pageSize: number = PAGE_SIZE
 ) => {
   const newState = [...state];
   const offset = page * pageSize;
-  results.forEach((movie, index) => (newState[index + offset] = map(movie, index + offset, index)));
+  results.forEach(
+    (movie, index) => (newState[index + offset] = map(movie, index + offset, index, newState[index + offset]))
+  );
   return newState;
 };
 
 export const items: Reducer<IMovieListItems> = (state: IMovieListItems = [], action) => {
   if (movieListPageRequest.match(action)) {
     return action.payload.pages.reduce(
-        (tmpState, page) =>
-            mapPageOntoList(tmpState, page, new Array(PAGE_SIZE).fill(undefined), () => ({
-              loading: true,
-              error: undefined,
-              result: undefined
-            })),
-        state
+      (tmpState, page) =>
+        mapPageOntoList(tmpState, page, new Array(PAGE_SIZE).fill(undefined), () => ({
+          loading: true,
+          error: undefined,
+          result: undefined
+        })),
+      state
     );
   }
   if (movieListPageCancel.match(action)) {
     return action.payload.pages.reduce(
-        (tmpState, page) =>
-            mapPageOntoList(tmpState, page, new Array(PAGE_SIZE).fill(undefined), () => (undefined)),
-        state
+      (tmpState, page) =>
+        mapPageOntoList(tmpState, page, new Array(PAGE_SIZE).fill(undefined), (result, index, localIndex, item) =>
+          item && item.loading ? undefined : item
+        ),
+      state
     );
   }
 
@@ -95,7 +99,7 @@ export const items: Reducer<IMovieListItems> = (state: IMovieListItems = [], act
     }));
   }
   if (movieListPageError.match(action)) {
-    return mapPageOntoList(state, action.payload.page, new Array(PAGE_SIZE), item => ({
+    return mapPageOntoList(state, action.payload.page, new Array(PAGE_SIZE).fill(undefined), item => ({
       loading: false,
       error: action.payload.error,
       result: undefined

@@ -10,9 +10,9 @@ import {Rate} from 'antd';
 export function ListItem(props: Assign<ListChildComponentProps, { data: IMovieListItems }>) {
   const { index, style, data } = props;
 
-  const item = data[index] || ({} as IMovieListItem);
+  const item = data[index] || ({loading: true } as IMovieListItem);
 
-  const result: IMovie = item.result || ({} as IMovie);
+  const result: IMovie = item.result || ({ } as IMovie);
   const loading = item.loading;
 
   return (

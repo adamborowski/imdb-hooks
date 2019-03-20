@@ -1,9 +1,9 @@
-import {useCallback} from 'react';
-import {selectPageNeedsToBeLoaded$, selectPageOfRow} from '../../features/movie-browser/state/selectors';
-import _ from 'lodash';
-import {movieListPageRequest} from '../../features/movie-browser/state/actions';
+import {useCallback, useEffect, useState} from 'react';
+import {selectPageOfRow} from '../../features/movie-browser/state/selectors';
+import {movieListPageRangeEnsure, movieListReset} from '../../features/movie-browser/state/actions';
 import {IMovieListItem} from '../../features/movie-browser/types/state';
 import {useDispatch} from 'redux-react-hook';
+import {useDebounce} from 'react-use';
 
 export const usePaginatedList = (
   data: (IMovieListItem | undefined)[],
@@ -13,6 +13,17 @@ export const usePaginatedList = (
 ) => {
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(movieListReset());
+  }, [query, year]);
+
+  const [bounds, setBounds] = useState<undefined | { start: number; stop: number }>({ start: 0, stop: 0 });
+  useDebounce(
+    () => bounds && dispatch(movieListPageRangeEnsure({ query, year, startPage: bounds.start, stopPage: bounds.stop })),
+    100,
+    [query, year, bounds]
+  );
+
   return useCallback(
     ({ visibleStartIndex, visibleStopIndex }) => {
       const fetchRowOverscan = 20;
@@ -21,13 +32,7 @@ export const usePaginatedList = (
         Math.min((total || 1) - 1, visibleStopIndex + fetchRowOverscan)
       ].map(selectPageOfRow);
 
-      const allPagesToLoad = _.range(firstPageToLoad, lastPageToLoad + 1, 1).filter(page =>
-        selectPageNeedsToBeLoaded$(data, page)
-      );
-
-      if (allPagesToLoad.length) {
-        dispatch(movieListPageRequest({ query, year, pages: allPagesToLoad }));
-      }
+      setBounds({ start: firstPageToLoad, stop: lastPageToLoad });
     },
     [year, query, data]
   );

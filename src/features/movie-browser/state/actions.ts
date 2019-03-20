@@ -11,7 +11,15 @@ export const movieDetailsFetchComplete = actionCreator<{ result: IMovie }>('DETA
 export const movieDetailsFetchError = actionCreator<{ error: string }>('DETAILS_FETCH_ERROR');
 
 export const movieListReset = actionCreator('LIST_RESET');
-export const movieListPageRequest = actionCreator<{ query?: string; year?: number; pages: number[] }>('LIST_PAGE_REQEUST'); //reads query/year from state and checks if already downloaded
-export const movieListPageCancel = actionCreator<{  pages: number[] }>('LIST_PAGE_CANCEL'); //reads query/year from state and checks if already downloaded
+export const movieListPageRangeEnsure = actionCreator<{
+  startPage: number;
+  stopPage: number;
+  query?: string;
+  year?: number;
+}>('LIST_PAGE_DISPLAYED');
+export const movieListPageRequest = actionCreator<{ pages: number[] }>(
+  'LIST_PAGE_REQUEST'
+);
+export const movieListPageCancel = actionCreator<{ pages: number[] }>('LIST_PAGE_CANCEL'); //reads query/year from state and checks if already downloaded
 export const movieListPageResponse = actionCreator<{ response: ApiResponse<IMovie> }>('LIST_PAGE_RESPONSE'); //reads query/year from state and checks if already downloaded
 export const movieListPageError = actionCreator<{ page: number; error: string }>('LIST_PAGE_ERROR'); //reads query/year from state and checks if already downloaded

@@ -1,20 +1,23 @@
 import {Epic} from 'redux-observable';
 import {Action} from 'redux';
 import {IState} from '../../../common/types/state';
-import {catchError, debounce, delay, filter, map, mergeMap, take, takeUntil} from 'rxjs/operators';
+import {catchError, debounce, distinctUntilChanged, filter, map, mergeMap, skip, take, takeUntil} from 'rxjs/operators';
 import {
     movieDetailsFetch,
     movieDetailsFetchComplete,
     movieDetailsFetchError,
     movieListPageCancel,
     movieListPageError,
+    movieListPageRangeEnsure,
     movieListPageRequest,
     movieListPageResponse,
     movieSearchOptionsType,
     movieSearchOptionsTypeResponse
 } from './actions';
-import {merge, of, race, timer} from 'rxjs';
+import {concat, merge, of, race, timer} from 'rxjs';
 import {findMoviesByTitle, findPopularMovies, getMovie} from '../services/movie-search';
+import _ from 'lodash';
+import {selectMovieListItems, selectPageNeedsToBeLoaded$} from './selectors';
 
 const fetchSearchOptions: Epic<Action, Action, IState> = (action$, state$) =>
   action$.pipe(
@@ -40,37 +43,47 @@ const fetchDetails: Epic<Action, Action, IState> = (action$, state$) =>
     )
   );
 
-const getFetchPageAction = (requestAction: ReturnType<typeof movieListPageRequest>, page: number) =>
+const getFetchPageAction = (requestAction: ReturnType<typeof movieListPageRangeEnsure>, page: number) =>
   requestAction.payload.query
     ? findMoviesByTitle(requestAction.payload.query, page, requestAction.payload.year)
     : findPopularMovies(page);
 
-const requestAllPages = (requestAction: ReturnType<typeof movieListPageRequest>) =>
+const requestAllPages = (pages: number[], ensureAction: ReturnType<typeof movieListPageRangeEnsure>) =>
   merge(
-    ...requestAction.payload.pages.map(page =>
-      getFetchPageAction(requestAction, page).pipe(
+    ...pages.map(page =>
+      getFetchPageAction(ensureAction, page).pipe(
         map(response => movieListPageResponse({ response })),
         catchError(err => of(movieListPageError({ page, error: err })))
       )
     )
   );
 
-const fetchListPage: Epic<Action, Action, IState> = (action$, state$) =>
-  action$.pipe(
-    filter(movieListPageRequest.match),
-    mergeMap(requestAction =>
-      race(
-        of(0).pipe(
-          delay(100),
-          mergeMap(() => requestAllPages(requestAction))
-        ),
-        action$.pipe(
-          filter(movieListPageRequest.match),
-          map(() => movieListPageCancel({ pages: requestAction.payload.pages })),
-          take(1)
-        )
-      )
-    )
+const fetchListPage: Epic<Action, Action, IState> = (action$, state$) => {
+  const pagesToLoad$ = action$.pipe(
+    filter(movieListPageRangeEnsure.match),
+    distinctUntilChanged(_.isEqual)
   );
+
+  return pagesToLoad$.pipe(
+    debounce(() => timer(100)),
+    mergeMap(ensureAction => {
+      const data = selectMovieListItems(state$.value);
+      const pagesToLoad = _.range(ensureAction.payload.startPage, ensureAction.payload.stopPage + 1, 1).filter(page =>
+        selectPageNeedsToBeLoaded$(data, page)
+      );
+      return concat(
+        of(movieListPageRequest({ pages: pagesToLoad })),
+        race(
+          requestAllPages(pagesToLoad, ensureAction),
+          pagesToLoad$.pipe(
+            skip(1),
+            take(1),
+            map(() => movieListPageCancel({ pages: pagesToLoad }))
+          )
+        )
+      );
+    })
+  );
+};
 
 export default [fetchSearchOptions, fetchDetails, fetchListPage];
