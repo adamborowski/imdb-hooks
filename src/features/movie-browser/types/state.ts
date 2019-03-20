@@ -1,5 +1,5 @@
 import {ApiResponse} from '../../../common/api';
-import {IPagination} from '../../../common/aspects/pagination/types';
+import {IList} from '../../../common/aspects/list/types';
 
 export interface IMovieLite {
   id: number;
@@ -37,7 +37,7 @@ export interface IMovieBrowser {
   searchOptions: MovieSearchOptions;
   searchOptionsLoading: boolean;
   details: IMovieDetails;
-  list: IPagination<IMovieLite>;
+  list: IList<IMovieLite>;
 }
 
 export interface IMovieDetails {

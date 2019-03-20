@@ -5,9 +5,9 @@ import getVirtualList from '../../../../../common/components/VirtualList';
 import {ListItem} from './ListItem';
 import {selectMovieListItems, selectMovieListTotal} from '../../../state/selectors';
 import {IState} from '../../../../../common/types/state';
-import {usePaginatedList} from '../../../../../common/aspects/pagination/hooks';
-import {paginationActions} from '../../../state/actions';
-import {IListItem} from '../../../../../common/aspects/pagination/types';
+import {usePaginatedList} from '../../../../../common/aspects/list/hooks';
+import {listActions} from '../../../state/actions';
+import {IListItem} from '../../../../../common/aspects/list/types';
 import {IMovieLite} from '../../../types/state';
 
 const List = getVirtualList<IListItem<IMovieLite> | undefined>();
@@ -26,7 +26,7 @@ export const MovieList = () => {
 
   const { data, total } = useMappedState(mapState);
 
-  const onItemsRendered = usePaginatedList(paginationActions, data, total === null ? undefined : total, year, query);
+  const onItemsRendered = usePaginatedList(listActions, data, total === null ? undefined : total, year, query);
 
   return (
     <List

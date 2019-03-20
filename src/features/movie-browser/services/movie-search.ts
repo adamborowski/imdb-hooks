@@ -3,7 +3,7 @@ import {ajax} from 'rxjs/ajax';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {IMovie, IMovieLite, IPerson} from '../types/state';
-import {FindService, PopularService} from '../../../common/aspects/pagination/types';
+import {FindService, PopularService} from '../../../common/aspects/list/types';
 
 const shiftPageNumber = <T extends ApiResponse<any>>(response: T): T => {
   return { ...response, page: response.page - 1 };
