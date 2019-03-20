@@ -21,11 +21,7 @@ export const usePaginatedList = <Entity extends object>(
 
   const [bounds, setBounds] = useState<undefined | { start: number; stop: number }>({ start: 0, stop: 0 });
   useDebounce(
-    () =>
-      bounds &&
-      dispatch(
-        actions.pageRangeEnsure({ query, year, startPage: bounds.start, stopPage: bounds.stop })
-      ),
+    () => bounds && dispatch(actions.pageRangeEnsure({ query, year, startPage: bounds.start, stopPage: bounds.stop })),
     100,
     [query, year, bounds]
   );

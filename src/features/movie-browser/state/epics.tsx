@@ -3,7 +3,6 @@ import {Action} from 'redux';
 import {IState} from '../../../common/types/state';
 import {catchError, debounce, filter, map, mergeMap, takeUntil} from 'rxjs/operators';
 import {
-    listActions,
     movieDetailsFetch,
     movieDetailsFetchComplete,
     movieDetailsFetchError,
@@ -12,8 +11,7 @@ import {
 } from './actions';
 import {of, timer} from 'rxjs';
 import {findMovies, findPopularMovies, getMovie} from '../services/movie-search';
-import {selectMovieListItems} from './selectors';
-import {createEpics} from '../../../common/aspects/list/epics';
+import {listAspect} from '../aspects';
 
 const fetchSearchOptions: Epic<Action, Action, IState> = (action$, state$) =>
   action$.pipe(
@@ -39,6 +37,4 @@ const fetchDetails: Epic<Action, Action, IState> = (action$, state$) =>
     )
   );
 
-const fetchListPageEpic = createEpics(listActions, findMovies, findPopularMovies, selectMovieListItems);
-
-export default [fetchSearchOptions, fetchDetails, fetchListPageEpic];
+export default [fetchSearchOptions, fetchDetails, listAspect.epics];

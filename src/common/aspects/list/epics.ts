@@ -13,8 +13,8 @@ export const createEpics = <Entity extends object>(
 ): Epic => {
   const selectPageNeedsToBeLoaded$ = (items: IListItems<Entity>, page: number) => {
     const firstInPage = page * PAGE_SIZE;
-    const movie = items[firstInPage];
-    return movie === undefined || movie.error !== undefined;
+    const item = items[firstInPage];
+    return item === undefined || item.error !== undefined;
   };
 
   const getFetchPageAction = (requestAction: ReturnType<typeof actions.pageRangeEnsure>, page: number) =>

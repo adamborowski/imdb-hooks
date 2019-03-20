@@ -2,14 +2,13 @@ import {combineReducers, Reducer} from 'redux';
 import {IMovieBrowser, IMovieDetails, IMovieLite} from '../types/state';
 import {isType} from 'typescript-fsa';
 import {
-    listActions,
     movieDetailsFetch,
     movieDetailsFetchComplete,
     movieSearchOptionsType,
     movieSearchOptionsTypeResponse
 } from './actions';
-import {createReducers} from '../../../common/aspects/list/reducers';
 import {ApiResponse} from '../../../common/api';
+import {listAspect} from '../aspects';
 
 export const searchOptions: Reducer<ApiResponse<IMovieLite>> = (
   state = { results: [], page: 0, total_pages: 0, total_results: 0 },
@@ -41,11 +40,9 @@ export const details: Reducer<IMovieDetails> = (state = { loading: false }, acti
   return state;
 };
 
-const list = createReducers<IMovieLite>(listActions);
-
 export default combineReducers<IMovieBrowser>({
   searchOptions,
   searchOptionsLoading,
   details,
-  list
+  list: listAspect.reducer
 });
