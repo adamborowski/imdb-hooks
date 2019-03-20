@@ -1,13 +1,13 @@
 import {useCallback, useEffect, useState} from 'react';
 import {useDispatch} from 'redux-react-hook';
 import {useDebounce} from 'react-use';
-import {IListItems, PaginationActions} from './types';
+import {IListActions, IListItems} from './types';
 import {PAGE_SIZE} from '../../api';
 
 const selectPageOfRow = (page: number) => Math.floor(page / PAGE_SIZE);
 
 export const usePaginatedList = <Entity extends object>(
-  paginationActions: PaginationActions<Entity>,
+  actions: IListActions<Entity>,
   data: IListItems<Entity>,
   total?: number,
   year?: number,
@@ -16,7 +16,7 @@ export const usePaginatedList = <Entity extends object>(
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(paginationActions.reset());
+    dispatch(actions.reset());
   }, [query, year]);
 
   const [bounds, setBounds] = useState<undefined | { start: number; stop: number }>({ start: 0, stop: 0 });
@@ -24,7 +24,7 @@ export const usePaginatedList = <Entity extends object>(
     () =>
       bounds &&
       dispatch(
-        paginationActions.pageRangeEnsure({ query, year, startPage: bounds.start, stopPage: bounds.stop })
+        actions.pageRangeEnsure({ query, year, startPage: bounds.start, stopPage: bounds.stop })
       ),
     100,
     [query, year, bounds]

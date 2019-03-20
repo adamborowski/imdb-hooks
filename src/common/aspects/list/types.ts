@@ -11,7 +11,7 @@ export interface IListItem<T> {
   error?: string;
 }
 
-export interface IPagination<Entity> {
+export interface IList<Entity> {
   items: IListItems<Entity>;
   total: number | null;
 }
@@ -23,7 +23,7 @@ export type PageRangeEnsurePayload = {
   query?: string;
   year?: number;
 };
-export type PaginationActions<Entity extends object> = {
+export type IListActions<Entity extends object> = {
   pageRangeEnsure: ActionCreator<PageRangeEnsurePayload>;
   pageError: ActionCreator<{ page: number; error: string }>;
   reset: ActionCreator<void>;

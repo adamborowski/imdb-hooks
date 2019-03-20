@@ -1,12 +1,12 @@
 import {Epic} from 'redux-observable';
 import _ from 'lodash';
 import {catchError, debounce, filter, map, mergeMap, skip, take} from 'rxjs/operators';
-import {FindService, IListItems, PaginationActions, PopularService, SelectItems} from './types';
+import {FindService, IListActions, IListItems, PopularService, SelectItems} from './types';
 import {concat, merge, of, race, timer} from 'rxjs';
 import {PAGE_SIZE} from '../../api';
 
 export const createEpics = <Entity extends object>(
-  actions: PaginationActions<Entity>,
+  actions: IListActions<Entity>,
   findService: FindService<Entity>,
   popularService: PopularService<Entity>,
   selectItems: SelectItems<Entity>

@@ -1,8 +1,8 @@
-import {IListItems, IPagination, PaginationActions} from './types';
+import {IList, IListActions, IListItems} from './types';
 import {combineReducers, Reducer} from 'redux';
 import {PAGE_SIZE} from '../../api';
 
-export const createReducers = <Entity extends object>(actions: PaginationActions<Entity>) => {
+export const createReducers = <Entity extends object>(actions: IListActions<Entity>) => {
   const total: Reducer<number | null> = (state = null, action) => {
     if (actions.pageResponse.match(action)) {
       return action.payload.response.total_results;
@@ -70,5 +70,5 @@ export const createReducers = <Entity extends object>(actions: PaginationActions
     return state;
   };
 
-  return combineReducers<IPagination<Entity>>({ items, total });
+  return combineReducers<IList<Entity>>({ items, total });
 };

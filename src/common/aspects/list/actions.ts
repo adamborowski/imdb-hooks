@@ -1,10 +1,10 @@
 import {ActionCreatorFactory} from 'typescript-fsa';
 import {ApiResponse} from '../../api';
-import {PageRangeEnsurePayload, PaginationActions} from './types';
+import {IListActions, PageRangeEnsurePayload} from './types';
 
 export const createActions = <Entity extends object>(
   actionCreatorFactory: ActionCreatorFactory
-): PaginationActions<Entity> => {
+): IListActions<Entity> => {
   return {
     reset: actionCreatorFactory('LIST_RESET'),
     pageRangeEnsure: actionCreatorFactory<PageRangeEnsurePayload>('LIST_PAGE_DISPLAYED'),
