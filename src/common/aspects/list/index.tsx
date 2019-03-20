@@ -7,7 +7,6 @@ import {createUseGoToSearch, createUseSearchValue, createUseSetYear, createUseYe
 import {createUseYearInput} from './hooks/useYearInput';
 import {createUsePaginatedList} from './hooks/usePaginatedList';
 
-export type ListAspect = ReturnType<typeof createListAspect>;
 export const createListAspect = <Entity extends EntityLite, EntityLite extends object>(
   actionCreatorFactory: ActionCreatorFactory,
   findService: FindService<EntityLite>,
