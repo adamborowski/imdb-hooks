@@ -6,26 +6,30 @@ import {BreadcrumbItem} from '../../../../common/components/antd/BreadcrumbItem'
 import {QueryLink} from '../../../../common/hooks/useHistoryPush';
 import {listAspect} from '../../aspects';
 
+type ListPureProps = { searchValue?: string; searchParam: string };
+
+export const ListPure = ({ searchParam, searchValue }: ListPureProps) => (
+  <>
+    <BreadcrumbItem>
+      <QueryLink to={toPersonListPage()} queryParams={{ [searchParam]: undefined }}>
+        People
+      </QueryLink>
+    </BreadcrumbItem>
+    {searchValue && (
+      <BreadcrumbItem>
+        <QueryLink to={toPersonListPage()}>
+          <Icon type="search" style={{ marginRight: 5 }} />
+          {searchValue}
+        </QueryLink>
+      </BreadcrumbItem>
+    )}
+  </>
+);
+
 const List = () => {
   const searchValue = listAspect.useSearchValue();
 
-  return (
-    <>
-      <BreadcrumbItem>
-        <QueryLink to={toPersonListPage()} queryParams={{ [listAspect.searchParam]: undefined }}>
-          People
-        </QueryLink>
-      </BreadcrumbItem>
-      {searchValue && (
-        <BreadcrumbItem>
-          <QueryLink to={toPersonListPage()}>
-            <Icon type="search" style={{ marginRight: 5 }} />
-            {searchValue}
-          </QueryLink>
-        </BreadcrumbItem>
-      )}
-    </>
-  );
+  return <ListPure searchValue={searchValue} searchParam={listAspect.searchParam} />;
 };
 
 export default fixBreadcrumb(List);
