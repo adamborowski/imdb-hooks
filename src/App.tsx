@@ -1,29 +1,13 @@
 import React, {cloneElement} from 'react';
 import Switch from './common/components/FlatteningSwitch';
 import {App as AntApp, AppMenu, AppSider, DefaultAppLogo} from './common/components/antd';
-import {IMenuItem} from './common/misc';
 import DefaultAppHeader from './common/components/antd/DefaultAppHeader';
 import logo from './common/components/antd/__stories__/AppSider.logo.png';
-import {toMovieListPage} from './features/movie-browser/routing';
 
 import _ from 'lodash';
 import features from './features';
-import {toPersonListPage} from './features/people-browser/routing';
+import {menuConfiguration} from './menu';
 
-const menuConfiguration = [
-  {
-    link: toMovieListPage(),
-    path: toMovieListPage(),
-    label: 'Movies',
-    icon: 'play-circle'
-  },
-  {
-    link: toPersonListPage(),
-    path: toPersonListPage(),
-    label: 'People',
-    icon: 'user'
-  }
-] as IMenuItem[];
 const App = () => (
   <AntApp
     sider={
