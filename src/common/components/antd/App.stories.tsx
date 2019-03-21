@@ -1,23 +1,14 @@
 import React from 'react';
 import App from './App';
-import { MemoryRouter } from 'react-router';
-import { Breadcrumb, Button, Tabs } from 'antd';
-import {
-  AppMenu,
-  AppSider,
-  ContentLayout,
-  DefaultDrawer,
-  DefaultPrimaryContent,
-  DefaultSecondaryContent
-} from './index';
-import { boolean } from '@storybook/addon-knobs';
-import { action } from '@storybook/addon-actions';
+import {MemoryRouter} from 'react-router';
+import {Breadcrumb, Button, Tabs} from 'antd';
+import {AppMenu, AppSider, ContentLayout, DefaultPrimaryContent, DefaultSecondaryContent} from './index';
 import logo from './__stories__/AppSider.logo.png';
-import { DefaultAppLogo } from '.';
-import { ThemeProvider } from 'styled-components';
+import {DefaultAppLogo} from '.';
+import {ThemeProvider} from 'styled-components';
 import baseTheme from './app-theme';
-import { IMenuItem } from '../../misc';
-import { storiesOf } from '../../storiesOf';
+import {IMenuItem} from '../../misc';
+import {storiesOf} from '../../storiesOf';
 import DefaultAppHeader from './DefaultAppHeader';
 
 const breadcrumbs = (
@@ -98,14 +89,6 @@ storiesOf(module).add('with default children', () => (
         }
         header={<DefaultAppHeader />}
         modals={null}
-        drawer={
-          <DefaultDrawer
-            drawerOpened={boolean('drawer opened', false)}
-            onDrawerClose={action('drawer closed')}
-          >
-            Drawer content, not yet shared
-          </DefaultDrawer>
-        }
       />
     </ThemeProvider>
   </MemoryRouter>
