@@ -2,6 +2,7 @@
   "name": "imdb-hooks",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://adamborowski.github.io/imdb-hooks",
   "dependencies": {
     "@storybook/addon-actions": "^5.0.1",
     "@storybook/addon-knobs": "^5.0.1",
@@ -20,6 +21,7 @@
     "classnames": "latest",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.11.2",
+    "gh-pages": "^2.0.1",
     "history": "^4.9.0",
     "jest-styled-components": "^6.3.1",
     "react": "^16.8.4",
@@ -47,7 +49,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
