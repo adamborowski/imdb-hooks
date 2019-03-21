@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VirtualList renders properly 1`] = `
+.c1::-webkit-scrollbar {
+  width: 22px;
+}
+
+.c1::-webkit-scrollbar-thumb {
+  border: 6px solid transparent;
+  border-radius: 30px;
+  background-clip: padding-box;
+  min-height: 30px;
+  background-color: rgba(0,0,0,0.15);
+}
+
+.c0 {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  padding: 1px 0 1px 1px;
+}
+
+.c0 .fixed-size-list-container {
+  width: 100%;
+  height: 100%;
+}
+
+.c0 .react-window > * > * {
+  width: calc(100% - 0.5px) !important;
+  min-width: 500px;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="fixed-size-list-container ant-list ant-list-split"
+  >
+    <div
+      className="react-window c1"
+      onScroll={[Function]}
+      style={
+        Object {
+          "WebkitOverflowScrolling": "touch",
+          "direction": "ltr",
+          "height": 0,
+          "overflow": "auto",
+          "position": "relative",
+          "width": -0.5,
+          "willChange": "transform",
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "height": 0,
+            "pointerEvents": "",
+            "width": "100%",
+          }
+        }
+      />
+    </div>
+  </div>
+</div>
+`;
