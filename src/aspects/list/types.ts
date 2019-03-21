@@ -1,4 +1,4 @@
-import { ApiResponse } from '../../api';
+import { ApiResponse } from '../../common/api';
 import { ActionCreator } from 'typescript-fsa';
 
 export interface IListItem<T> {

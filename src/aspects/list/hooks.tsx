@@ -1,5 +1,5 @@
 import { UseSetYear, UseYear } from './types';
-import { useQueryParams, useSetQueryParams } from '../../hooks/routing';
+import { useQueryParams, useSetQueryParams } from '../../common/hooks/routing';
 
 export const createUseYear = (queryParamName: string): UseYear => () => {
   const queryParams = useQueryParams();

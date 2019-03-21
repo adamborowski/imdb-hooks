@@ -4,7 +4,7 @@ import { toPersonViewPage } from '../../../routing';
 import { Assign } from 'utility-types';
 import DefaultListItem from '../../../../../common/components/antd/DefaultListItem';
 import { getThumbUrl } from '../../../../../common/api';
-import { IListItem, IListItems } from '../../../../../common/aspects/list/types';
+import { IListItem, IListItems } from '../../../../../aspects/list/types';
 import { IPersonLite } from '../../../types/state';
 
 export function ListItem(props: Assign<ListChildComponentProps, { data: IListItems<IPersonLite> }>) {

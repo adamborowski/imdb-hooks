@@ -1,6 +1,6 @@
-import { IList } from '../../../common/aspects/list/types';
-import { ITypeAheadState } from '../../../common/aspects/typeahead/types';
-import { IDetailsState } from '../../../common/aspects/details/types';
+import { IList } from '../../../aspects/list/types';
+import { ITypeAheadState } from '../../../aspects/typeahead/types';
+import { IDetailsState } from '../../../aspects/details/types';
 
 export interface IPersonLite {
   id: number;

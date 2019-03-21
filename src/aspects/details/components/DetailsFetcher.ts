@@ -1,6 +1,6 @@
 import { useDispatch } from 'redux-react-hook';
 import { FunctionComponent, useEffect } from 'react';
-import { UseValue } from '../../../types/hooks';
+import { UseValue } from '../../../common/types/hooks';
 import { IDetailsActions } from '../types';
 
 export const createDetailsFetcher = <Entity extends object>(

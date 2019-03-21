@@ -1,7 +1,7 @@
 import React from 'react';
 import getVirtualList from '../../../../../common/components/VirtualList';
 import { ListItem } from './ListItem';
-import { IListItem, IListItems } from '../../../../../common/aspects/list/types';
+import { IListItem, IListItems } from '../../../../../aspects/list/types';
 import { IMovieLite } from '../../../types/state';
 import { listAspect } from '../../../aspects';
 import { FixedSizeListProps } from 'react-window';

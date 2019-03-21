@@ -1,4 +1,4 @@
-import { FindService, PopularService } from '../../api';
+import { FindService, PopularService } from '../../common/api';
 import { Epic } from 'redux-observable';
 import { ITypeAheadActions } from './types';
 import { debounce, filter, map, mergeMap, takeUntil } from 'rxjs/operators';

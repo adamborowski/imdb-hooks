@@ -1,7 +1,7 @@
 import React from 'react';
 import getVirtualList from '../../../../../common/components/VirtualList';
 import { ListItem } from './ListItem';
-import { IListItem } from '../../../../../common/aspects/list/types';
+import { IListItem } from '../../../../../aspects/list/types';
 import { listAspect } from '../../../aspects';
 import { IPersonLite } from '../../../types/state';
 

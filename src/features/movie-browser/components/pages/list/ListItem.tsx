@@ -6,7 +6,7 @@ import { IMovieLite } from '../../../types/state';
 import DefaultListItem from '../../../../../common/components/antd/DefaultListItem';
 import { getReleaseYear, getThumbUrl } from '../../../../../common/api';
 import { Rate } from 'antd';
-import { IListItem, IListItems } from '../../../../../common/aspects/list/types';
+import { IListItem, IListItems } from '../../../../../aspects/list/types';
 
 export function ListItem(props: Assign<ListChildComponentProps, { data: IListItems<IMovieLite> }>) {
   const { index, style, data } = props;

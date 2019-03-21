@@ -1,6 +1,6 @@
 import { IList, IListActions, IListItems } from './types';
 import { combineReducers, Reducer } from 'redux';
-import { PAGE_SIZE } from '../../api';
+import { PAGE_SIZE } from '../../common/api';
 
 export const createReducers = <Entity extends object>(actions: IListActions<Entity>, pageSize = PAGE_SIZE) => {
   const total: Reducer<number | null> = (state = null, action) => {

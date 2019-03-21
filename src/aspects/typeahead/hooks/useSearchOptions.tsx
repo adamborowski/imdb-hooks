@@ -1,10 +1,10 @@
 import React from 'react';
 import { useMappedState } from 'redux-react-hook';
 import { Select } from 'antd';
-import { ApiResponse } from '../../../api';
+import { ApiResponse } from '../../../common/api';
 import _ from 'lodash';
 import { DataSourceItemType } from 'antd/es/auto-complete';
-import { optional } from '../../../utils';
+import { optional } from '../../../common/utils';
 import { ItemRenderer, SelectTypeAheadState } from '../types';
 
 const { OptGroup, Option } = Select;

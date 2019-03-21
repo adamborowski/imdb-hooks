@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useState } from 'react';
-import { optional } from '../../../utils';
+import { optional } from '../../../common/utils';
 import { useDispatch } from 'redux-react-hook';
-import { useHistoryPush } from '../../../hooks/useHistoryPush';
+import { useHistoryPush } from '../../../common/hooks/useHistoryPush';
 import { SelectValue } from 'antd/es/select';
 import { ITypeAheadActions, ToViewPage, UseSearchOptions } from '../types';
-import { UseSetValue, UseValue } from '../../../types/hooks';
+import { UseSetValue, UseValue } from '../../../common/types/hooks';
 
 export const createUseSearchInput = <Entity extends object>(
   actions: ITypeAheadActions<Entity>,

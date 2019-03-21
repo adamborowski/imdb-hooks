@@ -6,8 +6,8 @@ import { SelectList } from './types';
 import { createUseSetYear, createUseYear } from './hooks';
 import { createUseYearInput } from './hooks/useYearInput';
 import { createUsePaginatedList } from './hooks/usePaginatedList';
-import { FindService, PopularService } from '../../api';
-import { createUseGoToSearch, createUseSearchValue } from '../../hooks';
+import { FindService, PopularService } from '../../common/api';
+import { createUseGoToSearch, createUseSearchValue } from '../../common/hooks';
 import { createUseListData } from './hooks/useListData';
 
 export const createListAspect = <Entity extends object>(

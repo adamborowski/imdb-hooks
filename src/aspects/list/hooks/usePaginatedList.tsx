@@ -2,8 +2,8 @@ import { IListActions, SelectList, UseYear } from '../types';
 import { useDispatch, useMappedState } from 'redux-react-hook';
 import { useCallback, useEffect, useState } from 'react';
 import { useDebounce } from 'react-use';
-import { PAGE_SIZE } from '../../../api';
-import { UseValue } from '../../../types/hooks';
+import { PAGE_SIZE } from '../../../common/api';
+import { UseValue } from '../../../common/types/hooks';
 
 const selectPageOfRow = (page: number) => Math.floor(page / PAGE_SIZE);
 export const createUsePaginatedList = <Entity extends object>(

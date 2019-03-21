@@ -1,5 +1,5 @@
 import { combineReducers, Reducer } from 'redux';
-import { ApiResponse } from '../../api';
+import { ApiResponse } from '../../common/api';
 import { isType } from 'typescript-fsa';
 import { ITypeAheadActions, ITypeAheadState } from './types';
 

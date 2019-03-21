@@ -1,14 +1,14 @@
 import actionCreatorFactory from 'typescript-fsa';
 import { findMovies, findPopularMovies, getMovie } from './services/movie-search';
 import { selectMovieDetails, selectMovieList, selectMovieTypeAhead } from './state/selectors';
-import { createListAspect } from '../../common/aspects/list';
+import { createListAspect } from '../../aspects/list';
 import { toMovieListPage, toMovieViewPage, useMovieId } from './routing';
-import { createTypeAheadAspect } from '../../common/aspects/typeahead';
+import { createTypeAheadAspect } from '../../aspects/typeahead';
 import { IMovie, IMovieLite } from './types/state';
 import SearchOptionContent from './components/header/SearchOptionContent';
 import React from 'react';
 import { getReleaseYear, getThumbUrl } from '../../common/api';
-import { createDetailsAspect } from '../../common/aspects/details';
+import { createDetailsAspect } from '../../aspects/details';
 
 const factory = actionCreatorFactory('movie-list');
 

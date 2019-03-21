@@ -1,5 +1,5 @@
 import { IState } from '../../../common/types/state';
-import { ITypeAheadState } from '../../../common/aspects/typeahead/types';
+import { ITypeAheadState } from '../../../aspects/typeahead/types';
 import { IPeopleBrowser, IPersonLite } from '../types/state';
 
 export const selectPeopleBrowser = (state: IState): IPeopleBrowser => state.peopleBrowser as IPeopleBrowser;

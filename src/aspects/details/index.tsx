@@ -1,12 +1,12 @@
 import { createActions } from './actions';
 import { ActionCreatorFactory } from 'typescript-fsa';
 import { createEpics } from './epics';
-import { GetService } from '../../api';
+import { GetService } from '../../common/api';
 import { createReducers } from './reducers';
 import { createUseDetails } from './hooks/useDetails';
 import { SelectDetailsState } from './types';
 import { createDetailsFetcher } from './components/DetailsFetcher';
-import { UseValue } from '../../types/hooks';
+import { UseValue } from '../../common/types/hooks';
 
 export const createDetailsAspect = <Entity extends object>(
   actionCreatorFactory: ActionCreatorFactory,
