@@ -27,7 +27,9 @@ export const typeAheadAspect = createTypeAheadAspect<IPersonLite>(
   factory,
   findPeople,
   findPopularPeople,
-  result => <SearchOptionContent rank={0} avatar={getThumbUrl(result.profile_path)} name={result.name} year={'0000'} />,
+  result => (
+    <SearchOptionContent rank={result.popularity} avatar={getThumbUrl(result.profile_path)} name={result.name} />
+  ),
   'people',
   selectPersonTypeAhead,
   searchParamName,

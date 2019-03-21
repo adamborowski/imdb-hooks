@@ -7,3 +7,5 @@ export const usePersonId = () => {
   const params = useRouteParams();
   return params.id ? parseInt(params.id) : undefined;
 };
+
+export const toPersonMovies = (id: string = ':id') => `${toPersonViewPage(id)}/movies`;

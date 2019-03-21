@@ -23,4 +23,6 @@ export const findPopularPeople: PopularService<IPersonLite> = (page = 0) =>
   ).pipe(map(value => shiftPageNumber(value.response)));
 
 export const getPerson: GetService<IPerson> = id =>
-  ajax(getApiUrl(`person/${id}`, {})).pipe(map(value => shiftPageNumber(value.response)));
+  ajax(getApiUrl(`person/${id}`, { append_to_response: ['movie_credits,images'] })).pipe(
+    map(value => shiftPageNumber(value.response))
+  );

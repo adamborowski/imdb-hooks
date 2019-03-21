@@ -7,7 +7,7 @@ export interface SearchOptionProps {
   avatar?: string;
   name: string;
   rank: number;
-  year: string;
+  year?: string;
 }
 
 const SearchOptionContent: FunctionComponent<SearchOptionProps> = ({ avatar, name, rank, year, ...rest }) => (

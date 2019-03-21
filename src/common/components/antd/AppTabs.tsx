@@ -1,7 +1,7 @@
 import React from 'react';
 import {Icon, Tabs} from 'antd';
 import {getSelectedPaths, HOCInnerType, HOCOuterType2, IMenuItem, useRouter} from '../../misc';
-import {History, LocationDescriptor} from 'history';
+import {LocationDescriptor} from 'history';
 
 export interface IEnhanceProps {
   menuConfiguration: IMenuItem[];
@@ -32,25 +32,18 @@ const withRoutedTabs = <P extends IInjectProps>() => (
 ): HOCOuterType2<P, IInjectProps, IEnhanceProps> => props => {
   const route = useRouter();
 
-  const {
-    menuConfiguration,
-    onMenuSelect,
-    ...rest
-  } = (props as unknown) as IEnhanceProps;
+  const { menuConfiguration, onMenuSelect, ...rest } = (props as unknown) as IEnhanceProps;
   const menuNodes = createMenuNodes(menuConfiguration);
-  const selectedNodes: string[] = getSelectedPaths(
-    route.location,
-    menuConfiguration
-  ).filter(s => s !== undefined) as string[];
+  const selectedNodes: string[] = getSelectedPaths(route.location, menuConfiguration).filter(
+    s => s !== undefined
+  ) as string[];
 
   return (
     <InnerComponent
       activeKey={selectedNodes[0]}
       children={menuNodes}
       onChange={activeKey => {
-        const activeMenuItem = menuConfiguration.find(
-          s => s.path === activeKey
-        );
+        const activeMenuItem = menuConfiguration.find(s => s.path === activeKey);
         if (activeMenuItem) {
           onMenuSelect(activeMenuItem.link);
         }
@@ -61,3 +54,5 @@ const withRoutedTabs = <P extends IInjectProps>() => (
 };
 
 export default withRoutedTabs;
+
+export const RoutedTabs = withRoutedTabs()(Tabs);

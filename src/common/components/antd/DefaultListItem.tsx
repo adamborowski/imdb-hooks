@@ -39,8 +39,8 @@ const DefaultListItemUnstyled: FunctionComponent<DefaultListItemProps> = ({
             className="default-list-item-content-item update-info"
             title={`Released in ${year}. Popularity: ${popularity}.`}
           >
-            <div>{year || <i>(no year info)</i>}</div>
-            <div>{popularity ? popularity : <i>(no popularity)</i>}</div>
+            <div>{year}</div>
+            <div>{popularity}</div>
           </div>
         )}
       </>

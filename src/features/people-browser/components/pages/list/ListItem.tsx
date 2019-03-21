@@ -7,12 +7,12 @@ import {getPosterUrl} from '../../../../../common/api';
 import {IListItem, IListItems} from '../../../../../common/aspects/list/types';
 import {IPersonLite} from '../../../types/state';
 
-export function ListItem(props: Assign<ListChildComponentProps, { data: IListItems<IPersonLite>}>) {
+export function ListItem(props: Assign<ListChildComponentProps, { data: IListItems<IPersonLite> }>) {
   const { index, style, data } = props;
 
-  const item = data[index] || ({loading: true } as IListItem<IPersonLite>);
+  const item = data[index] || ({ loading: true } as IListItem<IPersonLite>);
 
-  const result: IPersonLite = item.result || ({ } as IPersonLite);
+  const result: IPersonLite = item.result || ({} as IPersonLite);
   const loading = item.loading;
 
   return (
@@ -25,11 +25,7 @@ export function ListItem(props: Assign<ListChildComponentProps, { data: IListIte
           &#8203;{index + 1}. {result.name}
         </>
       }
-      year={loading ? '...' : '0000'}
       popularity={loading ? '...' : result.popularity ? result.popularity.toFixed(2) : ''}
-      description={
-        "What description?"
-      }
     />
   );
 }
