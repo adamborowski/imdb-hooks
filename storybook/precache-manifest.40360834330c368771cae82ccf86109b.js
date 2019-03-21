@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "vendors~main.css"
   },
   {
-    "url": "vendors~main.ad839f19cf56468336f9.bundle.js"
+    "url": "vendors~main.857f67bf367c5c9dcccb.bundle.js"
   },
   {
     "revision": "519cff02ac5bd15fcd9b3f37cdf9aa41",
@@ -19,13 +19,13 @@ self.__precacheManifest = [
     "url": "static/media/AppSider.logo.5c339183.png"
   },
   {
-    "url": "runtime~main.ad839f19cf56468336f9.bundle.js"
+    "url": "runtime~main.857f67bf367c5c9dcccb.bundle.js"
   },
   {
-    "url": "main.ad839f19cf56468336f9.bundle.js"
+    "url": "main.857f67bf367c5c9dcccb.bundle.js"
   },
   {
-    "revision": "6e0f01106556a2637c9c6d09b00ebe2e",
+    "revision": "f4c760311f14f0686ae1ff78a74995f9",
     "url": "iframe.html"
   }
 ];
