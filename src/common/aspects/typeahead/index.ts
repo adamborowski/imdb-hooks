@@ -4,7 +4,9 @@ import {createReducers} from './reducers';
 import {createEpics} from './epics';
 import {FindService, PopularService} from '../../api';
 import {createUseSearchOptions} from './hooks/useSearchOptions';
-import {ItemRenderer, SelectTypeAheadState} from './types';
+import {ItemRenderer, SelectTypeAheadState, ToViewPage} from './types';
+import {createUseSearchInput} from './hooks/useSearchInput';
+import {createUseGoToSearch, createUseSearchValue} from '../../hooks/hooks';
 
 export const createTypeAheadAspect = <Entity extends { id: number }>(
   actionCreatorFactory: ActionCreatorFactory,
@@ -12,16 +14,28 @@ export const createTypeAheadAspect = <Entity extends { id: number }>(
   popularService: PopularService<Entity>,
   itemRenderer: ItemRenderer<Entity>,
   subject: string,
-  selectMovieTypeAhead: SelectTypeAheadState<Entity>
+  selectMovieTypeAhead: SelectTypeAheadState<Entity>,
+  searchParamName: string,
+  listRoute: string,
+  toViewPage: ToViewPage
 ) => {
   const actions = createActions<Entity>(actionCreatorFactory);
   const reducer = createReducers(actions);
   const epics = createEpics(actions, findService, popularService);
   const useSearchOptions = createUseSearchOptions(itemRenderer, subject, selectMovieTypeAhead);
+  const useSearchValue = createUseSearchValue(searchParamName);
+  const useSearchInput = createUseSearchInput(
+    actions,
+    useSearchValue,
+    createUseGoToSearch(listRoute, searchParamName),
+    useSearchOptions,
+    toViewPage
+  );
   return {
     actions,
     reducer,
     epics,
-    useSearchOptions
+    useSearchOptions,
+    useSearchInput
   };
 };

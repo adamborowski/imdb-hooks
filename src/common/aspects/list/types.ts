@@ -28,7 +28,5 @@ export type IListActions<Entity extends object> = {
 };
 
 export type UseYear = () => number | undefined;
-export type UseSearchValue = () => string | undefined;
 export type UseSetYear = () => (value?: number) => void;
-export type UseGoToSearch = () => (query?: string) => void;
 export type SelectList<Entity> = (state: any) => IList<Entity>;

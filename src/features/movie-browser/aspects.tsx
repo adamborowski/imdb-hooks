@@ -2,7 +2,7 @@ import actionCreatorFactory from 'typescript-fsa';
 import {findMovies, findPopularMovies, getMovie} from './services/movie-search';
 import {selectMovieList, selectMovieTypeAhead} from './state/selectors';
 import {createListAspect} from '../../common/aspects/list';
-import {toMovieListPage} from './routing';
+import {toMovieListPage, toMovieViewPage} from './routing';
 import {createTypeAheadAspect} from '../../common/aspects/typeahead';
 import {IMovie, IMovieLite} from './types/state';
 import SearchOptionContent from './components/header/SearchOptionContent';
@@ -12,12 +12,13 @@ import {createDetailsAspect} from '../../common/aspects/details';
 
 const factory = actionCreatorFactory('movie-list');
 
+const searchParamName = 'mQuery';
 export const listAspect = createListAspect(
   factory,
   findMovies,
   findPopularMovies,
   selectMovieList,
-  'mQuery',
+  searchParamName,
   'mYear',
   toMovieListPage()
 );
@@ -35,7 +36,10 @@ export const typeAheadAspect = createTypeAheadAspect<IMovieLite>(
     />
   ),
   'movies',
-  selectMovieTypeAhead
+  selectMovieTypeAhead,
+  searchParamName,
+  toMovieListPage(),
+  toMovieViewPage
 );
 
 export const detailsAspect = createDetailsAspect<IMovie>(factory, getMovie);

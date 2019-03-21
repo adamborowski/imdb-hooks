@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {optional} from '../../../utils';
 import {useDebounce} from 'react-use';
-import {UseSearchValue, UseSetYear, UseYear} from '../types';
+import {UseSetYear, UseYear} from '../types';
+import {UseValue} from '../../../types/hooks';
 
-export const createUseYearInput = (useYear: UseYear, useSetYear: UseSetYear, useSearchValue: UseSearchValue) => {
+export const createUseYearInput = (useYear: UseYear, useSetYear: UseSetYear, useSearchValue: UseValue) => {
   return () => {
     const year = useYear();
     const setYear = useSetYear();
