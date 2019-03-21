@@ -2,7 +2,7 @@ import React from 'react';
 import {Icon, Tabs} from 'antd';
 import {LocationDescriptor} from 'history';
 import {getSelectedPaths, IMenuItem} from '../../misc/getSelectedPaths';
-import {HOCInnerType, HOCOuterType} from '../../misc/hoc';
+import {HOCInnerType, HOCOuterType} from '../../types/hoc';
 import {useRouter} from '../../hooks/routing';
 
 export interface IEnhanceProps {

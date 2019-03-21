@@ -6,7 +6,7 @@ import {FormProps} from 'antd/es/form';
 import {formItemLayout} from '../../../../../common/layout-props';
 import styled from 'styled-components';
 import {ImageThumbnail} from '../../../../../common/components/ImageThumbnail';
-import withFading from '../../../../../common/misc/withFading';
+import withFading from '../../../../../common/components/withFading';
 
 const { Text } = Typography;
 

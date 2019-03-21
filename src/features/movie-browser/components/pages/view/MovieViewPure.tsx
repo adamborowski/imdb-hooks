@@ -7,7 +7,7 @@ import {formItemLayout} from '../../../../../common/layout-props';
 import styled from 'styled-components';
 import {CountryTags} from '../../../../../common/components/CountryTags';
 import {ImageThumbnail} from '../../../../../common/components/ImageThumbnail';
-import withFading from '../../../../../common/misc/withFading';
+import withFading from '../../../../../common/components/withFading';
 
 const { Text } = Typography;
 
