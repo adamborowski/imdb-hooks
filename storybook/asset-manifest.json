@@ -1,0 +1,16 @@
+{
+  "main.js": "/imdb-hooks/main.41bff851588b28c6e899.bundle.js",
+  "main.js.map": "/imdb-hooks/main.41bff851588b28c6e899.bundle.js.map",
+  "runtime~main.js": "/imdb-hooks/runtime~main.41bff851588b28c6e899.bundle.js",
+  "runtime~main.js.map": "/imdb-hooks/runtime~main.41bff851588b28c6e899.bundle.js.map",
+  "vendors~main.css": "/imdb-hooks/vendors~main.css",
+  "vendors~main.js": "/imdb-hooks/vendors~main.41bff851588b28c6e899.bundle.js",
+  "vendors~main.css.map": "/imdb-hooks/vendors~main.css.map",
+  "vendors~main.js.map": "/imdb-hooks/vendors~main.41bff851588b28c6e899.bundle.js.map",
+  "iframe.html": "/imdb-hooks/iframe.html",
+  "precache-manifest.173823a9b0307ddfc406f804304144d8.js": "/imdb-hooks/precache-manifest.173823a9b0307ddfc406f804304144d8.js",
+  "service-worker.js": "/imdb-hooks/service-worker.js",
+  "static/media/AppSider.logo.png": "/imdb-hooks/static/media/AppSider.logo.5c339183.png",
+  "static/media/emptyAvatar.png": "/imdb-hooks/static/media/emptyAvatar.fece421f.png",
+  "static/media/exampleAvatar.jpg": "/imdb-hooks/static/media/exampleAvatar.519cff02.jpg"
+}
