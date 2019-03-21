@@ -7,7 +7,7 @@ import MovieViewPure from './MovieViewPure';
 import {InlineSpinner} from '../../../../../common/components/InlineSpinner';
 import {detailsAspect} from '../../../aspects';
 import {IMovie} from '../../../types/state';
-import {ContentLayout} from '../../../../../common/components/antd/ContentLayout';
+import ContentLayout from '../../../../../common/components/antd/ContentLayout';
 import DefaultPrimaryContent from '../../../../../common/components/antd/DefaultPrimaryContent';
 
 const MovieView = () => {

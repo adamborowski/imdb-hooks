@@ -6,7 +6,7 @@ interface IProps {
   secondaryContent?: ReactElement<any>;
 }
 
-export const ContentLayout = ({
+const ContentLayout = ({
   secondaryContent,
   primaryContent,
   ...rest

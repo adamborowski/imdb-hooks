@@ -11,9 +11,9 @@ import {IMenuItem} from '../../misc/getSelectedPaths';
 import DefaultAppLogo from './DefaultAppLogo';
 import AppMenu from './AppMenu';
 import AppSider from './AppSider';
-import {ContentLayout} from './ContentLayout';
 import DefaultPrimaryContent from './DefaultPrimaryContent';
 import DefaultSecondaryContent from './DefaultSecondaryContent';
+import ContentLayout from './ContentLayout';
 
 const breadcrumbs = (
   <Breadcrumb>
