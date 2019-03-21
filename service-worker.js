@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/imdb-hooks/precache-manifest.8f016378a02d3ad9bd859ee2f2583bd5.js"
+  "/imdb-hooks/precache-manifest.57dc04c976ae58d22a78c0d451e803c5.js"
 );
 
 workbox.clientsClaim();
