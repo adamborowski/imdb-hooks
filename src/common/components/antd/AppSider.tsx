@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { SiderProps } from 'antd/es/layout';
+import {SiderProps} from 'antd/es/layout';
 import * as React from 'react';
-import { ComponentType, HTMLProps, ReactNode } from 'react';
-import { Layout } from 'antd';
+import {ComponentType, HTMLProps, ReactNode} from 'react';
+import {Layout} from 'antd';
 import withSublimeScrollbar from './withStyledScrollbar';
 
 interface IProps extends SiderProps {

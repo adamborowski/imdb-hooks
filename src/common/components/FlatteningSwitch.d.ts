@@ -1,3 +1,3 @@
-import { Switch } from 'react-router';
+import {Switch} from 'react-router';
 
 export default Switch;

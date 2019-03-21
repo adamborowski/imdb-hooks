@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom';
-import { FunctionComponent } from 'react';
-import React from 'react';
+import {Link} from 'react-router-dom';
+import React, {FunctionComponent} from 'react';
 import styled from 'styled-components';
 
 interface DefaultAppLogoProps {

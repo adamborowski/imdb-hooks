@@ -1,17 +1,9 @@
-import {
-  applyMiddleware,
-  combineReducers,
-  compose,
-  createStore,
-  Middleware,
-  Reducer,
-  StoreEnhancer
-} from 'redux';
+import {applyMiddleware, combineReducers, compose, createStore, Middleware, Reducer, StoreEnhancer} from 'redux';
 import _ from 'lodash';
-import { IState } from './common/types/state';
-import { combineEpics, createEpicMiddleware } from 'redux-observable';
+import {IState} from './common/types/state';
+import {combineEpics, createEpicMiddleware} from 'redux-observable';
 import features from './features';
-import { IPlugin } from './common/plugins';
+import {IPlugin} from './common/plugins';
 
 export const rootReducerFactory = (pluginArray: IPlugin[]): Reducer<IState> => {
   const pluginReducers = pluginArray

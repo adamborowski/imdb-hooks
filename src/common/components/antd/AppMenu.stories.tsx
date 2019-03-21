@@ -1,6 +1,6 @@
 import React from 'react';
 import AppMenu from './AppMenu';
-import { MemoryRouter } from 'react-router';
+import {MemoryRouter} from 'react-router';
 import {IMenuItem} from '../../misc';
 import {storiesOf} from '../../storiesOf';
 

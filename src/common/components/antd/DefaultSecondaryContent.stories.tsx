@@ -1,10 +1,9 @@
 import React from 'react';
-import { DefaultPrimaryContent, DefaultSecondaryContent } from './index';
-import { Layout } from 'antd';
-import { ThemeProvider } from 'styled-components';
+import {DefaultPrimaryContent, DefaultSecondaryContent} from './index';
+import {Breadcrumb, Layout} from 'antd';
+import {ThemeProvider} from 'styled-components';
 import baseTheme from './app-theme';
-import { Breadcrumb } from 'antd';
-import { boolean } from '@storybook/addon-knobs';
+import {boolean} from '@storybook/addon-knobs';
 import _ from 'lodash';
 import {storiesOf} from '../../storiesOf';
 

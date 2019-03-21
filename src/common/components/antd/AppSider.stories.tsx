@@ -3,7 +3,7 @@ import React from 'react';
 import logo from './__stories__/AppSider.logo.png';
 import AppSider from './AppSider';
 import DefaultAppLogo from './DefaultAppLogo';
-import { MemoryRouter } from 'react-router';
+import {MemoryRouter} from 'react-router';
 import {storiesOf} from '../../storiesOf';
 
 storiesOf(module)

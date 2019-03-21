@@ -1,17 +1,10 @@
-import React, {
-    Component,
-    ComponentType, memo,
-    ReactElement,
-    ReactNode,
-    RefObject
-} from 'react';
-import { AutoComplete, Input } from 'antd';
+import React, {Component, ComponentType, memo, ReactNode, RefObject} from 'react';
+import {AutoComplete, Input} from 'antd';
 import withStyled from './Search.styled';
-import { AutoCompleteProps, DataSourceItemType } from 'antd/es/auto-complete';
-import { compose } from 'redux';
+import {AutoCompleteProps, DataSourceItemType} from 'antd/es/auto-complete';
 import KeyboardEventHandler from 'react-keyboard-event-handler';
-import { Assign } from 'utility-types';
-import { SelectValue } from 'antd/lib/select';
+import {Assign} from 'utility-types';
+import {SelectValue} from 'antd/lib/select';
 
 type IProps = Assign<
   AutoCompleteProps,

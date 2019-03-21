@@ -8,16 +8,10 @@
  * There is no way to configure specific menu item with react-router. Instead, all routes have to be processed using react-router's matchPath function.
  */
 
-import {
-  getSelectedPaths,
-  HOCInnerType,
-  HOCOuterType,
-  IMenuItem,
-  useRouter
-} from '../../misc';
-import { Icon, Menu } from 'antd';
-import React, { ReactNode } from 'react';
-import { Link } from 'react-router-dom';
+import {getSelectedPaths, HOCInnerType, HOCOuterType, IMenuItem, useRouter} from '../../misc';
+import {Icon, Menu} from 'antd';
+import React, {ReactNode} from 'react';
+import {Link} from 'react-router-dom';
 
 export interface IEnhanceProps {
   menuConfiguration: IMenuItem[];

@@ -1,6 +1,6 @@
-import React, { ComponentType, ReactNode } from 'react';
+import React, {ComponentType, ReactNode} from 'react';
 import withStyled from './DefaultPrimaryContent.styled';
-import { HBox, Spacer, VBox } from './layout';
+import {HBox, Spacer, VBox} from './layout';
 
 interface IProps {
   breadcrumbs?: ReactNode;

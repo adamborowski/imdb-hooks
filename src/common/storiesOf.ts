@@ -1,4 +1,4 @@
-import { storiesOf as _storiesOf } from '@storybook/react';
+import {storiesOf as _storiesOf} from '@storybook/react';
 import path from 'path';
 import Module from 'module';
 

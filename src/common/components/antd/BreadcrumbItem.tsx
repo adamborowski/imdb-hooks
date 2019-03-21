@@ -1,7 +1,7 @@
-import { BreadcrumbItemProps } from 'antd/es/breadcrumb';
-import React, { FunctionComponent } from 'react';
-import { Breadcrumb } from 'antd';
-import { InlineSpinner } from '../InlineSpinner';
+import {BreadcrumbItemProps} from 'antd/es/breadcrumb';
+import React, {FunctionComponent} from 'react';
+import {Breadcrumb} from 'antd';
+import {InlineSpinner} from '../InlineSpinner';
 
 interface Props extends BreadcrumbItemProps {
   loading?: boolean;

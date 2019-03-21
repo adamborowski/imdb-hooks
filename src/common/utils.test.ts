@@ -1,4 +1,4 @@
-import { optional } from './utils';
+import {optional} from './utils';
 
 describe('utils', () => {
   describe('when working with strings', () => {

@@ -1,10 +1,9 @@
-import { storiesOf } from '../../storiesOf';
+import {storiesOf} from '../../storiesOf';
 import Search from './Search';
 import React from 'react';
-import { text } from '@storybook/addon-knobs';
-import { DataSourceItemObject } from 'antd/es/auto-complete';
-import { action } from '@storybook/addon-actions';
-import { Divider, Select, Menu } from 'antd';
+import {text} from '@storybook/addon-knobs';
+import {action} from '@storybook/addon-actions';
+import {Select} from 'antd';
 
 storiesOf(module).add('default', () => (
   <Search

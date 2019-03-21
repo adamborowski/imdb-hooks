@@ -1,7 +1,7 @@
 import React from 'react';
-import { DefaultPrimaryContent } from './index';
-import { Breadcrumb, Button, Tabs } from 'antd';
-import { ThemeProvider } from 'styled-components';
+import {DefaultPrimaryContent} from './index';
+import {Breadcrumb, Button, Tabs} from 'antd';
+import {ThemeProvider} from 'styled-components';
 import baseTheme from './app-theme';
 import {storiesOf} from '../../storiesOf';
 

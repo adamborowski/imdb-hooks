@@ -1,7 +1,7 @@
-import { Location } from 'history';
-import { matchPath } from 'react-router';
+import {Location} from 'history';
+import {matchPath} from 'react-router';
 import _ from 'lodash';
-import { ReactNode } from 'react';
+import {ReactNode} from 'react';
 
 /**
  * The aim of this utility it to provide react-router definition of menus, tabs from Ant Design which require specyfying selectedKeys in the parent component.

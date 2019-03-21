@@ -1,6 +1,6 @@
-import { MenuProps } from 'antd/es/menu';
-import React, { FunctionComponent } from 'react';
-import { Menu } from 'antd';
+import {MenuProps} from 'antd/es/menu';
+import React, {FunctionComponent} from 'react';
+import {Menu} from 'antd';
 import withAntdFix from './withAppMenuRouted';
 
 interface IProps extends MenuProps {

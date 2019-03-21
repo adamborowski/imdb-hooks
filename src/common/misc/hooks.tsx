@@ -1,13 +1,9 @@
-import {
-  // @ts-ignore
-  __RouterContext as RouterContext,
-  RouteComponentProps
-} from 'react-router-dom';
-import { useContext, useMemo } from 'react';
 // @ts-ignore
-import { parse, stringify } from 'querystringify';
+import {__RouterContext as RouterContext, RouteComponentProps} from 'react-router-dom';
+import {useContext, useMemo} from 'react';
+import {parse, stringify} from 'querystringify';
 import _ from 'lodash';
-import { History, LocationDescriptorObject } from 'history';
+import {History, LocationDescriptorObject} from 'history';
 
 export const useRouter = (): RouteComponentProps => useContext(RouterContext);
 

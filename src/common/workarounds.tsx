@@ -1,4 +1,4 @@
-import React, { ComponentType } from 'react';
+import React, {ComponentType} from 'react';
 
 export function fixBreadcrumb<T extends React.ComponentType>(component: T): T {
   (component as any).__ANT_BREADCRUMB_ITEM = true; // fix for 'Breadcrumb only accepts Breadcrumb.Item as it\'s children' error

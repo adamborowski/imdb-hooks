@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import React, { ComponentType } from 'react';
+import React, {ComponentType} from 'react';
 import styled from 'styled-components';
 
 const FADED_CLASS_NAME_ACTIVE = 'fading-active';
