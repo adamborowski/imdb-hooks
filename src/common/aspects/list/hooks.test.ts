@@ -10,6 +10,7 @@ describe('hooks', () => {
     beforeEach(() => {
       dispatchMock = jest.fn();
       require('redux-react-hook').useDispatch = jest.fn(() => dispatchMock);
+      require('redux-react-hook').useMappedState= jest.fn((selector) => selector());
       require('react').useCallback = (x: any) => x;
     });
 
