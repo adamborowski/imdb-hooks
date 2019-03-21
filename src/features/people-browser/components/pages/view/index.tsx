@@ -1,4 +1,3 @@
-import {ContentLayout, DefaultPrimaryContent, DefaultSecondaryContent} from '../../../../../common/components/antd';
 import React, {useMemo} from 'react';
 import {Breadcrumb, Button, Tooltip, Typography} from 'antd';
 import List from '../../breadcrumbs/List';
@@ -15,6 +14,9 @@ import {useHistoryPush} from '../../../../../common/hooks/useHistoryPush';
 import {Route, Switch} from 'react-router';
 import {Movies} from './Movies';
 import {IMenuItem} from '../../../../../common/misc/getSelectedPaths';
+import {ContentLayout} from '../../../../../common/components/antd/ContentLayout';
+import DefaultPrimaryContent from '../../../../../common/components/antd/DefaultPrimaryContent';
+import DefaultSecondaryContent from '../../../../../common/components/antd/DefaultSecondaryContent';
 
 const MovieView = () => {
   const { loading, result } = detailsAspect.useDetails();

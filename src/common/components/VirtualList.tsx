@@ -3,8 +3,8 @@ import {FixedSizeList, FixedSizeListProps, ListChildComponentProps} from 'react-
 import styled from 'styled-components';
 import {MeasuredComponentProps, withContentRect} from 'react-measure';
 import _ from 'lodash';
-import {withStyledScrollbar} from './antd';
 import getOptional from '../getOptional';
+import withSublimeScrollbar from './antd/withStyledScrollbar';
 
 export interface IVirtualListPropsBase<T> {
   itemData?: T[];
@@ -16,7 +16,7 @@ export interface IVirtualListPropsBase<T> {
 }
 export type IVirtualListProps<T> = IVirtualListPropsBase<T> & MeasuredComponentProps;
 
-const FixedSizeListWithScrollbar = withStyledScrollbar('dark')(FixedSizeList);
+const FixedSizeListWithScrollbar = withSublimeScrollbar('dark')(FixedSizeList);
 
 export const VirtualList = <P extends any>(props: IVirtualListProps<P>) => {
   const {

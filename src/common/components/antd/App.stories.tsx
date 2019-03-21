@@ -2,14 +2,18 @@ import React from 'react';
 import App from './App';
 import {MemoryRouter} from 'react-router';
 import {Breadcrumb, Button, Tabs} from 'antd';
-import {AppMenu, AppSider, ContentLayout, DefaultPrimaryContent, DefaultSecondaryContent} from './index';
 import logo from './__stories__/AppSider.logo.png';
-import {DefaultAppLogo} from '.';
 import {ThemeProvider} from 'styled-components';
 import baseTheme from './app-theme';
 import {storiesOf} from '../../storybook-utils';
 import DefaultAppHeader from './DefaultAppHeader';
 import {IMenuItem} from '../../misc/getSelectedPaths';
+import DefaultAppLogo from './DefaultAppLogo';
+import AppMenu from './AppMenu';
+import AppSider from './AppSider';
+import {ContentLayout} from './ContentLayout';
+import DefaultPrimaryContent from './DefaultPrimaryContent';
+import DefaultSecondaryContent from './DefaultSecondaryContent';
 
 const breadcrumbs = (
   <Breadcrumb>

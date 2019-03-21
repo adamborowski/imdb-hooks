@@ -1,11 +1,12 @@
 import React from 'react';
-import {DefaultPrimaryContent, DefaultSecondaryContent} from './index';
 import {Breadcrumb, Layout} from 'antd';
 import {ThemeProvider} from 'styled-components';
 import baseTheme from './app-theme';
 import {boolean} from '@storybook/addon-knobs';
 import _ from 'lodash';
 import {storiesOf} from '../../storybook-utils';
+import DefaultSecondaryContent from './DefaultSecondaryContent';
+import DefaultPrimaryContent from './DefaultPrimaryContent';
 
 const breadcrumbs = (
   <Breadcrumb>

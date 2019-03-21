@@ -1,4 +1,3 @@
-import {ContentLayout, DefaultPrimaryContent} from '../../../../../common/components/antd';
 import React from 'react';
 import {Breadcrumb, Button, Tooltip} from 'antd';
 import List from '../../breadcrumbs/List';
@@ -8,6 +7,8 @@ import MovieViewPure from './MovieViewPure';
 import {InlineSpinner} from '../../../../../common/components/InlineSpinner';
 import {detailsAspect} from '../../../aspects';
 import {IMovie} from '../../../types/state';
+import {ContentLayout} from '../../../../../common/components/antd/ContentLayout';
+import DefaultPrimaryContent from '../../../../../common/components/antd/DefaultPrimaryContent';
 
 const MovieView = () => {
   const { loading, result } = detailsAspect.useDetails();
