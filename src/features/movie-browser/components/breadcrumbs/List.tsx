@@ -12,7 +12,7 @@ const List = () => {
   return (
     <>
       <BreadcrumbItem>
-        <QueryLink to={toMovieListPage()} queryParams={{ mQuery: undefined }}>
+        <QueryLink to={toMovieListPage()} queryParams={{ [listAspect.searchParam]: undefined }}>
           Movies
         </QueryLink>
       </BreadcrumbItem>

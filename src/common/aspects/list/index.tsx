@@ -40,6 +40,7 @@ export const createListAspect = <Entity extends object>(
     useGoToSearch,
     useYearInput,
     usePaginatedList,
-    useListData
+    useListData,
+    searchParam
   };
 };
