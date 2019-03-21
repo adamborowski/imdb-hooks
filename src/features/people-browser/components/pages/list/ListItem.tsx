@@ -3,7 +3,7 @@ import {ListChildComponentProps} from 'react-window';
 import {toPersonViewPage} from '../../../routing';
 import {Assign} from 'utility-types';
 import DefaultListItem from '../../../../../common/components/antd/DefaultListItem';
-import {getPosterUrl} from '../../../../../common/api';
+import {getThumbUrl} from '../../../../../common/api';
 import {IListItem, IListItems} from '../../../../../common/aspects/list/types';
 import {IPersonLite} from '../../../types/state';
 
@@ -17,7 +17,7 @@ export function ListItem(props: Assign<ListChildComponentProps, { data: IListIte
 
   return (
     <DefaultListItem
-      avatar={getPosterUrl(result.profile_path)}
+      avatar={getThumbUrl(result.profile_path)}
       style={style}
       to={toPersonViewPage((result.id && result.id.toString()) || '')}
       title={

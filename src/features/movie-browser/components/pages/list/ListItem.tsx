@@ -4,7 +4,7 @@ import {toMovieViewPage} from '../../../routing';
 import {Assign} from 'utility-types';
 import {IMovieLite} from '../../../types/state';
 import DefaultListItem from '../../../../../common/components/antd/DefaultListItem';
-import {getPosterUrl, getReleaseYear} from '../../../../../common/api';
+import {getReleaseYear, getThumbUrl} from '../../../../../common/api';
 import {Rate} from 'antd';
 import {IListItem, IListItems} from '../../../../../common/aspects/list/types';
 
@@ -18,7 +18,7 @@ export function ListItem(props: Assign<ListChildComponentProps, { data: IListIte
 
   return (
     <DefaultListItem
-      avatar={getPosterUrl(result.poster_path)}
+      avatar={getThumbUrl(result.poster_path)}
       style={style}
       to={toMovieViewPage((result.id && result.id.toString()) || '')}
       title={
