@@ -1,6 +1,6 @@
 import React, {HTMLProps} from 'react';
 import withSublimeScrollbar from './withStyledScrollbar';
-import {storiesOf} from '../../storiesOf';
+import {storiesOf} from '../../storybook-utils';
 
 const content = (
   <>

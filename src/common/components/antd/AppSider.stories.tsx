@@ -4,7 +4,7 @@ import logo from './__stories__/AppSider.logo.png';
 import AppSider from './AppSider';
 import DefaultAppLogo from './DefaultAppLogo';
 import {MemoryRouter} from 'react-router';
-import {storiesOf} from '../../storiesOf';
+import {storiesOf} from '../../storybook-utils';
 
 storiesOf(module)
   .addDecorator(story => <MemoryRouter>{story()}</MemoryRouter>)

@@ -1,7 +1,7 @@
 import React from 'react';
 import {boolean, color, withKnobs} from '@storybook/addon-knobs';
 import withFadeTransition from './withFading';
-import {storiesOf} from '../storiesOf';
+import {storiesOf} from '../storybook-utils';
 
 const ReactComp = ({ color, ...rest }: any) => (
   <div

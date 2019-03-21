@@ -1,6 +1,8 @@
-import {storiesOf as _storiesOf} from '@storybook/react';
+import {storiesOf as _storiesOf, StoryDecorator} from '@storybook/react';
 import path from 'path';
 import Module from 'module';
+import styled from 'styled-components';
+import * as React from 'react';
 
 export const splitPath = (filepath: string) => {
   const segments = path.resolve(filepath).split(path.sep);
@@ -16,3 +18,12 @@ export const storiesOf = (module: Module) => {
   const storyPath = (window as any).__story__name__;
   return _storiesOf(splitPath(storyPath), module);
 };
+
+const Centered = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+export const centeredDecorator: StoryDecorator = story => <Centered>{story()}</Centered>;

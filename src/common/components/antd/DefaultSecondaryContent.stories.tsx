@@ -5,7 +5,7 @@ import {ThemeProvider} from 'styled-components';
 import baseTheme from './app-theme';
 import {boolean} from '@storybook/addon-knobs';
 import _ from 'lodash';
-import {storiesOf} from '../../storiesOf';
+import {storiesOf} from '../../storybook-utils';
 
 const breadcrumbs = (
   <Breadcrumb>
