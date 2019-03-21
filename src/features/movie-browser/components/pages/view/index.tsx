@@ -10,6 +10,7 @@ import {selectMovieDetails} from '../../../state/selectors';
 import MovieViewPure from './MovieViewPure';
 import {InlineSpinner} from '../../../../../common/components/InlineSpinner';
 import {detailsAspect} from '../../../aspects';
+import {IMovie} from '../../../types/state';
 
 const MovieView = () => {
   const { loading, result } = detailsAspect.useDetails();
@@ -38,12 +39,9 @@ const Toolbar = () => {
 };
 
 const MovieTitle = () => {
-  const mapState = useCallback((state: IState) => {
-    const movie = selectMovieDetails(state).result;
-    const loading = selectMovieDetails(state).loading;
-    return { title: movie && movie.title, original_title: movie && movie.original_title, loading };
-  }, []);
-  const { loading, title, original_title } = useMappedState(mapState);
+  const { loading, result } = detailsAspect.useDetails();
+
+  const { title, original_title } = result as Partial<IMovie>;
 
   return loading ? (
     <InlineSpinner />
