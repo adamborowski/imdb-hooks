@@ -3,7 +3,7 @@ import {__RouterContext as RouterContext, RouteComponentProps} from 'react-route
 import {useContext, useMemo} from 'react';
 import {parse, stringify} from 'querystringify';
 import _ from 'lodash';
-import {History, LocationDescriptorObject} from 'history';
+import {getLocationDescriptionObject} from './getLocationDescriptionObject';
 
 export const useRouter = (): RouteComponentProps => useContext(RouterContext);
 
@@ -31,7 +31,3 @@ export const useSetQueryParams = () => {
     });
   };
 };
-
-export const getLocationDescriptionObject = (
-  to: History.LocationDescriptor
-): LocationDescriptorObject => (typeof to === 'string' ? { pathname: to } : to);
