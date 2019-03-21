@@ -2,7 +2,7 @@ import {IMovie} from '../../../types/state';
 import React, {FunctionComponent} from 'react';
 import {withFading} from '../../../../../common/misc';
 import {getPosterUrl} from '../../../../../common/api';
-import {Form, Rate, Tag, Typography} from 'antd';
+import {Form, Icon, Rate, Tag, Typography} from 'antd';
 import {FormProps} from 'antd/es/form';
 import {formItemLayout} from '../../../../../common/layout-props';
 import styled from 'styled-components';
@@ -37,7 +37,7 @@ const MovieViewPure: FunctionComponent<MovieViewPureProps> = ({ entity, ...rest 
         <strong>{get('vote_average')}</strong> | {get('vote_count')} votes
       </Form.Item>
       <Form.Item label="Popularity" {...formItemLayout}>
-        {get('popularity')}
+        <Icon type="like" theme="filled" /> {get('popularity')}
       </Form.Item>
       <Form.Item label="Release date" {...formItemLayout}>
         <Text>{get('release_date')}</Text>

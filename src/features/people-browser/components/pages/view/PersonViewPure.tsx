@@ -2,7 +2,7 @@ import {IPerson} from '../../../types/state';
 import React, {FunctionComponent} from 'react';
 import {withFading} from '../../../../../common/misc';
 import {getPosterUrl} from '../../../../../common/api';
-import {Form, Typography} from 'antd';
+import {Form, Icon, Typography} from 'antd';
 import {FormProps} from 'antd/es/form';
 import {formItemLayout} from '../../../../../common/layout-props';
 import styled from 'styled-components';
@@ -19,7 +19,7 @@ const PersonViewPure: FunctionComponent<PersonViewPureProps> = ({ entity, ...res
   return (
     <Form {...rest} labelAlign="left" layout="horizontal">
       <Form.Item label="Popularity" {...formItemLayout}>
-        {get('popularity')}
+        <Icon type="like" theme="filled" /> {get('popularity')}
       </Form.Item>
       <Form.Item label="Birth" {...formItemLayout}>
         <Text>

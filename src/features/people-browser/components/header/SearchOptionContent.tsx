@@ -16,7 +16,7 @@ const SearchOptionContent: FunctionComponent<SearchOptionProps> = ({ avatar, nam
     {name}
     <span className="rate">
       {year}
-      <Icon type="star" theme="filled" />
+      <Icon type="like" theme="filled" />
       {rank.toFixed(1)}
     </span>
   </div>
@@ -35,7 +35,6 @@ export default memo(styled(SearchOptionContent)`
     font-size: 15px;
     svg {
       margin: 0 4px;
-      color: #ffcc33;
     }
   }
 `) as ComponentType<SearchOptionProps>;
