@@ -1,18 +1,13 @@
-import React, {useCallback} from 'react';
-import {useMappedState} from 'redux-react-hook';
-import {selectMovieList} from '../../../state/selectors';
+import React from 'react';
 import {InlineSpinner} from '../../../../../common/components/InlineSpinner';
 import {listAspect} from '../../../aspects';
 
 export const Title = () => {
-  const search = listAspect.useSearchValue();
-
-  const mapState = useCallback(state => selectMovieList(state).total, []);
-  const total = useMappedState(mapState);
+  const { query, total } = listAspect.useListData();
 
   return total === null ? (
     <InlineSpinner />
   ) : (
-    <>{search ? `Found ${total} movies matching the criteria` : `Most popular movies`}</>
+    <>{query ? `Found ${total} movies matching the criteria` : `Most popular movies`}</>
   );
 };

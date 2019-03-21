@@ -8,6 +8,7 @@ import {createUseYearInput} from './hooks/useYearInput';
 import {createUsePaginatedList} from './hooks/usePaginatedList';
 import {FindService, PopularService} from '../../api';
 import {createUseGoToSearch, createUseSearchValue} from '../../hooks/hooks';
+import {createUseListData} from './hooks/useListData';
 
 export const createListAspect = <Entity extends object>(
   actionCreatorFactory: ActionCreatorFactory,
@@ -27,6 +28,7 @@ export const createListAspect = <Entity extends object>(
   const useGoToSearch = createUseGoToSearch(listRoute, searchParam);
   const useYearInput = createUseYearInput(useYear, useSetYear, useSearchValue);
   const usePaginatedList = createUsePaginatedList(actions, useYear, useSearchValue, selectList);
+  const useListData = createUseListData(actions, useSearchValue, selectList);
 
   return {
     actions,
@@ -37,6 +39,7 @@ export const createListAspect = <Entity extends object>(
     useSearchValue,
     useGoToSearch,
     useYearInput,
-    usePaginatedList
+    usePaginatedList,
+    useListData
   };
 };
