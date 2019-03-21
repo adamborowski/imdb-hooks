@@ -44,5 +44,3 @@ storiesOf(module)
       style={{ height: '100vh' }}
     />
   ));
-
-/// todo make flex container and menu content min height 0, add sublime scrollbar there

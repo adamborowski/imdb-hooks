@@ -67,5 +67,3 @@ class Complete extends Component<IProps> {
 }
 
 export default memo(withStyled(Complete)) as ComponentType<IProps>;
-
-// todo move to hooks functional component

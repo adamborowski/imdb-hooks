@@ -67,4 +67,3 @@ export default function withFading<X>(passLoadingProp: boolean = false) {
     `;
   };
 }
-//todo do withFading only using HOOKS
