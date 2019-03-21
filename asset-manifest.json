@@ -1,13 +1,13 @@
 {
-  "main.js": "/imdb-hooks/static/js/main.4d86208b.chunk.js",
-  "main.js.map": "/imdb-hooks/static/js/main.4d86208b.chunk.js.map",
+  "main.js": "/imdb-hooks/static/js/main.f2bed29b.chunk.js",
+  "main.js.map": "/imdb-hooks/static/js/main.f2bed29b.chunk.js.map",
   "runtime~main.js": "/imdb-hooks/static/js/runtime~main.8c9ae040.js",
   "runtime~main.js.map": "/imdb-hooks/static/js/runtime~main.8c9ae040.js.map",
   "static/css/2.8d24f31c.chunk.css": "/imdb-hooks/static/css/2.8d24f31c.chunk.css",
-  "static/js/2.b4d84ef0.chunk.js": "/imdb-hooks/static/js/2.b4d84ef0.chunk.js",
-  "static/js/2.b4d84ef0.chunk.js.map": "/imdb-hooks/static/js/2.b4d84ef0.chunk.js.map",
+  "static/js/2.3325c63e.chunk.js": "/imdb-hooks/static/js/2.3325c63e.chunk.js",
+  "static/js/2.3325c63e.chunk.js.map": "/imdb-hooks/static/js/2.3325c63e.chunk.js.map",
   "index.html": "/imdb-hooks/index.html",
-  "precache-manifest.c3bb558e45c948c23a6f23a3b4376924.js": "/imdb-hooks/precache-manifest.c3bb558e45c948c23a6f23a3b4376924.js",
+  "precache-manifest.5849ebe882f9e9769e0bbaab933a14c2.js": "/imdb-hooks/precache-manifest.5849ebe882f9e9769e0bbaab933a14c2.js",
   "service-worker.js": "/imdb-hooks/service-worker.js",
   "static/css/2.8d24f31c.chunk.css.map": "/imdb-hooks/static/css/2.8d24f31c.chunk.css.map"
 }
