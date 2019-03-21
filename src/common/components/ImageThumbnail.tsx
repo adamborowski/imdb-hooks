@@ -1,6 +1,6 @@
-import React, {FunctionComponent, HTMLProps, useState} from 'react';
+import React, { FunctionComponent, HTMLProps, useState } from 'react';
 import styled from 'styled-components';
-import {Modal} from 'antd';
+import { Modal } from 'antd';
 
 export interface ImageThumbnailProps extends HTMLProps<HTMLImageElement> {
   size?: number;

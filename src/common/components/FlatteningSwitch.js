@@ -1,5 +1,5 @@
-import React, {Fragment} from 'react';
-import {Switch} from 'react-router-dom';
+import React, { Fragment } from 'react';
+import { Switch } from 'react-router-dom';
 
 // react-router doesn't have support for React fragments in <Switch />. This component
 // wraps react-router's <Switch /> so that it gets fragment support.

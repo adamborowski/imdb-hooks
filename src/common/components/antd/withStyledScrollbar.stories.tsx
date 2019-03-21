@@ -1,6 +1,6 @@
-import React, {HTMLProps} from 'react';
+import React, { HTMLProps } from 'react';
 import withSublimeScrollbar from './withStyledScrollbar';
-import {storiesOf} from '../../storybook-utils';
+import { storiesOf } from '../../storybook-utils';
 
 const content = (
   <>
@@ -26,27 +26,13 @@ const content = (
     <p>Menu content 20</p>
   </>
 );
-const Scroll = withSublimeScrollbar('light')((p: HTMLProps<HTMLDivElement>) => (
-  <div {...p} />
-));
-const ScrollDark = withSublimeScrollbar('dark')(
-  (p: HTMLProps<HTMLDivElement>) => <div {...p} />
-);
-const ScrollCustom = withSublimeScrollbar({ thumb: '#fcdf3f' })(
-  (p: HTMLProps<HTMLDivElement>) => <div {...p} />
-);
+const Scroll = withSublimeScrollbar('light')((p: HTMLProps<HTMLDivElement>) => <div {...p} />);
+const ScrollDark = withSublimeScrollbar('dark')((p: HTMLProps<HTMLDivElement>) => <div {...p} />);
+const ScrollCustom = withSublimeScrollbar({ thumb: '#fcdf3f' })((p: HTMLProps<HTMLDivElement>) => <div {...p} />);
 
 storiesOf(module)
   .add('default, light', () => (
-    <Scroll style={{ height: 400, overflow: 'auto', background: '#333333' }}>
-      {content}
-    </Scroll>
+    <Scroll style={{ height: 400, overflow: 'auto', background: '#333333' }}>{content}</Scroll>
   ))
-  .add('dark', () => (
-    <ScrollDark style={{ height: 400, overflow: 'auto' }}>{content}</ScrollDark>
-  ))
-  .add('custom theme', () => (
-    <ScrollCustom style={{ height: 400, overflow: 'auto' }}>
-      {content}
-    </ScrollCustom>
-  ));
+  .add('dark', () => <ScrollDark style={{ height: 400, overflow: 'auto' }}>{content}</ScrollDark>)
+  .add('custom theme', () => <ScrollCustom style={{ height: 400, overflow: 'auto' }}>{content}</ScrollCustom>);

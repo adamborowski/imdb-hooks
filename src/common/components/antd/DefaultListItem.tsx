@@ -1,10 +1,10 @@
-import React, {ComponentType, FunctionComponent, ReactNode} from 'react';
+import React, { ComponentType, FunctionComponent, ReactNode } from 'react';
 import styled from 'styled-components';
-import {Avatar, List} from 'antd';
-import {ListItemLink} from './ListItem';
-import {LocationDescriptor} from 'history';
-import {ListItemProps} from 'antd/es/list';
-import {Assign} from 'utility-types';
+import { Avatar, List } from 'antd';
+import { ListItemLink } from './ListItem';
+import { LocationDescriptor } from 'history';
+import { ListItemProps } from 'antd/es/list';
+import { Assign } from 'utility-types';
 
 export type DefaultListItemProps = Assign<
   ListItemProps,

@@ -1,6 +1,6 @@
-import React, {ComponentType, ReactNode} from 'react';
+import React, { ComponentType, ReactNode } from 'react';
 import withStyled from './DefaultPrimaryContent.styled';
-import {HBox, Spacer, VBox} from './layout';
+import { HBox, Spacer, VBox } from './layout';
 
 interface IProps {
   breadcrumbs?: ReactNode;
@@ -10,14 +10,7 @@ interface IProps {
   tabs?: ReactNode;
 }
 
-const DefaultPrimaryContent = ({
-  breadcrumbs,
-  tools,
-  title,
-  content,
-  tabs,
-  ...rest
-}: IProps) => (
+const DefaultPrimaryContent = ({ breadcrumbs, tools, title, content, tabs, ...rest }: IProps) => (
   <VBox {...rest}>
     {(breadcrumbs || tools) && (
       <HBox className="navigation">

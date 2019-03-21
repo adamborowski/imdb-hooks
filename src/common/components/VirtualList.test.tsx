@@ -1,7 +1,7 @@
-import getVirtualList, {IVirtualListProps, VirtualList} from './VirtualList';
-import React, {ComponentType} from 'react';
-import {ListChildComponentProps} from 'react-window';
-import {create} from 'react-test-renderer';
+import getVirtualList, { IVirtualListProps, VirtualList } from './VirtualList';
+import React, { ComponentType } from 'react';
+import { ListChildComponentProps } from 'react-window';
+import { create } from 'react-test-renderer';
 
 const Row: ComponentType<ListChildComponentProps> = p => <div>row #{p.index}</div>;
 

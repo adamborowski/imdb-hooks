@@ -1,3 +1,3 @@
 export interface IState {
-    readonly [key: string]: object;
+  readonly [key: string]: object;
 }

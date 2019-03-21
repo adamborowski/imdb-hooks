@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import {SiderProps} from 'antd/es/layout';
+import { SiderProps } from 'antd/es/layout';
 import * as React from 'react';
-import {ComponentType, HTMLProps, ReactNode} from 'react';
-import {Layout} from 'antd';
+import { ComponentType, HTMLProps, ReactNode } from 'react';
+import { Layout } from 'antd';
 import withSublimeScrollbar from './withStyledScrollbar';
 
 interface IProps extends SiderProps {
@@ -12,21 +12,13 @@ interface IProps extends SiderProps {
 
 const { Sider } = Layout;
 
-const Scroll = withSublimeScrollbar()((p: HTMLProps<HTMLDivElement>) => (
-  <div {...p} />
-));
+const Scroll = withSublimeScrollbar()((p: HTMLProps<HTMLDivElement>) => <div {...p} />);
 
 function AppSider(props: IProps) {
   const { logo, content, ...rest } = props;
 
   return (
-    <Sider
-      trigger={undefined}
-      collapsible
-      width={256}
-      breakpoint="md"
-      {...rest}
-    >
+    <Sider trigger={undefined} collapsible width={256} breakpoint="md" {...rest}>
       <div className="sider-header">{logo}</div>
       <Scroll className="sider-content">{content}</Scroll>
     </Sider>

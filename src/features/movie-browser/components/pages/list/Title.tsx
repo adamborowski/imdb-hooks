@@ -1,6 +1,6 @@
 import React from 'react';
-import {InlineSpinner} from '../../../../../common/components/InlineSpinner';
-import {listAspect} from '../../../aspects';
+import { InlineSpinner } from '../../../../../common/components/InlineSpinner';
+import { listAspect } from '../../../aspects';
 
 export const Title = () => {
   const { query, total } = listAspect.useListData();

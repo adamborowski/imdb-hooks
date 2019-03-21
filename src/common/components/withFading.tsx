@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import React, {ComponentType} from 'react';
+import React, { ComponentType } from 'react';
 import styled from 'styled-components';
 
 const FADED_CLASS_NAME_ACTIVE = 'fading-active';
@@ -19,9 +19,7 @@ interface IState {
 
 export default function withFading<X>(passLoadingProp: boolean = false) {
   return (Component: ComponentType<X & IInjectProps>) => {
-    const WithFading: ComponentType<
-      X & IEnhanceProps & IInjectProps
-    > = class extends React.Component<
+    const WithFading: ComponentType<X & IEnhanceProps & IInjectProps> = class extends React.Component<
       X & IEnhanceProps & IInjectProps,
       IState
     > {
@@ -33,10 +31,7 @@ export default function withFading<X>(passLoadingProp: boolean = false) {
         };
       }
 
-      public static getDerivedStateFromProps = (
-        nextProps: Readonly<X & IEnhanceProps>,
-        prevState: IState
-      ) => ({
+      public static getDerivedStateFromProps = (nextProps: Readonly<X & IEnhanceProps>, prevState: IState) => ({
         childrenProps: nextProps.loading ? prevState.childrenProps : nextProps
       });
 

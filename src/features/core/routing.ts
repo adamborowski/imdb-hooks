@@ -1,1 +1,1 @@
-export const toRootPage = ()=>'/';
+export const toRootPage = () => '/';

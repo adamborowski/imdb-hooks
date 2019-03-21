@@ -1,10 +1,10 @@
 import React from 'react';
-import {storiesOf} from '../../../../../common/storybook-utils';
+import { storiesOf } from '../../../../../common/storybook-utils';
 import MovieViewPure from './MovieViewPure';
-import {number, text} from '@storybook/addon-knobs';
-import {IMovie} from '../../../types/state';
+import { number, text } from '@storybook/addon-knobs';
+import { IMovie } from '../../../types/state';
 import DefaultPrimaryContent from '../../../../../common/components/antd/DefaultPrimaryContent';
-import {ThemeProvider} from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import baseTheme from '../../../../../common/components/antd/app-theme';
 
 storiesOf(module)

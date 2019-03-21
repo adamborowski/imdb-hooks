@@ -1,4 +1,4 @@
-import {findMovies} from './movie-search';
+import { findMovies } from './movie-search';
 
 describe('movie-search', () => {
   describe('api learning tests', () => {

@@ -1,6 +1,6 @@
-import {IList} from '../../../common/aspects/list/types';
-import {ITypeAheadState} from '../../../common/aspects/typeahead/types';
-import {IDetailsState} from '../../../common/aspects/details/types';
+import { IList } from '../../../common/aspects/list/types';
+import { ITypeAheadState } from '../../../common/aspects/typeahead/types';
+import { IDetailsState } from '../../../common/aspects/details/types';
 
 export interface IMovieLite {
   id: number;

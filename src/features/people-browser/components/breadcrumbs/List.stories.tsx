@@ -1,8 +1,8 @@
 import React from 'react';
-import {centeredDecorator, routerDecorator, storiesOf} from '../../../../common/storybook-utils';
-import {ListPure} from './List';
-import {text} from '@storybook/addon-knobs';
-import {Breadcrumb} from 'antd';
+import { centeredDecorator, routerDecorator, storiesOf } from '../../../../common/storybook-utils';
+import { ListPure } from './List';
+import { text } from '@storybook/addon-knobs';
+import { Breadcrumb } from 'antd';
 
 storiesOf(module)
   .addDecorator(centeredDecorator)

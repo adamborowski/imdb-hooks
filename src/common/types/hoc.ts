@@ -1,5 +1,5 @@
-import React, {ComponentType} from 'react';
-import {Assign, Subtract} from 'utility-types';
+import React, { ComponentType } from 'react';
+import { Assign, Subtract } from 'utility-types';
 
 export type HOCInnerType<P> = React.ComponentType<P>;
 
@@ -8,6 +8,4 @@ export type HOCOuterType<
   TInnerProps extends object = {},
   TOuterProps extends object = {},
   TPassProps extends object = {}
-> = ComponentType<
-  Assign<Subtract<TProps, TInnerProps>, TOuterProps & TPassProps>
->;
+> = ComponentType<Assign<Subtract<TProps, TInnerProps>, TOuterProps & TPassProps>>;

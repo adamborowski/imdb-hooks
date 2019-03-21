@@ -1,5 +1,5 @@
-import {createReducers} from './reducers';
-import {createActions} from './actions';
+import { createReducers } from './reducers';
+import { createActions } from './actions';
 import actionCreatorFactory from 'typescript-fsa';
 
 type Data = { x: string };

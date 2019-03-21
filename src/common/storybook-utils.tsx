@@ -1,9 +1,9 @@
-import {storiesOf as _storiesOf, StoryDecorator} from '@storybook/react';
+import { storiesOf as _storiesOf, StoryDecorator } from '@storybook/react';
 import path from 'path';
 import Module from 'module';
 import styled from 'styled-components';
 import * as React from 'react';
-import {MemoryRouter, RouterProps} from 'react-router';
+import { MemoryRouter, RouterProps } from 'react-router';
 
 export const splitPath = (filepath: string) => {
   const segments = path.resolve(filepath).split(path.sep);

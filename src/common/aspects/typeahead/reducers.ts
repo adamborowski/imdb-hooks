@@ -1,7 +1,7 @@
-import {combineReducers, Reducer} from 'redux';
-import {ApiResponse} from '../../api';
-import {isType} from 'typescript-fsa';
-import {ITypeAheadActions, ITypeAheadState} from './types';
+import { combineReducers, Reducer } from 'redux';
+import { ApiResponse } from '../../api';
+import { isType } from 'typescript-fsa';
+import { ITypeAheadActions, ITypeAheadState } from './types';
 
 export const createReducers = <Entity extends object>(actions: ITypeAheadActions<Entity>) => {
   const options: Reducer<ApiResponse<Entity>> = (

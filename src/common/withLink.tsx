@@ -1,6 +1,6 @@
-import React, {ComponentType, MouseEvent} from 'react';
+import React, { ComponentType, MouseEvent } from 'react';
 // @ts-ignore RouterContext not present
-import {__RouterContext as RouterContext} from 'react-router-dom';
+import { __RouterContext as RouterContext } from 'react-router-dom';
 import * as H from 'history';
 
 function isModifiedEvent<T>(event: MouseEvent<T>) {
@@ -27,17 +27,11 @@ export default function withLink<T, P extends RequiredProps<T>>(
     // };
 
     public render() {
-      const { innerRef, replace, to, target, ...rest } = this
-        .props as EnhancedProps;
+      const { innerRef, replace, to, target, ...rest } = this.props as EnhancedProps;
 
       return (
         <RouterContext.Consumer>
-          {(context: RouterContext) => (
-            <Component
-              {...rest as P}
-              onClick={event => this.handleClick(event, context)}
-            />
-          )}
+          {(context: RouterContext) => <Component {...rest as P} onClick={event => this.handleClick(event, context)} />}
         </RouterContext.Consumer>
       );
     }
@@ -55,9 +49,7 @@ export default function withLink<T, P extends RequiredProps<T>>(
       ) {
         event.preventDefault();
 
-        const method = this.props.replace
-          ? context.history.replace
-          : context.history.push;
+        const method = this.props.replace ? context.history.replace : context.history.push;
 
         method(this.props.to);
       }

@@ -1,12 +1,12 @@
-import {IMovie} from '../../../types/state';
-import React, {FunctionComponent} from 'react';
-import {getPosterUrl} from '../../../../../common/api';
-import {Form, Icon, Rate, Tag, Typography} from 'antd';
-import {FormProps} from 'antd/es/form';
-import {formItemLayout} from '../../../../../common/layout-props';
+import { IMovie } from '../../../types/state';
+import React, { FunctionComponent } from 'react';
+import { getPosterUrl } from '../../../../../common/api';
+import { Form, Icon, Rate, Tag, Typography } from 'antd';
+import { FormProps } from 'antd/es/form';
+import { formItemLayout } from '../../../../../common/layout-props';
 import styled from 'styled-components';
-import {CountryTags} from '../../../../../common/components/CountryTags';
-import {ImageThumbnail} from '../../../../../common/components/ImageThumbnail';
+import { CountryTags } from '../../../../../common/components/CountryTags';
+import { ImageThumbnail } from '../../../../../common/components/ImageThumbnail';
 import withFading from '../../../../../common/components/withFading';
 
 const { Text } = Typography;

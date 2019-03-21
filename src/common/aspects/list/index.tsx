@@ -1,14 +1,14 @@
-import {createActions} from './actions';
-import {ActionCreatorFactory} from 'typescript-fsa';
-import {createReducers} from './reducers';
-import {createEpics} from './epics';
-import {SelectList} from './types';
-import {createUseSetYear, createUseYear} from './hooks';
-import {createUseYearInput} from './hooks/useYearInput';
-import {createUsePaginatedList} from './hooks/usePaginatedList';
-import {FindService, PopularService} from '../../api';
-import {createUseGoToSearch, createUseSearchValue} from '../../hooks';
-import {createUseListData} from './hooks/useListData';
+import { createActions } from './actions';
+import { ActionCreatorFactory } from 'typescript-fsa';
+import { createReducers } from './reducers';
+import { createEpics } from './epics';
+import { SelectList } from './types';
+import { createUseSetYear, createUseYear } from './hooks';
+import { createUseYearInput } from './hooks/useYearInput';
+import { createUsePaginatedList } from './hooks/usePaginatedList';
+import { FindService, PopularService } from '../../api';
+import { createUseGoToSearch, createUseSearchValue } from '../../hooks';
+import { createUseListData } from './hooks/useListData';
 
 export const createListAspect = <Entity extends object>(
   actionCreatorFactory: ActionCreatorFactory,

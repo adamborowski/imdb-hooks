@@ -1,8 +1,8 @@
 import React from 'react';
-import {Breadcrumb, Button, Tabs} from 'antd';
-import {ThemeProvider} from 'styled-components';
+import { Breadcrumb, Button, Tabs } from 'antd';
+import { ThemeProvider } from 'styled-components';
 import baseTheme from './app-theme';
-import {storiesOf} from '../../storybook-utils';
+import { storiesOf } from '../../storybook-utils';
 import DefaultPrimaryContent from './DefaultPrimaryContent';
 
 const breadcrumbs = (
@@ -30,9 +30,7 @@ let tabs = (
   </Tabs>
 );
 storiesOf(module)
-  .addDecorator(story => (
-    <ThemeProvider theme={baseTheme}>{story() as any}</ThemeProvider>
-  ))
+  .addDecorator(story => <ThemeProvider theme={baseTheme}>{story() as any}</ThemeProvider>)
   .add('default', () => (
     <DefaultPrimaryContent
       breadcrumbs={breadcrumbs}
@@ -42,8 +40,7 @@ storiesOf(module)
       tabs={tabs}
     />
   ))
-  .add('useful for lists', () => (
-    <DefaultPrimaryContent breadcrumbs={breadcrumbs} tools={tools} />
-  )).add('useful for lists, with tabs', () => (
-  <DefaultPrimaryContent breadcrumbs={breadcrumbs} tools={tools} tabs={tabs}/>
-));
+  .add('useful for lists', () => <DefaultPrimaryContent breadcrumbs={breadcrumbs} tools={tools} />)
+  .add('useful for lists, with tabs', () => (
+    <DefaultPrimaryContent breadcrumbs={breadcrumbs} tools={tools} tabs={tabs} />
+  ));

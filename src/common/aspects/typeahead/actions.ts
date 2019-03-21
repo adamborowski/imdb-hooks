@@ -1,5 +1,5 @@
-import {ActionCreatorFactory} from 'typescript-fsa';
-import {ITypeAheadActions} from './types';
+import { ActionCreatorFactory } from 'typescript-fsa';
+import { ITypeAheadActions } from './types';
 
 export const createActions = <Entity extends object>(
   actionCreatorFactory: ActionCreatorFactory

@@ -1,7 +1,7 @@
-import React, {ComponentType, FunctionComponent, ReactNode} from 'react';
+import React, { ComponentType, FunctionComponent, ReactNode } from 'react';
 import styled from 'styled-components';
-import {Layout} from 'antd';
-import {LayoutProps} from 'antd/es/layout';
+import { Layout } from 'antd';
+import { LayoutProps } from 'antd/es/layout';
 import AppSider from './AppSider';
 
 export interface AppProps extends Partial<LayoutProps> {
@@ -11,14 +11,8 @@ export interface AppProps extends Partial<LayoutProps> {
   modals?: ReactNode;
 }
 
-const AppPure: FunctionComponent<AppProps> = ({
-  sider,
-  header,
-  content,
-  modals,
-  ...rest
-}) => (
-  <Layout{...rest}>
+const AppPure: FunctionComponent<AppProps> = ({ sider, header, content, modals, ...rest }) => (
+  <Layout {...rest}>
     {sider}
     <Layout id="content-portal-container">
       {header}

@@ -1,5 +1,5 @@
-import React, {ComponentType, FunctionComponent, memo} from 'react';
-import {Avatar, Icon} from 'antd';
+import React, { ComponentType, FunctionComponent, memo } from 'react';
+import { Avatar, Icon } from 'antd';
 import styled from 'styled-components';
 import emptyAvatar from './emptyAvatar.png';
 
@@ -9,7 +9,7 @@ export interface SearchOptionProps {
   rank: number;
 }
 
-const SearchOptionContent: FunctionComponent<SearchOptionProps> = ({ avatar, name, rank,  ...rest }) => (
+const SearchOptionContent: FunctionComponent<SearchOptionProps> = ({ avatar, name, rank, ...rest }) => (
   <div {...rest}>
     <Avatar shape="square" src={avatar || emptyAvatar} />
     {name}

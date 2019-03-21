@@ -1,4 +1,4 @@
-import React, {ReactElement} from 'react';
+import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 
 interface IProps {
@@ -6,11 +6,7 @@ interface IProps {
   secondaryContent?: ReactElement<any>;
 }
 
-const ContentLayout = ({
-  secondaryContent,
-  primaryContent,
-  ...rest
-}: IProps) => (
+const ContentLayout = ({ secondaryContent, primaryContent, ...rest }: IProps) => (
   <div {...rest}>
     {primaryContent}
     {secondaryContent}

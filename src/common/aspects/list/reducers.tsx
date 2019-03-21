@@ -1,8 +1,8 @@
-import {IList, IListActions, IListItems} from './types';
-import {combineReducers, Reducer} from 'redux';
-import {PAGE_SIZE} from '../../api';
+import { IList, IListActions, IListItems } from './types';
+import { combineReducers, Reducer } from 'redux';
+import { PAGE_SIZE } from '../../api';
 
-export const createReducers = <Entity extends object>(actions: IListActions<Entity>, pageSize=PAGE_SIZE) => {
+export const createReducers = <Entity extends object>(actions: IListActions<Entity>, pageSize = PAGE_SIZE) => {
   const total: Reducer<number | null> = (state = null, action) => {
     if (actions.pageResponse.match(action)) {
       return action.payload.response.total_results;
@@ -17,7 +17,7 @@ export const createReducers = <Entity extends object>(actions: IListActions<Enti
     state: U[],
     page: number,
     results: T[],
-    map: (item: T, index: number, localIndex: number, oldItem: U) => U,
+    map: (item: T, index: number, localIndex: number, oldItem: U) => U
   ) => {
     const newState = [...state];
     const offset = page * pageSize;

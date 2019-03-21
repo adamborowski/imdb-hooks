@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {ComponentType} from 'react';
+import { ComponentType } from 'react';
 import * as _ from 'lodash';
 
 export interface ScrollbarStyleConfiguration {

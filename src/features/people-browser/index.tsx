@@ -1,6 +1,6 @@
-import {IPlugin} from '../../common/plugins';
-import {Route} from 'react-router';
-import {toPersonListPage, toPersonViewPage} from './routing';
+import { IPlugin } from '../../common/plugins';
+import { Route } from 'react-router';
+import { toPersonListPage, toPersonViewPage } from './routing';
 import Search from './components/header/Search';
 import React from 'react';
 import epics from './state/epics';

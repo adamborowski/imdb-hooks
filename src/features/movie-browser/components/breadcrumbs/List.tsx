@@ -1,10 +1,10 @@
-import {toMovieListPage} from '../../routing';
-import {Icon} from 'antd';
-import {fixBreadcrumb} from '../../../../common/workarounds';
+import { toMovieListPage } from '../../routing';
+import { Icon } from 'antd';
+import { fixBreadcrumb } from '../../../../common/workarounds';
 import React from 'react';
-import {BreadcrumbItem} from '../../../../common/components/antd/BreadcrumbItem';
-import {QueryLink} from '../../../../common/hooks/useHistoryPush';
-import {listAspect} from '../../aspects';
+import { BreadcrumbItem } from '../../../../common/components/antd/BreadcrumbItem';
+import { QueryLink } from '../../../../common/hooks/useHistoryPush';
+import { listAspect } from '../../aspects';
 
 type ListPureProps = { searchValue?: string; searchParam: string };
 

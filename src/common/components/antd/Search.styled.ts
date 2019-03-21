@@ -7,9 +7,7 @@ export default <P>(c: React.ComponentType<P>) => styled(c).attrs(
     suppressClassNameWarning: true
   }
 )`
-  .certain-category-search.ant-select-auto-complete
-    .ant-input-affix-wrapper
-    .ant-input-suffix {
+  .certain-category-search.ant-select-auto-complete .ant-input-affix-wrapper .ant-input-suffix {
     right: 12px;
   }
 

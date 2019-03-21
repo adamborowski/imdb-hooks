@@ -1,7 +1,7 @@
-import {detailsAspect} from '../../../aspects';
+import { detailsAspect } from '../../../aspects';
 import React from 'react';
-import {Card} from 'antd';
-import {InlineSpinner} from '../../../../../common/components/InlineSpinner';
+import { Card } from 'antd';
+import { InlineSpinner } from '../../../../../common/components/InlineSpinner';
 
 export const Bio = () => {
   const { result, loading } = detailsAspect.useDetails();

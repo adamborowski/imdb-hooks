@@ -1,10 +1,10 @@
-import React, {Component, ComponentType, memo, ReactNode, RefObject} from 'react';
-import {AutoComplete, Input} from 'antd';
+import React, { Component, ComponentType, memo, ReactNode, RefObject } from 'react';
+import { AutoComplete, Input } from 'antd';
 import withStyled from './Search.styled';
-import {AutoCompleteProps, DataSourceItemType} from 'antd/es/auto-complete';
+import { AutoCompleteProps, DataSourceItemType } from 'antd/es/auto-complete';
 import KeyboardEventHandler from 'react-keyboard-event-handler';
-import {Assign} from 'utility-types';
-import {SelectValue} from 'antd/lib/select';
+import { Assign } from 'utility-types';
+import { SelectValue } from 'antd/lib/select';
 
 type IProps = Assign<
   AutoCompleteProps,
@@ -35,15 +35,8 @@ class Complete extends Component<IProps> {
     const { className, onSearch, onSelect, searchPrompt, ...rest } = this.props;
     return (
       <>
-        <KeyboardEventHandler
-          handleKeys={keys}
-          onKeyEvent={this.handleKeyEvent}
-        />
-        <KeyboardEventHandler
-          handleKeys={focusKeys}
-          onKeyEvent={this.handleKeyEvent}
-          handleFocusableElements
-        />
+        <KeyboardEventHandler handleKeys={keys} onKeyEvent={this.handleKeyEvent} />
+        <KeyboardEventHandler handleKeys={focusKeys} onKeyEvent={this.handleKeyEvent} handleFocusableElements />
         <AutoComplete
           tabIndex={0}
           ref={this.ref}

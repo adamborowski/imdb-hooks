@@ -1,13 +1,13 @@
-import {detailsAspect} from '../../../aspects';
-import {Avatar, Card, Icon, List} from 'antd';
-import React, {HTMLProps} from 'react';
-import {ICast, ICrew} from '../../../types/state';
-import {getPosterUrl, getThumbUrl} from '../../../../../common/api';
-import {QueryLink} from '../../../../../common/hooks/useHistoryPush';
-import {toMovieViewPage} from '../../../../movie-browser/routing';
+import { detailsAspect } from '../../../aspects';
+import { Avatar, Card, Icon, List } from 'antd';
+import React, { HTMLProps } from 'react';
+import { ICast, ICrew } from '../../../types/state';
+import { getPosterUrl, getThumbUrl } from '../../../../../common/api';
+import { QueryLink } from '../../../../../common/hooks/useHistoryPush';
+import { toMovieViewPage } from '../../../../movie-browser/routing';
 import _ from 'lodash';
-import {InlineSpinner} from '../../../../../common/components/InlineSpinner';
-import {ImageThumbnail} from '../../../../../common/components/ImageThumbnail';
+import { InlineSpinner } from '../../../../../common/components/InlineSpinner';
+import { ImageThumbnail } from '../../../../../common/components/ImageThumbnail';
 
 interface IconTextProps extends HTMLProps<HTMLDivElement> {
   type: string;

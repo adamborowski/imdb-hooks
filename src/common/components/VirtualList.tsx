@@ -1,7 +1,7 @@
-import React, {ComponentType} from 'react';
-import {FixedSizeList, FixedSizeListProps, ListChildComponentProps} from 'react-window';
+import React, { ComponentType } from 'react';
+import { FixedSizeList, FixedSizeListProps, ListChildComponentProps } from 'react-window';
 import styled from 'styled-components';
-import {MeasuredComponentProps, withContentRect} from 'react-measure';
+import { MeasuredComponentProps, withContentRect } from 'react-measure';
 import _ from 'lodash';
 import getOptional from '../getOptional';
 import withSublimeScrollbar from './antd/withStyledScrollbar';
@@ -71,7 +71,7 @@ const EnhancedVirtualList = withContentRect('bounds')(styled(VirtualList)`
 
 EnhancedVirtualList.defaultProps = {
   padding: 12,
-  itemSize: 69,
+  itemSize: 69
 } as Partial<IVirtualListPropsBase<{}>>;
 
 export default function getVirtualList<P>() {

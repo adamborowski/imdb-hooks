@@ -1,19 +1,19 @@
 import React from 'react';
-import {ListChildComponentProps} from 'react-window';
-import {toMovieViewPage} from '../../../routing';
-import {Assign} from 'utility-types';
-import {IMovieLite} from '../../../types/state';
+import { ListChildComponentProps } from 'react-window';
+import { toMovieViewPage } from '../../../routing';
+import { Assign } from 'utility-types';
+import { IMovieLite } from '../../../types/state';
 import DefaultListItem from '../../../../../common/components/antd/DefaultListItem';
-import {getReleaseYear, getThumbUrl} from '../../../../../common/api';
-import {Rate} from 'antd';
-import {IListItem, IListItems} from '../../../../../common/aspects/list/types';
+import { getReleaseYear, getThumbUrl } from '../../../../../common/api';
+import { Rate } from 'antd';
+import { IListItem, IListItems } from '../../../../../common/aspects/list/types';
 
-export function ListItem(props: Assign<ListChildComponentProps, { data: IListItems<IMovieLite>}>) {
+export function ListItem(props: Assign<ListChildComponentProps, { data: IListItems<IMovieLite> }>) {
   const { index, style, data } = props;
 
-  const item = data[index] || ({loading: true } as IListItem<IMovieLite>);
+  const item = data[index] || ({ loading: true } as IListItem<IMovieLite>);
 
-  const result: IMovieLite = item.result || ({ } as IMovieLite);
+  const result: IMovieLite = item.result || ({} as IMovieLite);
   const loading = item.loading;
 
   return (

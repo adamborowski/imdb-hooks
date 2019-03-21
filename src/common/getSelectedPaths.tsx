@@ -1,7 +1,7 @@
-import {Location} from 'history';
-import {matchPath} from 'react-router';
+import { Location } from 'history';
+import { matchPath } from 'react-router';
 import _ from 'lodash';
-import {ReactNode} from 'react';
+import { ReactNode } from 'react';
 
 /**
  * The aim of this utility it to provide react-router definition of menus, tabs from Ant Design which require specyfying selectedKeys in the parent component.
@@ -19,21 +19,12 @@ export interface IMenuItem {
   children?: IMenuItem[];
 }
 
-export const getSelectedPaths = (
-  location: Location,
-  menuItems: IMenuItem[],
-  keyPrefix: string = ''
-): string[] =>
+export const getSelectedPaths = (location: Location, menuItems: IMenuItem[], keyPrefix: string = ''): string[] =>
   menuItems
     .map(m => {
       const key = keyPrefix + m.link;
-      const match = matchPath(
-        location.pathname,
-        _.pick(m, 'exact', 'strict', 'path')
-      );
-      const childrenMatches = m.children
-        ? getSelectedPaths(location, m.children, key + '.')
-        : [];
+      const match = matchPath(location.pathname, _.pick(m, 'exact', 'strict', 'path'));
+      const childrenMatches = m.children ? getSelectedPaths(location, m.children, key + '.') : [];
 
       const result: string[] = [];
       if (match) {

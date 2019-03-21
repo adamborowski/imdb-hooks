@@ -1,6 +1,6 @@
-import {IListActions, SelectList} from '../types';
-import {useMappedState} from 'redux-react-hook';
-import {UseValue} from '../../../types/hooks';
+import { IListActions, SelectList } from '../types';
+import { useMappedState } from 'redux-react-hook';
+import { UseValue } from '../../../types/hooks';
 
 export const createUseListData = <Entity extends object>(
   action: IListActions<Entity>,

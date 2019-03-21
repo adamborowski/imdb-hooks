@@ -3,7 +3,7 @@ import React from 'react';
 import logo from './__stories__/AppSider.logo.png';
 import AppSider from './AppSider';
 import DefaultAppLogo from './DefaultAppLogo';
-import {routerDecorator, storiesOf} from '../../storybook-utils';
+import { routerDecorator, storiesOf } from '../../storybook-utils';
 
 storiesOf(module)
   .addDecorator(routerDecorator())
@@ -16,7 +16,6 @@ storiesOf(module)
   ))
   .add('menu overflow', () => (
     <AppSider
-
       logo={<DefaultAppLogo logo={logo}>My UI</DefaultAppLogo>}
       content={
         <>

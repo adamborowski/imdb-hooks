@@ -1,6 +1,6 @@
-import React, {FunctionComponent} from 'react';
-import {ProductionCountries} from '../../features/movie-browser/types/state';
-import {Tag} from 'antd';
+import React, { FunctionComponent } from 'react';
+import { ProductionCountries } from '../../features/movie-browser/types/state';
+import { Tag } from 'antd';
 
 export const CountryTags: FunctionComponent<{ countries: ProductionCountries | undefined }> = ({ countries }) => (
   <>

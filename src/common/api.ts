@@ -1,5 +1,5 @@
-import {stringify} from 'querystring';
-import {Observable} from 'rxjs';
+import { stringify } from 'querystring';
+import { Observable } from 'rxjs';
 
 // due to https://github.com/omdbapi/OMDb-API/issues/37 http://www.omdbapi.com/ is not used!
 const apiHost = 'https://api.themoviedb.org/3/';
@@ -23,7 +23,7 @@ export interface ApiResponse<Data> {
   page: number;
   total_results: number;
   total_pages: number;
-  results:  Data[];
+  results: Data[];
 }
 
 export type FindService<Entity> = (query: string, page?: number, year?: number) => Observable<ApiResponse<Entity>>;

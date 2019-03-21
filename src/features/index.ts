@@ -1,4 +1,4 @@
-import {IPlugin} from '../common/plugins';
+import { IPlugin } from '../common/plugins';
 import movieBrowser from './movie-browser';
 import peopleBrowser from './people-browser';
 import core from './core';

@@ -1,9 +1,9 @@
 import React from 'react';
-import {centeredDecorator, routerDecorator, storiesOf} from '../../../../common/storybook-utils';
-import {text} from '@storybook/addon-knobs';
-import {Breadcrumb} from 'antd';
-import {ViewPure} from './View';
-import {IMovie} from '../../types/state';
+import { centeredDecorator, routerDecorator, storiesOf } from '../../../../common/storybook-utils';
+import { text } from '@storybook/addon-knobs';
+import { Breadcrumb } from 'antd';
+import { ViewPure } from './View';
+import { IMovie } from '../../types/state';
 
 storiesOf(module)
   .addDecorator(centeredDecorator)

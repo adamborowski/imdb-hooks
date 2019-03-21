@@ -1,15 +1,12 @@
-import {Link} from 'react-router-dom';
-import React, {FunctionComponent} from 'react';
+import { Link } from 'react-router-dom';
+import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 
 interface DefaultAppLogoProps {
   logo: string;
 }
 
-const DefaultAppLogo: FunctionComponent<DefaultAppLogoProps> = ({
-  logo,
-  ...rest
-}) => (
+const DefaultAppLogo: FunctionComponent<DefaultAppLogoProps> = ({ logo, ...rest }) => (
   <Link to="/" {...rest}>
     <img className="app-logo" src={logo} />
     <div className="app-name">Movies Explorer</div>

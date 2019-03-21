@@ -1,4 +1,4 @@
-import {useRouteParams} from '../../common/hooks/routing';
+import { useRouteParams } from '../../common/hooks/routing';
 
 export const toPersonListPage = () => '/people';
 export const toPersonViewPage = (id = ':id') => `${toPersonListPage()}/${id}`;

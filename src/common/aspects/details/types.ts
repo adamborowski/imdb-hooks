@@ -1,4 +1,4 @@
-import {ActionCreator} from 'typescript-fsa';
+import { ActionCreator } from 'typescript-fsa';
 
 export interface IDetailsActions<Entity> {
   fetch: ActionCreator<{ id: number }>;

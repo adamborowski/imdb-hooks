@@ -8,12 +8,12 @@
  * There is no way to configure specific menu item with react-router. Instead, all routes have to be processed using react-router's matchPath function.
  */
 
-import {Icon, Menu} from 'antd';
-import React, {ReactNode} from 'react';
-import {Link} from 'react-router-dom';
-import {getSelectedPaths, IMenuItem} from '../../getSelectedPaths';
-import {HOCInnerType, HOCOuterType} from '../../types/hoc';
-import {useRouter} from '../../hooks/routing';
+import { Icon, Menu } from 'antd';
+import React, { ReactNode } from 'react';
+import { Link } from 'react-router-dom';
+import { getSelectedPaths, IMenuItem } from '../../getSelectedPaths';
+import { HOCInnerType, HOCOuterType } from '../../types/hoc';
+import { useRouter } from '../../hooks/routing';
 
 export interface IEnhanceProps {
   menuConfiguration: IMenuItem[];
@@ -26,11 +26,7 @@ export interface IInjectProps {
 
 export type MenuItemRenderer = (item: IMenuItem) => ReactNode;
 
-const createMenuNodes = (
-  menuItems: IMenuItem[],
-  keyPrefix: string = '',
-  renderer: MenuItemRenderer
-): JSX.Element[] =>
+const createMenuNodes = (menuItems: IMenuItem[], keyPrefix: string = '', renderer: MenuItemRenderer): JSX.Element[] =>
   menuItems.map(m => {
     const key = keyPrefix + m.link;
     const label = (
@@ -52,11 +48,7 @@ const withAntdFix = <P extends IInjectProps>(
   InnerComponent: HOCInnerType<P>
 ): HOCOuterType<P, IInjectProps, IEnhanceProps> => props => {
   const { location } = useRouter();
-  const {
-    menuConfiguration,
-    renderer,
-    ...rest
-  } = (props as unknown) as IEnhanceProps;
+  const { menuConfiguration, renderer, ...rest } = (props as unknown) as IEnhanceProps;
 
   const menuNodes = createMenuNodes(
     menuConfiguration,
@@ -69,17 +61,10 @@ const withAntdFix = <P extends IInjectProps>(
         </Link>
       ))
   );
-  const selectedNodes: string[] = getSelectedPaths(
-    location,
-    menuConfiguration
-  ).filter(s => s !== undefined) as string[];
+  const selectedNodes: string[] = getSelectedPaths(location, menuConfiguration).filter(
+    s => s !== undefined
+  ) as string[];
 
-  return (
-    <InnerComponent
-      selectedNodes={selectedNodes}
-      menuNodes={menuNodes}
-      {...rest as P}
-    />
-  );
+  return <InnerComponent selectedNodes={selectedNodes} menuNodes={menuNodes} {...rest as P} />;
 };
 export default withAntdFix;

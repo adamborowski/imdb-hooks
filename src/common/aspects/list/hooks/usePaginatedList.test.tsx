@@ -1,6 +1,6 @@
 import actionCreatorFactory from 'typescript-fsa';
-import {createUsePaginatedList} from './usePaginatedList';
-import {createActions} from '../actions';
+import { createUsePaginatedList } from './usePaginatedList';
+import { createActions } from '../actions';
 
 jest.mock('redux-react-hook');
 jest.mock('react');

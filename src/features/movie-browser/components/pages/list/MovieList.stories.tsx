@@ -1,8 +1,8 @@
 import React from 'react';
-import {centeredDecorator, routerDecorator, storiesOf} from '../../../../../common/storybook-utils';
-import {MovieListPure} from './MovieList';
-import {IListItem, IListItems} from '../../../../../common/aspects/list/types';
-import {IMovieLite} from '../../../types/state';
+import { centeredDecorator, routerDecorator, storiesOf } from '../../../../../common/storybook-utils';
+import { MovieListPure } from './MovieList';
+import { IListItem, IListItems } from '../../../../../common/aspects/list/types';
+import { IMovieLite } from '../../../types/state';
 import _ from 'lodash';
 
 const itemFactory = () => {

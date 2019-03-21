@@ -1,13 +1,13 @@
 import React from 'react';
 import App from './App';
-import {MemoryRouter} from 'react-router';
-import {Breadcrumb, Button, Tabs} from 'antd';
+import { MemoryRouter } from 'react-router';
+import { Breadcrumb, Button, Tabs } from 'antd';
 import logo from './__stories__/AppSider.logo.png';
-import {ThemeProvider} from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import baseTheme from './app-theme';
-import {storiesOf} from '../../storybook-utils';
+import { storiesOf } from '../../storybook-utils';
 import DefaultAppHeader from './DefaultAppHeader';
-import {IMenuItem} from '../../getSelectedPaths';
+import { IMenuItem } from '../../getSelectedPaths';
 import DefaultAppLogo from './DefaultAppLogo';
 import AppMenu from './AppMenu';
 import AppSider from './AppSider';
@@ -63,12 +63,7 @@ storiesOf(module).add('with default children', () => (
   <MemoryRouter initialEntries={[{ pathname: '/a' }]}>
     <ThemeProvider theme={baseTheme}>
       <App
-        sider={
-          <AppSider
-            content={menu}
-            logo={<DefaultAppLogo logo={logo}>My UI</DefaultAppLogo>}
-          />
-        }
+        sider={<AppSider content={menu} logo={<DefaultAppLogo logo={logo}>My UI</DefaultAppLogo>} />}
         content={
           <ContentLayout
             primaryContent={
@@ -83,9 +78,8 @@ storiesOf(module).add('with default children', () => (
             secondaryContent={
               <DefaultSecondaryContent>
                 <p>
-                  Secondary content should have proper margin applied. It also
-                  should have various flexbox and overflow css properties
-                  configured.
+                  Secondary content should have proper margin applied. It also should have various flexbox and overflow
+                  css properties configured.
                 </p>
               </DefaultSecondaryContent>
             }

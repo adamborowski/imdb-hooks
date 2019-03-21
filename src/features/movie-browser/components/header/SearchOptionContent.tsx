@@ -1,5 +1,5 @@
-import React, {ComponentType, FunctionComponent, memo} from 'react';
-import {Avatar, Icon} from 'antd';
+import React, { ComponentType, FunctionComponent, memo } from 'react';
+import { Avatar, Icon } from 'antd';
 import styled from 'styled-components';
 import emptyAvatar from './emptyAvatar.png';
 

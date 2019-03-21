@@ -1,6 +1,6 @@
-import {ReactFragment} from 'react';
-import {Reducer} from 'redux';
-import {Epic} from 'redux-observable';
+import { ReactFragment } from 'react';
+import { Reducer } from 'redux';
+import { Epic } from 'redux-observable';
 
 export interface IPlugin {
   reducers?: {

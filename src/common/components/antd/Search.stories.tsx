@@ -1,9 +1,9 @@
-import {centeredDecorator, storiesOf} from '../../storybook-utils';
+import { centeredDecorator, storiesOf } from '../../storybook-utils';
 import Search from './Search';
 import React from 'react';
-import {text} from '@storybook/addon-knobs';
-import {action} from '@storybook/addon-actions';
-import {Select} from 'antd';
+import { text } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { Select } from 'antd';
 
 storiesOf(module)
   .addDecorator(centeredDecorator)

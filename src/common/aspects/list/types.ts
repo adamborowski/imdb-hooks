@@ -1,5 +1,5 @@
-import {ApiResponse} from '../../api';
-import {ActionCreator} from 'typescript-fsa';
+import { ApiResponse } from '../../api';
+import { ActionCreator } from 'typescript-fsa';
 
 export interface IListItem<T> {
   loading: boolean;

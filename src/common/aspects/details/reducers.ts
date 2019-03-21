@@ -1,5 +1,5 @@
-import {Reducer} from 'redux';
-import {IDetailsActions, IDetailsState} from './types';
+import { Reducer } from 'redux';
+import { IDetailsActions, IDetailsState } from './types';
 
 export const createReducers = <Entity extends object>(
   actions: IDetailsActions<Entity>

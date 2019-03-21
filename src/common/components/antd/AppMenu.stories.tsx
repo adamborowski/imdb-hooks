@@ -1,8 +1,8 @@
 import React from 'react';
 import AppMenu from './AppMenu';
-import {MemoryRouter} from 'react-router';
-import {storiesOf} from '../../storybook-utils';
-import {IMenuItem} from '../../getSelectedPaths';
+import { MemoryRouter } from 'react-router';
+import { storiesOf } from '../../storybook-utils';
+import { IMenuItem } from '../../getSelectedPaths';
 
 let appMenu = (
   <AppMenu
@@ -33,14 +33,6 @@ let appMenu = (
 );
 storiesOf(module)
   .add('default', () => <MemoryRouter>{appMenu}</MemoryRouter>)
-  .add('in /a', () => (
-    <MemoryRouter initialEntries={[{ pathname: '/a' }]}>{appMenu}</MemoryRouter>
-  ))
-  .add('in /a/1', () => (
-    <MemoryRouter initialEntries={[{ pathname: '/a/1' }]}>
-      {appMenu}
-    </MemoryRouter>
-  ))
-  .add('in /b', () => (
-    <MemoryRouter initialEntries={[{ pathname: '/b' }]}>{appMenu}</MemoryRouter>
-  ));
+  .add('in /a', () => <MemoryRouter initialEntries={[{ pathname: '/a' }]}>{appMenu}</MemoryRouter>)
+  .add('in /a/1', () => <MemoryRouter initialEntries={[{ pathname: '/a/1' }]}>{appMenu}</MemoryRouter>)
+  .add('in /b', () => <MemoryRouter initialEntries={[{ pathname: '/b' }]}>{appMenu}</MemoryRouter>);

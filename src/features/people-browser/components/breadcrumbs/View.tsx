@@ -1,10 +1,10 @@
-import {toPersonViewPage} from '../../routing';
-import {fixBreadcrumb} from '../../../../common/workarounds';
+import { toPersonViewPage } from '../../routing';
+import { fixBreadcrumb } from '../../../../common/workarounds';
 import React from 'react';
-import {BreadcrumbItem} from '../../../../common/components/antd/BreadcrumbItem';
-import {QueryLink} from '../../../../common/hooks/useHistoryPush';
-import {detailsAspect} from '../../aspects';
-import {IPerson} from '../../types/state';
+import { BreadcrumbItem } from '../../../../common/components/antd/BreadcrumbItem';
+import { QueryLink } from '../../../../common/hooks/useHistoryPush';
+import { detailsAspect } from '../../aspects';
+import { IPerson } from '../../types/state';
 
 type ViewPureProps = { loading: boolean; personId?: number; result?: IPerson };
 

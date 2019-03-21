@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchPure from '../../../../common/components/antd/Search';
-import {typeAheadAspect} from '../../aspects';
+import { typeAheadAspect } from '../../aspects';
 
 const Search = () => {
   const { dataSource, onSearch, cancel, onApply, value } = typeAheadAspect.useSearchInput();
