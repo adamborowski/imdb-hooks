@@ -1,12 +1,12 @@
 import {IPerson} from '../../../types/state';
 import React, {FunctionComponent} from 'react';
-import {withFading} from '../../../../../common/misc';
 import {getPosterUrl} from '../../../../../common/api';
 import {Form, Icon, Typography} from 'antd';
 import {FormProps} from 'antd/es/form';
 import {formItemLayout} from '../../../../../common/layout-props';
 import styled from 'styled-components';
 import {ImageThumbnail} from '../../../../../common/components/ImageThumbnail';
+import withFading from '../../../../../common/misc/withFading';
 
 const { Text } = Typography;
 

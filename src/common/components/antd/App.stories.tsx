@@ -7,9 +7,9 @@ import logo from './__stories__/AppSider.logo.png';
 import {DefaultAppLogo} from '.';
 import {ThemeProvider} from 'styled-components';
 import baseTheme from './app-theme';
-import {IMenuItem} from '../../misc';
 import {storiesOf} from '../../storiesOf';
 import DefaultAppHeader from './DefaultAppHeader';
+import {IMenuItem} from '../../misc/getSelectedPaths';
 
 const breadcrumbs = (
   <Breadcrumb>

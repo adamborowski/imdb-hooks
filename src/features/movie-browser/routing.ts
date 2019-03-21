@@ -1,4 +1,4 @@
-import {useRouteParams} from '../../common/misc';
+import {useRouteParams} from '../../common/hooks/routing';
 
 export const toMovieListPage = () => '/movies';
 export const toMovieViewPage = (id = ':id') => `${toMovieListPage()}/${id}`;

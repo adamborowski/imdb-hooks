@@ -1,7 +1,9 @@
 import React from 'react';
 import {Icon, Tabs} from 'antd';
-import {getSelectedPaths, HOCInnerType, HOCOuterType2, IMenuItem, useRouter} from '../../misc';
 import {LocationDescriptor} from 'history';
+import {getSelectedPaths, IMenuItem} from '../../misc/getSelectedPaths';
+import {HOCInnerType, HOCOuterType} from '../../misc/hoc';
+import {useRouter} from '../../hooks/routing';
 
 export interface IEnhanceProps {
   menuConfiguration: IMenuItem[];
@@ -29,7 +31,7 @@ const createMenuNodes = (menuItems: IMenuItem[]): JSX.Element[] =>
 
 const withRoutedTabs = <P extends IInjectProps>() => (
   InnerComponent: HOCInnerType<P>
-): HOCOuterType2<P, IInjectProps, IEnhanceProps> => props => {
+): HOCOuterType<P, IInjectProps, IEnhanceProps> => props => {
   const route = useRouter();
 
   const { menuConfiguration, onMenuSelect, ...rest } = (props as unknown) as IEnhanceProps;

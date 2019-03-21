@@ -1,10 +1,10 @@
 import {LocationDescriptor} from 'history';
 import {stringify} from 'querystring';
-import {useQueryParams, useRouter} from '../misc';
 import _ from 'lodash';
 import {Link, LinkProps} from 'react-router-dom';
 import React, {ComponentType, FunctionComponent} from 'react';
 import {getLocationDescriptionObject} from '../misc/getLocationDescriptionObject';
+import {useQueryParams, useRouter} from './routing';
 
 export const getDescriptor = (to: LocationDescriptor, currentQueryParams?: object, queryParams?: object) => {
   const locationDescription = getLocationDescriptionObject(to);

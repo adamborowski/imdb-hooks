@@ -11,10 +11,10 @@ import {IPerson} from '../../../types/state';
 import {Bio} from './Bio';
 import {RoutedTabs} from '../../../../../common/components/antd/AppTabs';
 import {toPersonMovies, toPersonViewPage, usePersonId} from '../../../routing';
-import {IMenuItem} from '../../../../../common/misc';
 import {useHistoryPush} from '../../../../../common/hooks/useHistoryPush';
 import {Route, Switch} from 'react-router';
 import {Movies} from './Movies';
+import {IMenuItem} from '../../../../../common/misc/getSelectedPaths';
 
 const MovieView = () => {
   const { loading, result } = detailsAspect.useDetails();

@@ -1,8 +1,8 @@
 import React from 'react';
 import AppMenu from './AppMenu';
 import {MemoryRouter} from 'react-router';
-import {IMenuItem} from '../../misc';
 import {storiesOf} from '../../storiesOf';
+import {IMenuItem} from '../../misc/getSelectedPaths';
 
 let appMenu = (
   <AppMenu
