@@ -1,19 +1,20 @@
 import React from 'react';
 import {centeredDecorator, routerDecorator, storiesOf} from '../../../../common/storybook-utils';
-import {ListPure} from './List';
 import {text} from '@storybook/addon-knobs';
 import {Breadcrumb} from 'antd';
+import {ViewPure} from './View';
+import {IMovie} from '../../types/state';
 
 storiesOf(module)
   .addDecorator(centeredDecorator)
   .addDecorator(routerDecorator())
-  .add('no search applied', () => (
+  .add('default', () => (
     <Breadcrumb>
-      <ListPure searchParam={'movies'} />
+      <ViewPure loading={false} movieId={123} result={{ title: text('movie title', 'Movie title') } as IMovie} />
     </Breadcrumb>
   ))
-  .add('search applied', () => (
+  .add('loading', () => (
     <Breadcrumb>
-      <ListPure searchParam={'movies'} searchValue={text('search value', 'some search query')} />
+      <ViewPure loading />
     </Breadcrumb>
   ));

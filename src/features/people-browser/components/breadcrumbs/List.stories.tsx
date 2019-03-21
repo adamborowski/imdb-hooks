@@ -1,18 +1,19 @@
 import React from 'react';
-import {centeredDecorator, storiesOf} from '../../../../common/storybook-utils';
-import {BrowserRouter} from 'react-router-dom';
+import {centeredDecorator, routerDecorator, storiesOf} from '../../../../common/storybook-utils';
 import {ListPure} from './List';
 import {text} from '@storybook/addon-knobs';
 import {Breadcrumb} from 'antd';
 
 storiesOf(module)
   .addDecorator(centeredDecorator)
-  .addDecorator(story => (
-    <BrowserRouter>
-      <Breadcrumb>{story()}</Breadcrumb>
-    </BrowserRouter>
+  .addDecorator(routerDecorator())
+  .add('no search applied', () => (
+    <Breadcrumb>
+      <ListPure searchParam={'people'} />
+    </Breadcrumb>
   ))
-  .add('no search applied', () => <ListPure searchParam={'people'} />)
   .add('search applied', () => (
-    <ListPure searchParam={'people'} searchValue={text('search value', 'some search query')} />
+    <Breadcrumb>
+      <ListPure searchParam={'people'} searchValue={text('search value', 'some search query')} />
+    </Breadcrumb>
   ));

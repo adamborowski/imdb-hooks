@@ -3,6 +3,7 @@ import path from 'path';
 import Module from 'module';
 import styled from 'styled-components';
 import * as React from 'react';
+import {MemoryRouter, RouterProps} from 'react-router';
 
 export const splitPath = (filepath: string) => {
   const segments = path.resolve(filepath).split(path.sep);
@@ -27,3 +28,7 @@ const Centered = styled.div`
   justify-content: center;
 `;
 export const centeredDecorator: StoryDecorator = story => <Centered>{story()}</Centered>;
+
+export const routerDecorator = (props?: RouterProps): StoryDecorator => story => (
+  <MemoryRouter {...props}>{story()}</MemoryRouter>
+);

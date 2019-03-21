@@ -8,7 +8,7 @@ import {listAspect} from '../../aspects';
 
 type ListPureProps = { searchValue?: string; searchParam: string };
 
-export const ListPure = ({ searchParam, searchValue }: ListPureProps) => (
+export const ListPure = fixBreadcrumb(({ searchParam, searchValue }: ListPureProps) => (
   <>
     <BreadcrumbItem>
       <QueryLink to={toPersonListPage()} queryParams={{ [searchParam]: undefined }}>
@@ -24,7 +24,7 @@ export const ListPure = ({ searchParam, searchValue }: ListPureProps) => (
       </BreadcrumbItem>
     )}
   </>
-);
+));
 
 const List = () => {
   const searchValue = listAspect.useSearchValue();

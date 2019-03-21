@@ -8,23 +8,23 @@ import {listAspect} from '../../aspects';
 
 type ListPureProps = { searchValue?: string; searchParam: string };
 
-export const ListPure = ({ searchParam, searchValue }: ListPureProps) => (
-    <>
-        <BreadcrumbItem>
-            <QueryLink to={toMovieListPage()} queryParams={{[searchParam]: undefined}}>
-                Movies
-            </QueryLink>
-        </BreadcrumbItem>
-        {searchValue && (
-            <BreadcrumbItem>
-                <QueryLink to={toMovieListPage()}>
-                    <Icon type="search" style={{marginRight: 5}}/>
-                    {searchValue}
-                </QueryLink>
-            </BreadcrumbItem>
-        )}
-    </>
-);
+export const ListPure = fixBreadcrumb(({ searchParam, searchValue }: ListPureProps) => (
+  <>
+    <BreadcrumbItem>
+      <QueryLink to={toMovieListPage()} queryParams={{ [searchParam]: undefined }}>
+        Movies
+      </QueryLink>
+    </BreadcrumbItem>
+    {searchValue && (
+      <BreadcrumbItem>
+        <QueryLink to={toMovieListPage()}>
+          <Icon type="search" style={{ marginRight: 5 }} />
+          {searchValue}
+        </QueryLink>
+      </BreadcrumbItem>
+    )}
+  </>
+));
 
 const List = () => {
   const searchValue = listAspect.useSearchValue();

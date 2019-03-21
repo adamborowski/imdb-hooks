@@ -3,11 +3,10 @@ import React from 'react';
 import logo from './__stories__/AppSider.logo.png';
 import AppSider from './AppSider';
 import DefaultAppLogo from './DefaultAppLogo';
-import {MemoryRouter} from 'react-router';
-import {storiesOf} from '../../storybook-utils';
+import {routerDecorator, storiesOf} from '../../storybook-utils';
 
 storiesOf(module)
-  .addDecorator(story => <MemoryRouter>{story()}</MemoryRouter>)
+  .addDecorator(routerDecorator())
   .add('with default logo', () => (
     <AppSider
       logo={<DefaultAppLogo logo={logo}>My UI</DefaultAppLogo>}
