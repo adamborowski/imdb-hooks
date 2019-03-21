@@ -8,15 +8,7 @@ import {listAspect} from '../../../aspects';
 const List = getVirtualList<IListItem<IMovieLite> | undefined>();
 
 export const MovieList = () => {
-  const { items, total, onItemsRendered, query, year } = listAspect.usePaginatedList();
+  const { items, total, onItemsRendered } = listAspect.usePaginatedList();
 
-  return (
-    <List
-      onItemsRendered={onItemsRendered}
-      itemSize={69}
-      row={ListItem}
-      itemCount={total === null ? undefined : total}
-      itemData={items}
-    />
-  );
+  return <List onItemsRendered={onItemsRendered} itemSize={69} row={ListItem} itemCount={total} itemData={items} />;
 };
