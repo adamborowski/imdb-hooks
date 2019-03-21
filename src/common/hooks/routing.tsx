@@ -3,7 +3,7 @@ import {__RouterContext as RouterContext, RouteComponentProps} from 'react-route
 import {useContext, useMemo} from 'react';
 import {parse, stringify} from 'querystringify';
 import _ from 'lodash';
-import {getLocationDescriptionObject} from '../misc/getLocationDescriptionObject';
+import {getLocationDescriptionObject} from '../getLocationDescriptionObject';
 
 export const useRouter = (): RouteComponentProps => useContext(RouterContext);
 

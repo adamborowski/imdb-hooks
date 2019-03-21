@@ -13,7 +13,7 @@ import {toPersonMovies, toPersonViewPage, usePersonId} from '../../../routing';
 import {useHistoryPush} from '../../../../../common/hooks/useHistoryPush';
 import {Route, Switch} from 'react-router';
 import {Movies} from './Movies';
-import {IMenuItem} from '../../../../../common/misc/getSelectedPaths';
+import {IMenuItem} from '../../../../../common/getSelectedPaths';
 import ContentLayout from '../../../../../common/components/antd/ContentLayout';
 import DefaultPrimaryContent from '../../../../../common/components/antd/DefaultPrimaryContent';
 import DefaultSecondaryContent from '../../../../../common/components/antd/DefaultSecondaryContent';

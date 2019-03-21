@@ -1,7 +1,7 @@
 import React from 'react';
 import {Icon, Tabs} from 'antd';
 import {LocationDescriptor} from 'history';
-import {getSelectedPaths, IMenuItem} from '../../misc/getSelectedPaths';
+import {getSelectedPaths, IMenuItem} from '../../getSelectedPaths';
 import {HOCInnerType, HOCOuterType} from '../../types/hoc';
 import {useRouter} from '../../hooks/routing';
 

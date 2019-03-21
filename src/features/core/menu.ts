@@ -1,6 +1,6 @@
 import {toMovieListPage} from '../movie-browser/routing';
 import {toPersonListPage} from '../people-browser/routing';
-import {IMenuItem} from '../../common/misc/getSelectedPaths';
+import {IMenuItem} from '../../common/getSelectedPaths';
 
 export const menuConfiguration = [
     {

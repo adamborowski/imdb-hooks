@@ -7,7 +7,7 @@ import {ThemeProvider} from 'styled-components';
 import baseTheme from './app-theme';
 import {storiesOf} from '../../storybook-utils';
 import DefaultAppHeader from './DefaultAppHeader';
-import {IMenuItem} from '../../misc/getSelectedPaths';
+import {IMenuItem} from '../../getSelectedPaths';
 import DefaultAppLogo from './DefaultAppLogo';
 import AppMenu from './AppMenu';
 import AppSider from './AppSider';

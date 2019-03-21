@@ -11,7 +11,7 @@
 import {Icon, Menu} from 'antd';
 import React, {ReactNode} from 'react';
 import {Link} from 'react-router-dom';
-import {getSelectedPaths, IMenuItem} from '../../misc/getSelectedPaths';
+import {getSelectedPaths, IMenuItem} from '../../getSelectedPaths';
 import {HOCInnerType, HOCOuterType} from '../../types/hoc';
 import {useRouter} from '../../hooks/routing';
 

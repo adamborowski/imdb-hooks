@@ -2,7 +2,7 @@ import React from 'react';
 import AppMenu from './AppMenu';
 import {MemoryRouter} from 'react-router';
 import {storiesOf} from '../../storybook-utils';
-import {IMenuItem} from '../../misc/getSelectedPaths';
+import {IMenuItem} from '../../getSelectedPaths';
 
 let appMenu = (
   <AppMenu
