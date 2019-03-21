@@ -1,27 +1,26 @@
 import {ApiResponse, FindService, getApiUrl, GetService, PopularService} from '../../../common/api';
 import {ajax} from 'rxjs/ajax';
 import {map} from 'rxjs/operators';
-import {IMovie, IMovieLite} from '../types/state';
+import {IPerson, IPersonLite} from '../types/state';
 
 const shiftPageNumber = <T extends ApiResponse<any>>(response: T): T => {
   return { ...response, page: response.page - 1 };
 };
 
-export const findMovies: FindService<IMovieLite> = (query, page = 0, year) =>
+export const findPeople: FindService<IPersonLite> = (query, page = 0, year) =>
   ajax(
-    getApiUrl('search/movie', {
+    getApiUrl('search/person', {
       page: (page + 1).toString(),
-      query,
-      primary_release_year: year
+      query
     })
   ).pipe(map(value => shiftPageNumber(value.response)));
 
-export const findPopularMovies: PopularService<IMovieLite> = (page = 0) =>
+export const findPopularPeople: PopularService<IPersonLite> = (page = 0) =>
   ajax(
-    getApiUrl('movie/popular', {
+    getApiUrl('person/popular', {
       page: (page + 1).toString()
     })
   ).pipe(map(value => shiftPageNumber(value.response)));
 
-export const getMovie: GetService<IMovie> = id =>
-  ajax(getApiUrl(`movie/${id}`, {})).pipe(map(value => shiftPageNumber(value.response)));
+export const getPerson: GetService<IPerson> = id =>
+  ajax(getApiUrl(`person/${id}`, {})).pipe(map(value => shiftPageNumber(value.response)));

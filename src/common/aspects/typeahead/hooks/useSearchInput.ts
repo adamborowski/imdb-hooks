@@ -11,7 +11,8 @@ export const createUseSearchInput = <Entity extends object>(
   useSearchValue: UseValue,
   useGoToSearch: UseSetValue,
   useSearchOptions: UseSearchOptions,
-  toViewPage: ToViewPage
+  toViewPage: ToViewPage,
+  searchParamName: string
 ) => () => {
   const defaultSearchValue = useSearchValue();
   const [searchValue, setSearchValue] = useState<string | undefined>(undefined);
@@ -34,7 +35,7 @@ export const createUseSearchInput = <Entity extends object>(
         goToMovieSearch(displayedSearchValue);
         setSearchValue(undefined);
       } else {
-        historyPush(toViewPage(key.toString()), { mQuery: displayedSearchValue });
+        historyPush(toViewPage(key.toString()), { [searchParamName]: displayedSearchValue });
       }
     },
     [searchValue]

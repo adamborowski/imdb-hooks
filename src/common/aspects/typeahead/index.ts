@@ -29,7 +29,8 @@ export const createTypeAheadAspect = <Entity extends { id: number }>(
     useSearchValue,
     createUseGoToSearch(listRoute, searchParamName),
     useSearchOptions,
-    toViewPage
+    toViewPage,
+    searchParamName
   );
   return {
     actions,

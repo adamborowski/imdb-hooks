@@ -25,13 +25,6 @@ export interface IMovie extends IMovieLite {
   genres: Genres;
 }
 
-export interface IPerson {
-  name: string;
-  popularity: string;
-  profile_path?: string;
-  known_for: IMovieLite[];
-}
-
 export interface IMovieBrowser {
   typeAhead: ITypeAheadState<IMovieLite>;
   details: IDetailsState<IMovie>;

@@ -1,13 +1,14 @@
-import React, { cloneElement } from 'react';
+import React, {cloneElement} from 'react';
 import Switch from './common/components/FlatteningSwitch';
-import { App as AntApp, AppMenu, AppSider, DefaultAppLogo } from './common/components/antd';
-import { IMenuItem } from './common/misc';
+import {App as AntApp, AppMenu, AppSider, DefaultAppLogo} from './common/components/antd';
+import {IMenuItem} from './common/misc';
 import DefaultAppHeader from './common/components/antd/DefaultAppHeader';
 import logo from './common/components/antd/__stories__/AppSider.logo.png';
-import { toMovieListPage } from './features/movie-browser/routing';
+import {toMovieListPage} from './features/movie-browser/routing';
 
 import _ from 'lodash';
 import features from './features';
+import {toPersonListPage} from './features/people-browser/routing';
 
 const menuConfiguration = [
   {
@@ -17,8 +18,8 @@ const menuConfiguration = [
     icon: 'play-circle'
   },
   {
-    link: '/b',
-    path: '/b',
+    link: toPersonListPage(),
+    path: toPersonListPage(),
     label: 'People',
     icon: 'user'
   }
