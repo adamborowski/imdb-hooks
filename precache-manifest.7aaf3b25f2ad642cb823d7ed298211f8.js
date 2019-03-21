@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/imdb-hooks/static/js/runtime~main.8c9ae040.js"
   },
   {
-    "revision": "2b0dc944c72d96a006f4",
-    "url": "/imdb-hooks/static/js/main.3441490c.chunk.js"
+    "revision": "0ae602dd1d6d01a3f1f5",
+    "url": "/imdb-hooks/static/js/main.288514ca.chunk.js"
   },
   {
     "revision": "556094c31b0d4c79fe9d",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/imdb-hooks/static/css/2.8d24f31c.chunk.css"
   },
   {
-    "revision": "39e077ec02ee9b1c44aabf9b6d4a2e64",
+    "revision": "f4364fd8c2803922b7f1aacc131bec02",
     "url": "/imdb-hooks/index.html"
   }
 ];
