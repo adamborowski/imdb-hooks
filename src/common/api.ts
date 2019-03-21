@@ -23,7 +23,7 @@ export interface ApiResponse<Data> {
   page: number;
   total_results: number;
   total_pages: number;
-  results: Data[];
+  results:  Data[];
 }
 
 export type FindService<Entity> = (query: string, page?: number, year?: number) => Observable<ApiResponse<Entity>>;

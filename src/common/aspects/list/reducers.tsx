@@ -2,7 +2,7 @@ import {IList, IListActions, IListItems} from './types';
 import {combineReducers, Reducer} from 'redux';
 import {PAGE_SIZE} from '../../api';
 
-export const createReducers = <Entity extends object>(actions: IListActions<Entity>) => {
+export const createReducers = <Entity extends object>(actions: IListActions<Entity>, pageSize=PAGE_SIZE) => {
   const total: Reducer<number | null> = (state = null, action) => {
     if (actions.pageResponse.match(action)) {
       return action.payload.response.total_results;
@@ -18,7 +18,6 @@ export const createReducers = <Entity extends object>(actions: IListActions<Enti
     page: number,
     results: T[],
     map: (item: T, index: number, localIndex: number, oldItem: U) => U,
-    pageSize: number = PAGE_SIZE
   ) => {
     const newState = [...state];
     const offset = page * pageSize;
@@ -32,7 +31,7 @@ export const createReducers = <Entity extends object>(actions: IListActions<Enti
     if (actions.pageRequest.match(action)) {
       return action.payload.pages.reduce(
         (tmpState, page) =>
-          mapPageOntoList(tmpState, page, new Array(PAGE_SIZE).fill(undefined), () => ({
+          mapPageOntoList(tmpState, page, new Array(pageSize).fill(undefined), () => ({
             loading: true,
             error: undefined,
             result: undefined
@@ -43,7 +42,7 @@ export const createReducers = <Entity extends object>(actions: IListActions<Enti
     if (actions.pageCancel.match(action)) {
       return action.payload.pages.reduce(
         (tmpState, page) =>
-          mapPageOntoList(tmpState, page, new Array(PAGE_SIZE).fill(undefined), (result, index, localIndex, item) =>
+          mapPageOntoList(tmpState, page, new Array(pageSize).fill(undefined), (result, index, localIndex, item) =>
             item && item.loading ? undefined : item
           ),
         state
@@ -58,7 +57,7 @@ export const createReducers = <Entity extends object>(actions: IListActions<Enti
       }));
     }
     if (actions.pageError.match(action)) {
-      return mapPageOntoList(state, action.payload.page, new Array(PAGE_SIZE).fill(undefined), () => ({
+      return mapPageOntoList(state, action.payload.page, new Array(pageSize).fill(undefined), () => ({
         loading: false,
         error: action.payload.error,
         result: undefined

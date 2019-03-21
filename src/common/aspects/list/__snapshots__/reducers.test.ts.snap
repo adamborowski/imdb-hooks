@@ -1,0 +1,147 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reducers when page loads fails, all page rows are marked as error 1`] = `
+Object {
+  "items": Array [
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    Object {
+      "error": "test error",
+      "loading": false,
+      "result": undefined,
+    },
+    Object {
+      "error": "test error",
+      "loading": false,
+      "result": undefined,
+    },
+    Object {
+      "error": "test error",
+      "loading": false,
+      "result": undefined,
+    },
+  ],
+  "total": null,
+}
+`;
+
+exports[`reducers when page loads fails, all rows are marked as error 1`] = `
+Object {
+  "items": Array [
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    undefined,
+    Object {
+      "error": "test error",
+      "loading": false,
+      "result": undefined,
+    },
+    Object {
+      "error": "test error",
+      "loading": false,
+      "result": undefined,
+    },
+    Object {
+      "error": "test error",
+      "loading": false,
+      "result": undefined,
+    },
+  ],
+  "total": null,
+}
+`;
+
+exports[`reducers when page loads, all rows are marked as being loaded, when completes, all are marked as loaded and contain data 1`] = `
+Object {
+  "items": Array [
+    Object {
+      "error": undefined,
+      "loading": true,
+      "result": undefined,
+    },
+    Object {
+      "error": undefined,
+      "loading": true,
+      "result": undefined,
+    },
+    Object {
+      "error": undefined,
+      "loading": true,
+      "result": undefined,
+    },
+    undefined,
+    undefined,
+    undefined,
+    Object {
+      "error": undefined,
+      "loading": true,
+      "result": undefined,
+    },
+    Object {
+      "error": undefined,
+      "loading": true,
+      "result": undefined,
+    },
+    Object {
+      "error": undefined,
+      "loading": true,
+      "result": undefined,
+    },
+  ],
+  "total": null,
+}
+`;
+
+exports[`reducers when page loads, all rows are marked as being loaded, when completes, all are marked as loaded and contain data 2`] = `
+Object {
+  "items": Array [
+    Object {
+      "error": undefined,
+      "loading": true,
+      "result": undefined,
+    },
+    Object {
+      "error": undefined,
+      "loading": true,
+      "result": undefined,
+    },
+    Object {
+      "error": undefined,
+      "loading": true,
+      "result": undefined,
+    },
+    undefined,
+    undefined,
+    undefined,
+    Object {
+      "error": undefined,
+      "loading": false,
+      "result": Object {
+        "x": "d0",
+      },
+    },
+    Object {
+      "error": undefined,
+      "loading": false,
+      "result": Object {
+        "x": "d1",
+      },
+    },
+    Object {
+      "error": undefined,
+      "loading": false,
+      "result": Object {
+        "x": "d2",
+      },
+    },
+  ],
+  "total": 3000,
+}
+`;
