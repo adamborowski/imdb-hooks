@@ -8,11 +8,11 @@ import { MemoryRouter, RouterProps } from 'react-router';
 export const splitPath = (filepath: string) => {
   const segments = path.resolve(filepath).split(path.sep);
   const [dot, featuresOrCommon, root, ...rest] = segments;
-  const storyName = rest[rest.length - 1];
+  const storyName = rest[rest.length - 1]||'';
+  const isNotFeature = featuresOrCommon!=='features';
+  const kind = (isNotFeature ? featuresOrCommon : root).split('-').join(' ');
 
-  const kind = (featuresOrCommon === 'common' ? featuresOrCommon : root).split('-').join(' ');
-
-  return `${kind}|${(kind === 'common' ? [root] : []).concat(rest.slice(0, -1)).join('/')}/${storyName.split('.')[0]}`;
+  return `${kind}|${(isNotFeature? [root] : []).concat(rest.slice(0, -1)).join('/')}/${storyName.split('.')[0]}`;
 };
 
 export const storiesOf = (module: Module) => {
