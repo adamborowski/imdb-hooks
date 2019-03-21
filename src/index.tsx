@@ -4,7 +4,7 @@ import 'antd/dist/antd.min.css';
 import App from './features/core/components/App';
 import * as serviceWorker from './serviceWorker';
 import createStore from './store';
-import Root from './Root';
+import Root from './features/core/components/Root';
 
 const store = createStore({});
 

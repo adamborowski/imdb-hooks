@@ -3,7 +3,7 @@ import {Store} from 'redux';
 import {BrowserRouter} from 'react-router-dom';
 import {StoreContext} from 'redux-react-hook';
 import {ThemeProvider} from 'styled-components';
-import baseTheme from './common/components/antd/app-theme';
+import baseTheme from '../../../common/components/antd/app-theme';
 
 interface RootProps {
   store: Store;
