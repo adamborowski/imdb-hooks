@@ -1,12 +1,9 @@
 import {ContentLayout, DefaultPrimaryContent} from '../../../../../common/components/antd';
-import React, {useCallback} from 'react';
+import React from 'react';
 import {Breadcrumb, Button, Tooltip} from 'antd';
 import List from '../../breadcrumbs/List';
 import {Home} from '../../../../../common/components/breadcrumbs/Home';
-import {useMappedState} from 'redux-react-hook';
 import View from '../../breadcrumbs/View';
-import {IState} from '../../../../../common/types/state';
-import {selectMovieDetails} from '../../../state/selectors';
 import MovieViewPure from './MovieViewPure';
 import {InlineSpinner} from '../../../../../common/components/InlineSpinner';
 import {detailsAspect} from '../../../aspects';
@@ -19,11 +16,8 @@ const MovieView = () => {
 };
 
 const Toolbar = () => {
-  const mapState = useCallback((state: IState) => {
-    const result = selectMovieDetails(state).result;
-    return result && result.homepage;
-  }, []);
-  const homepage = useMappedState(mapState);
+  const { result } = detailsAspect.useDetails();
+  const { homepage } = result || ({} as Partial<IMovie>);
 
   return (
     <>
@@ -41,7 +35,7 @@ const Toolbar = () => {
 const MovieTitle = () => {
   const { loading, result } = detailsAspect.useDetails();
 
-  const { title, original_title } = result as Partial<IMovie>;
+  const { title, original_title } = result || ({} as Partial<IMovie>);
 
   return loading ? (
     <InlineSpinner />

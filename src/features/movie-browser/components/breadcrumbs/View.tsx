@@ -1,16 +1,13 @@
-import {toMovieViewPage, useMovieId} from '../../routing';
+import {toMovieViewPage} from '../../routing';
 import {fixBreadcrumb} from '../../../../common/workarounds';
-import React, {useCallback} from 'react';
+import React from 'react';
 import {BreadcrumbItem} from '../../../../common/components/antd/BreadcrumbItem';
-import {selectMovieDetails} from '../../state/selectors';
-import {IState} from '../../../../common/types/state';
-import {useMappedState} from 'redux-react-hook';
 import {QueryLink} from '../../../../common/hooks/useHistoryPush';
+import {detailsAspect} from '../../aspects';
 
 const List = () => {
-  const movieId = useMovieId();
-  const mapState = useCallback((state: IState) => selectMovieDetails(state), []);
-  const { loading, result } = useMappedState(mapState);
+  const { loading, result } = detailsAspect.useDetails();
+  const movieId = detailsAspect.useDetailsId();
 
   return (
     <BreadcrumbItem loading={loading}>

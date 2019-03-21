@@ -22,5 +22,5 @@ export const createDetailsAspect = <Entity extends object>(
 
   const DetailsFetcher = createDetailsFetcher(actions, useDetailsId);
 
-  return { actions, epics, reducers, useDetails, DetailsFetcher };
+  return { actions, epics, reducers, useDetails, DetailsFetcher, useDetailsId };
 };
