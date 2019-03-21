@@ -7,6 +7,7 @@ import {FormProps} from 'antd/es/form';
 import {formItemLayout} from '../../../../../common/layout-props';
 import styled from 'styled-components';
 import {CountryTags} from '../../../../../common/components/CountryTags';
+import {ImageThumbnail} from '../../../../../common/components/ImageThumbnail';
 
 const { Text } = Typography;
 
@@ -17,6 +18,8 @@ export interface MovieViewPureProps extends FormProps {
 const MovieViewPure: FunctionComponent<MovieViewPureProps> = ({ entity, ...rest }) => {
   const get = <X extends keyof IMovie>(field: X): IMovie[X] | undefined => entity && entity[field];
 
+  const poster = get('poster_path');
+  const backdrop = get('backdrop_path');
   return (
     <Form {...rest} labelAlign="left" layout="horizontal">
       <Form.Item label="Tagline" {...formItemLayout}>
@@ -45,10 +48,12 @@ const MovieViewPure: FunctionComponent<MovieViewPureProps> = ({ entity, ...rest 
       <Form.Item label="Description" {...formItemLayout}>
         <Text>{get('overview')}</Text>
       </Form.Item>
-      <Form.Item label="Media" {...formItemLayout}>
-        <img src={getPosterUrl(get('poster_path'))} />
-        <img src={getPosterUrl(get('backdrop_path'))} />
-      </Form.Item>
+      {(poster || backdrop) && (
+        <Form.Item label="Media" {...formItemLayout}>
+          {poster && <ImageThumbnail src={getPosterUrl(poster)} />}
+          {backdrop && <ImageThumbnail src={getPosterUrl(backdrop)} />}
+        </Form.Item>
+      )}
     </Form>
   );
 };
@@ -67,9 +72,6 @@ export default withFading<MovieViewPureProps>(false)(styled(MovieViewPure)`
 
   img {
     margin-top: 10px;
-    width: auto;
-    height: 100px;
-    border-radius: 4px;
     margin-right: 10px;
   }
 `);

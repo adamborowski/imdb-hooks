@@ -6,6 +6,7 @@ import {Form, Icon, Typography} from 'antd';
 import {FormProps} from 'antd/es/form';
 import {formItemLayout} from '../../../../../common/layout-props';
 import styled from 'styled-components';
+import {ImageThumbnail} from '../../../../../common/components/ImageThumbnail';
 
 const { Text } = Typography;
 
@@ -33,7 +34,7 @@ const PersonViewPure: FunctionComponent<PersonViewPureProps> = ({ entity, ...res
       )}
       {get('profile_path') && (
         <Form.Item label="Media" {...formItemLayout}>
-          <img src={getPosterUrl(get('profile_path'))} />
+          <ImageThumbnail src={getPosterUrl(get('profile_path'))} />
         </Form.Item>
       )}
     </Form>
@@ -47,9 +48,6 @@ export default withFading<PersonViewPureProps>(false)(styled(PersonViewPure)`
 
   img {
     margin-top: 10px;
-    width: auto;
-    height: 100px;
-    border-radius: 4px;
     margin-right: 10px;
   }
 `);

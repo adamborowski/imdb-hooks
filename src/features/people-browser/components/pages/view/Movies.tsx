@@ -7,6 +7,7 @@ import {QueryLink} from '../../../../../common/hooks/useHistoryPush';
 import {toMovieViewPage} from '../../../../movie-browser/routing';
 import _ from 'lodash';
 import {InlineSpinner} from '../../../../../common/components/InlineSpinner';
+import {ImageThumbnail} from '../../../../../common/components/ImageThumbnail';
 
 interface IconTextProps extends HTMLProps<HTMLDivElement> {
   type: string;
@@ -39,7 +40,7 @@ export const Movies = () => {
               <IconText type="star-o" title="Rank" text={cast.vote_average.toFixed(2)} />,
               <IconText type="clock-circle" title="Release date" text={cast.release_date} />
             ]}
-            extra={<img height={153} alt="logo" src={getPosterUrl(cast.poster_path)} />}
+            extra={<ImageThumbnail height={153} alt="logo" src={getPosterUrl(cast.poster_path)} />}
           >
             <List.Item.Meta
               avatar={<Avatar shape="square" src={getThumbUrl(cast.backdrop_path)} />}
