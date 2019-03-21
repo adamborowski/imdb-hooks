@@ -1,8 +1,8 @@
 import actionCreatorFactory from 'typescript-fsa';
 import {findMovies, findPopularMovies, getMovie} from './services/movie-search';
-import {selectMovieList, selectMovieTypeAhead} from './state/selectors';
+import {selectMovieDetails, selectMovieList, selectMovieTypeAhead} from './state/selectors';
 import {createListAspect} from '../../common/aspects/list';
-import {toMovieListPage, toMovieViewPage} from './routing';
+import {toMovieListPage, toMovieViewPage, useMovieId} from './routing';
 import {createTypeAheadAspect} from '../../common/aspects/typeahead';
 import {IMovie, IMovieLite} from './types/state';
 import SearchOptionContent from './components/header/SearchOptionContent';
@@ -42,4 +42,4 @@ export const typeAheadAspect = createTypeAheadAspect<IMovieLite>(
   toMovieViewPage
 );
 
-export const detailsAspect = createDetailsAspect<IMovie>(factory, getMovie);
+export const detailsAspect = createDetailsAspect<IMovie>(factory, getMovie, selectMovieDetails, useMovieId);

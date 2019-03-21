@@ -1,4 +1,4 @@
-import {YearInput} from '../../header/YearInput';
+import {YearInput} from './YearInput';
 import React from 'react';
 
 export const Toolbar = () => <YearInput />;

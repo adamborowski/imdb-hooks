@@ -1,6 +1,6 @@
 import React from 'react';
 import {Form, InputNumber} from 'antd';
-import {listAspect} from '../../aspects';
+import {listAspect} from '../../../aspects';
 
 export const YearInput = () => {
   const { value, enabled, onChange } = listAspect.useYearInput();
