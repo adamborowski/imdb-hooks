@@ -72,6 +72,9 @@ const DefaultListItem: ComponentType<DefaultListItemProps> = styled(DefaultListI
 
   .ant-avatar {
     background: #cccccc;
+    img {
+      object-fit: cover;
+    }
   }
 `;
 export default DefaultListItem;

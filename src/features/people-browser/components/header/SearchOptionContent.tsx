@@ -1,5 +1,5 @@
 import React, {ComponentType, FunctionComponent, memo} from 'react';
-import {Icon} from 'antd';
+import {Avatar, Icon} from 'antd';
 import styled from 'styled-components';
 import emptyAvatar from './emptyAvatar.png';
 
@@ -12,7 +12,7 @@ export interface SearchOptionProps {
 
 const SearchOptionContent: FunctionComponent<SearchOptionProps> = ({ avatar, name, rank, year, ...rest }) => (
   <div {...rest}>
-    <img src={avatar || emptyAvatar} className="avatar" alt="person avatar" />
+    <Avatar shape="square" src={avatar || emptyAvatar} />
     {name}
     <span className="rate">
       {year}
@@ -25,10 +25,11 @@ const SearchOptionContent: FunctionComponent<SearchOptionProps> = ({ avatar, nam
 export default memo(styled(SearchOptionContent)`
   vertical-align: middle;
   line-height: 30px;
-  img {
-    height: 30px;
-    width: 22px;
+  .ant-avatar {
     margin-right: 10px;
+    img {
+      object-fit: cover;
+    }
   }
   .rate {
     float: right;
