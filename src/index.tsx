@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.min.css';
-import App from './App';
+import App from './features/core/components/App';
 import * as serviceWorker from './serviceWorker';
 import createStore from './store';
 import Root from './Root';
