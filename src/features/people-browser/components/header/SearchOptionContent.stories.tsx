@@ -9,15 +9,10 @@ const { Option } = Select;
 storiesOf(module).add('default', () => (
   <Select open value="Select a value" style={{ width: 300 }}>
     <Option value="1">
-      <SearchOptionContent
-        avatar={exampleAvatar}
-        name="Example Person"
-        rank={4.5}
-        year="2018"
-      />
+      <SearchOptionContent avatar={exampleAvatar} name="Example Person" rank={4.5} />
     </Option>
     <Option value="2">
-      <SearchOptionContent name="With no avatar" rank={6.3} year="1990" />
+      <SearchOptionContent name="With no avatar" rank={6.3} />
     </Option>
   </Select>
 ));

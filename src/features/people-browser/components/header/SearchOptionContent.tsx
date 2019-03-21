@@ -7,15 +7,13 @@ export interface SearchOptionProps {
   avatar?: string;
   name: string;
   rank: number;
-  year?: string;
 }
 
-const SearchOptionContent: FunctionComponent<SearchOptionProps> = ({ avatar, name, rank, year, ...rest }) => (
+const SearchOptionContent: FunctionComponent<SearchOptionProps> = ({ avatar, name, rank,  ...rest }) => (
   <div {...rest}>
     <Avatar shape="square" src={avatar || emptyAvatar} />
     {name}
     <span className="rate">
-      {year}
       <Icon type="like" theme="filled" />
       {rank.toFixed(1)}
     </span>

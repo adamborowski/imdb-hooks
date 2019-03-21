@@ -7,7 +7,7 @@ export const splitPath = (filepath: string) => {
   const [dot, featuresOrCommon, root, ...rest] = segments;
   const storyName = rest[rest.length - 1];
 
-  const kind = featuresOrCommon === 'common' ? featuresOrCommon : root;
+  const kind = (featuresOrCommon === 'common' ? featuresOrCommon : root).split('-').join(' ');
 
   return `${kind}|${(kind === 'common' ? [root] : []).concat(rest.slice(0, -1)).join('/')}/${storyName.split('.')[0]}`;
 };
