@@ -8,7 +8,6 @@ describe('movie-search', () => {
         value.results.forEach(movie => {
           expect(movie.title.toLowerCase()).toContain('star');
         });
-        expect(value).toMatchSnapshot();
         done();
       });
     });
@@ -19,7 +18,6 @@ describe('movie-search', () => {
           expect(movie.title.toLowerCase()).toContain('love');
           expect(movie.release_date).toEqual(expect.stringMatching(/^2019/));
         });
-        expect(value).toMatchSnapshot();
         done();
       });
     });
